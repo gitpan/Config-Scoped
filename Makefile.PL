@@ -2,7 +2,7 @@ use 5.006_001;
 use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME      => 'Config::Scoped',
-    VERSION   => '0.02',
+    VERSION   => '0.03',
     PREREQ_PM => {
         'Parse::RecDescent' => 0,
         Error               => 0,
@@ -19,6 +19,7 @@ WriteMakefile(
     macro => {
         PRECOMP => 'Scoped/Precomp.pm',
         GRAMMAR => 'Scoped/Grammar.prd',
+        MY_PRD  => 'patched/Parse/RecDescent.pm',
     },
 );
 
@@ -31,7 +32,10 @@ sub MY::libscan {
 sub MY::depend {
 
     return <<'EOT';
-$(PRECOMP): $(GRAMMAR)
+$(MY_PRD) : 
+	$(TAR) xvf my-prd
+
+$(PRECOMP): $(MY_PRD) $(GRAMMAR)
 	$(PERL) script/precompile.pl
 EOT
 

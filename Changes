@@ -1,3 +1,6 @@
+Sun Aug  1 21:32:34 CEST 2004
+0.03  -- Macro's expand now in eval blocks unconditionally
+
 Sun Aug  1 15:23:27 CEST 2004
 0.02  -- solved problems with permissions and file paths on Win32
 

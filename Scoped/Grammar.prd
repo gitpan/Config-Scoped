@@ -1,4 +1,4 @@
-# $Id: Grammar.prd,v 1.12 2004/07/31 14:24:41 gaissmai Exp gaissmai $
+# $Id: Grammar.prd,v 1.17 2004/08/01 20:05:19 gaissmai Exp gaissmai $
 
 # First, read the Config::Scoped manual to understand what's going on here!
 #

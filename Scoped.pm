@@ -1,6 +1,6 @@
 package Config::Scoped;
 
-# $Id: Scoped.pm,v 1.25 2004/08/01 13:23:58 gaissmai Exp gaissmai $
+# $Id: Scoped.pm,v 1.26 2004/08/01 13:28:22 gaissmai Exp gaissmai $
 
 =head1 NAME
 
@@ -37,7 +37,7 @@ use Config::Scoped::Error;
 # inherit from a precompiled grammar package
 use base 'Config::Scoped::Precomp';
 
-our $VERSION = 0.01;
+our $VERSION = 0.03;
 
 my @state_hashes = qw(config params macros warnings includes);
 
@@ -140,7 +140,7 @@ Tokens delimited by single or double quotes work much like quoted literals in re
     foo     = 'bar baz';
     bar     = "\tA\tB\tC\n";
     baz     = "\Uconvert to uppercase till \\E\E";
-    goof    = "_MACRO_ expansion only in double quotes!";
+    goof    = "_MACRO_ expansion in double quoted tokens!";
 
 
 The interpolation of double quoted strings is done by an C<reval()> in the Safe compartment since it's possible to smuggle subroutine calls in a double quoted string:
@@ -169,6 +169,26 @@ Perl code eval may be placed anywhere within the file where a token is expected,
     lists = [ eval{ [ 1 .. 5 ] }, eval{ [ 10 .. 50 ] } ];
 
 The code is evaluated in a Safe compartment. The compartment may be supplied to the new() method or a default compartment is created via C<Safe-E<gt>new()>.
+
+Macro expansion is done just before the code is evaluated. The whole expression string between the curly braces is subject to macro expansion, even without double quotes!
+Example:
+
+    %macro INT_IF 'eth1,eth2,eth3';
+
+    filter {
+        internal_ifaces = eval { [INT_IF] };
+        rule = "-o  INT_IF -j REJECT";
+    }
+
+is expanded to:
+
+    $config = {
+        'filter' => {
+            'rule'            => '-o  eth1,eth2,eth3 -j REJECT',
+            'internal_ifaces' => [ 'eth1', 'eth2', 'eth3' ]
+        }
+    };
+
 
 =head2 COMMENTS
 
@@ -264,7 +284,7 @@ I<Pragmas> consist of B<macro definitions>, B<include> and B<warnings directives
 
 =head3 C<%macro macro_name macro_value;>
 
-A I<macro> consists of the keyword C<%macro> followed by a I<name> and a I<value> separated by I<whitespace>. Macros may be placed anywhere within the file where a statement is allowed. Macro's are B<lexically scoped> within the blocks, declarations and hashes. They are expanded within B<ANY> double quoted token:
+A I<macro> consists of the keyword C<%macro> followed by a I<name> and a I<value> separated by I<whitespace>. Macros may be placed anywhere within the file where a statement is allowed. Macro's are B<lexically scoped> within the blocks, declarations and hashes. They are expanded within B<ANY> double quoted token and in perl_eval blocks with or without any quotes:
 
     %macro _FOO_ 'expand me';
 
@@ -272,7 +292,7 @@ A I<macro> consists of the keyword C<%macro> followed by a I<name> and a I<value
     param2 = '_FOO_ not expanded, single quoted';
     param3 = "_FOO_ expanded, double quoted";
 
-    "_FOO_ in name" = 'macro\'s within ANY double quotes are expanded!';
+    "_FOO_ in name" = 'macro\'s within ANY "" are expanded!';
 
     param4 = <<HERE_DOC
     _FOO_: expanded, here docs without quotes are double quote like
@@ -286,7 +306,13 @@ A I<macro> consists of the keyword C<%macro> followed by a I<name> and a I<value
     _FOO_: double quoted, expanded
     HERE_DOC
 	
-    %macro "_FOO_ again" 'believe me: ANY double quoted token!';
+    %macro "_FOO_ again" 'believe me: in ANY double quoted token!';
+
+    # in eval blocks quotes doesn't mater for expansion!
+    unquot = eval { _FOO_  . ' in eval just before evaluation!' };
+    anyway = eval {
+	_FOO_ . ' _FOO_ ' . "_FOO_ " . 'with or without quotes!'
+    };
 
 =head3 C<%include path;>
 
@@ -1374,6 +1400,9 @@ sub _perl_code {
       unless defined $args{expr};
 
     my $expr = $args{expr};
+
+    # macro expansion before code evaluation
+    $expr = $thisparser->_expand_macro( %args, value => $expr );
 
     my $compartment = $thisparser->{local}{safe};
 
