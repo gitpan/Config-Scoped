@@ -7,6 +7,8 @@ use File::Spec;
 
 use lib 'patched';
 use Parse::RecDescent;
+die "Can't find the patched P::RD in %INC, stopped"
+  unless $INC{'Parse/RecDescent.pm'} =~ /patched/;
 
 my $version      = shift || 0.00;
 my $class        = 'Config::Scoped::Precomp';

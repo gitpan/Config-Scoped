@@ -33,7 +33,7 @@ use File::Basename qw(fileparse);
 use File::Spec;
 use Config::Scoped::Error;
 
-our $VERSION = 0.09;
+our $VERSION = 0.10;
 
 # inherit from a precompiled grammar package
 use base 'Config::Scoped::Precomp';

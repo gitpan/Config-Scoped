@@ -1,4 +1,7 @@
-0.09 --
+0.10 -- Thu Aug  5 09:52:48 CEST 2004
+- precompile dependencies revisited, no new features
+
+0.09 -- Thu Aug  4 14:19:55 CEST 2004
 - again Makefile.PL munging and version information in
   precompiled package, no new features, just distribution fiddling
 
