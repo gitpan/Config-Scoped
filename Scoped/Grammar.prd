@@ -41,8 +41,6 @@
 #
 #########################################################################
 #
-{ our $VERSION = 0.01 }
-#
 # STARTRULE, get the localized state hashes per parser, call by ref
 #
 config : <rulevar: local $params   = $thisparser->{local}{params}>

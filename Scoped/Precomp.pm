@@ -8,7 +8,6 @@ package Parse::RecDescent::Config::Scoped::Precomp;
 use strict;
 use vars qw($skip $AUTOLOAD  $params $macros $warnings $break $params $macros $warnings $params $macros $warnings $params $macros $warnings @list $break $break $break );
 $skip = '\s*';
- our $VERSION = 0.01 ;
 
 
 {
@@ -8731,7 +8730,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                                               'name' => '<rulevar: local $break>',
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 225
+                                                                                                              'line' => 223
                                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                                    ],
                                                                                         'line' => undef
@@ -8749,7 +8748,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                                               'name' => '<reject:<reject: $break>>',
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 226,
+                                                                                                              'line' => 224,
                                                                                                               'code' => '( $break) ? undef : 1'
                                                                                                             }, 'Parse::RecDescent::Directive' ),
                                                                                                      bless( {
@@ -8758,7 +8757,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                               'implicit' => undef,
                                                                                                               'argcode' => undef,
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 226
+                                                                                                              'line' => 224
                                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                                    ],
                                                                                         'line' => undef
@@ -8776,7 +8775,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                                               'name' => '<reject:<reject: $break>>',
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 227,
+                                                                                                              'line' => 225,
                                                                                                               'code' => '( $break) ? undef : 1'
                                                                                                             }, 'Parse::RecDescent::Directive' ),
                                                                                                      bless( {
@@ -8785,10 +8784,10 @@ package Config::Scoped::Precomp; sub new {
                                                                                                               'implicit' => undef,
                                                                                                               'argcode' => undef,
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 227
+                                                                                                              'line' => 225
                                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                                    ],
-                                                                                        'line' => 227
+                                                                                        'line' => 225
                                                                                       }, 'Parse::RecDescent::Production' ),
                                                                                bless( {
                                                                                         'number' => '3',
@@ -8803,7 +8802,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                                               'name' => '<reject:<reject: $break>>',
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 228,
+                                                                                                              'line' => 226,
                                                                                                               'code' => '( $break) ? undef : 1'
                                                                                                             }, 'Parse::RecDescent::Directive' ),
                                                                                                      bless( {
@@ -8812,17 +8811,17 @@ package Config::Scoped::Precomp; sub new {
                                                                                                               'implicit' => undef,
                                                                                                               'argcode' => undef,
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 228
+                                                                                                              'line' => 226
                                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                                    ],
-                                                                                        'line' => 228
+                                                                                        'line' => 226
                                                                                       }, 'Parse::RecDescent::Production' )
                                                                              ],
                                                                   'name' => 'hash_or_list_or_value',
                                                                   'vars' => ' local $break;
 ',
                                                                   'changed' => 0,
-                                                                  'line' => 224
+                                                                  'line' => 222
                                                                 }, 'Parse::RecDescent::Rule' ),
                               'hash_or_list_or_value_or_comment' => bless( {
                                                                              'impcount' => 0,
@@ -8845,7 +8844,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                          'hashname' => '__DIRECTIVE1__',
                                                                                                                          'name' => '<rulevar: local $break>',
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 216
+                                                                                                                         'line' => 214
                                                                                                                        }, 'Parse::RecDescent::UncondReject' )
                                                                                                               ],
                                                                                                    'line' => undef
@@ -8863,7 +8862,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                          'hashname' => '__DIRECTIVE1__',
                                                                                                                          'name' => '<reject:<reject: $break>>',
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 217,
+                                                                                                                         'line' => 215,
                                                                                                                          'code' => '( $break) ? undef : 1'
                                                                                                                        }, 'Parse::RecDescent::Directive' ),
                                                                                                                 bless( {
@@ -8872,12 +8871,12 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                          'implicit' => undef,
                                                                                                                          'argcode' => undef,
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 217
+                                                                                                                         'line' => 215
                                                                                                                        }, 'Parse::RecDescent::Subrule' ),
                                                                                                                 bless( {
                                                                                                                          'hashname' => '__ACTION1__',
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 218,
+                                                                                                                         'line' => 216,
                                                                                                                          'code' => '{
 					    # fill the list, but not with comments!
 					    push @list, $item{hash_or_list_or_value}
@@ -8899,7 +8898,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                          'hashname' => '__DIRECTIVE1__',
                                                                                                                          'name' => '<reject:<reject: $break>>',
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 222,
+                                                                                                                         'line' => 220,
                                                                                                                          'code' => '( $break) ? undef : 1'
                                                                                                                        }, 'Parse::RecDescent::Directive' ),
                                                                                                                 bless( {
@@ -8908,17 +8907,17 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                          'implicit' => undef,
                                                                                                                          'argcode' => undef,
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 222
+                                                                                                                         'line' => 220
                                                                                                                        }, 'Parse::RecDescent::Subrule' )
                                                                                                               ],
-                                                                                                   'line' => 222
+                                                                                                   'line' => 220
                                                                                                  }, 'Parse::RecDescent::Production' )
                                                                                         ],
                                                                              'name' => 'hash_or_list_or_value_or_comment',
                                                                              'vars' => ' local $break;
 ',
                                                                              'changed' => 0,
-                                                                             'line' => 215
+                                                                             'line' => 213
                                                                            }, 'Parse::RecDescent::Rule' ),
                               'include' => bless( {
                                                     'impcount' => 0,
@@ -8942,19 +8941,19 @@ package Config::Scoped::Precomp; sub new {
                                                                                                 'hashname' => '__STRING1__',
                                                                                                 'description' => '\'%include\'',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 254
+                                                                                                'line' => 252
                                                                                               }, 'Parse::RecDescent::Literal' ),
                                                                                        bless( {
                                                                                                 'hashname' => '__DIRECTIVE1__',
                                                                                                 'name' => '<commit>',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 254,
+                                                                                                'line' => 252,
                                                                                                 'code' => '$commit = 1'
                                                                                               }, 'Parse::RecDescent::Directive' ),
                                                                                        bless( {
                                                                                                 'hashname' => '__ACTION1__',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 254,
+                                                                                                'line' => 252,
                                                                                                 'code' => '{ ++$break }'
                                                                                               }, 'Parse::RecDescent::Action' ),
                                                                                        bless( {
@@ -8963,7 +8962,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                 'implicit' => undef,
                                                                                                 'argcode' => undef,
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 254
+                                                                                                'line' => 252
                                                                                               }, 'Parse::RecDescent::Subrule' ),
                                                                                        bless( {
                                                                                                 'subrule' => 'stop_pattern',
@@ -8971,12 +8970,12 @@ package Config::Scoped::Precomp; sub new {
                                                                                                 'implicit' => undef,
                                                                                                 'argcode' => undef,
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 254
+                                                                                                'line' => 252
                                                                                               }, 'Parse::RecDescent::Subrule' ),
                                                                                        bless( {
                                                                                                 'hashname' => '__ACTION2__',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 255,
+                                                                                                'line' => 253,
                                                                                                 'code' => '{
 
 		# call recursively a new P::RD parser for this include file
@@ -9011,22 +9010,22 @@ package Config::Scoped::Precomp; sub new {
                                                                                                 'hashname' => '__DIRECTIVE1__',
                                                                                                 'commitonly' => '?',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 271
+                                                                                                'line' => 269
                                                                                               }, 'Parse::RecDescent::Error' ),
                                                                                        bless( {
                                                                                                 'hashname' => '__DIRECTIVE2__',
                                                                                                 'name' => '<reject>',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 271
+                                                                                                'line' => 269
                                                                                               }, 'Parse::RecDescent::UncondReject' )
                                                                                      ],
-                                                                          'line' => 271
+                                                                          'line' => 269
                                                                         }, 'Parse::RecDescent::Production' )
                                                                ],
                                                     'name' => 'include',
                                                     'vars' => '',
                                                     'changed' => 0,
-                                                    'line' => 254
+                                                    'line' => 252
                                                   }, 'Parse::RecDescent::Rule' ),
                               'list_item' => bless( {
                                                       'impcount' => 0,
@@ -9049,13 +9048,13 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'hashname' => '__STRING1__',
                                                                                                   'description' => '\']\'',
                                                                                                   'lookahead' => -1,
-                                                                                                  'line' => 179
+                                                                                                  'line' => 177
                                                                                                 }, 'Parse::RecDescent::Literal' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<commit>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 179,
+                                                                                                  'line' => 177,
                                                                                                   'code' => '$commit = 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
@@ -9064,7 +9063,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 179
+                                                                                                  'line' => 177
                                                                                                 }, 'Parse::RecDescent::Subrule' ),
                                                                                          bless( {
                                                                                                   'description' => '/,?/',
@@ -9074,7 +9073,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'lookahead' => 0,
                                                                                                   'ldelim' => '/',
                                                                                                   'mod' => '',
-                                                                                                  'line' => 179
+                                                                                                  'line' => 177
                                                                                                 }, 'Parse::RecDescent::Token' )
                                                                                        ],
                                                                             'line' => undef
@@ -9093,22 +9092,22 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'commitonly' => '?',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 180
+                                                                                                  'line' => 178
                                                                                                 }, 'Parse::RecDescent::Error' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE2__',
                                                                                                   'name' => '<reject>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 180
+                                                                                                  'line' => 178
                                                                                                 }, 'Parse::RecDescent::UncondReject' )
                                                                                        ],
-                                                                            'line' => 180
+                                                                            'line' => 178
                                                                           }, 'Parse::RecDescent::Production' )
                                                                  ],
                                                       'name' => 'list_item',
                                                       'vars' => '',
                                                       'changed' => 0,
-                                                      'line' => 179
+                                                      'line' => 177
                                                     }, 'Parse::RecDescent::Rule' ),
                               'hash_item' => bless( {
                                                       'impcount' => 0,
@@ -9131,13 +9130,13 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'hashname' => '__STRING1__',
                                                                                                   'description' => '\'\\}\'',
                                                                                                   'lookahead' => -1,
-                                                                                                  'line' => 162
+                                                                                                  'line' => 160
                                                                                                 }, 'Parse::RecDescent::Literal' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<commit>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 162,
+                                                                                                  'line' => 160,
                                                                                                   'code' => '$commit = 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
@@ -9146,7 +9145,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 162
+                                                                                                  'line' => 160
                                                                                                 }, 'Parse::RecDescent::Subrule' ),
                                                                                          bless( {
                                                                                                   'description' => '/,?/',
@@ -9156,7 +9155,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'lookahead' => 0,
                                                                                                   'ldelim' => '/',
                                                                                                   'mod' => '',
-                                                                                                  'line' => 162
+                                                                                                  'line' => 160
                                                                                                 }, 'Parse::RecDescent::Token' )
                                                                                        ],
                                                                             'line' => undef
@@ -9175,22 +9174,22 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'commitonly' => '?',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 163
+                                                                                                  'line' => 161
                                                                                                 }, 'Parse::RecDescent::Error' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE2__',
                                                                                                   'name' => '<reject>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 163
+                                                                                                  'line' => 161
                                                                                                 }, 'Parse::RecDescent::UncondReject' )
                                                                                        ],
-                                                                            'line' => 163
+                                                                            'line' => 161
                                                                           }, 'Parse::RecDescent::Production' )
                                                                  ],
                                                       'name' => 'hash_item',
                                                       'vars' => '',
                                                       'changed' => 0,
-                                                      'line' => 162
+                                                      'line' => 160
                                                     }, 'Parse::RecDescent::Rule' ),
                               'key' => bless( {
                                                 'impcount' => 0,
@@ -9216,7 +9215,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                             'implicit' => undef,
                                                                                             'argcode' => undef,
                                                                                             'lookahead' => 0,
-                                                                                            'line' => 313
+                                                                                            'line' => 311
                                                                                           }, 'Parse::RecDescent::Subrule' )
                                                                                  ],
                                                                       'line' => undef
@@ -9236,10 +9235,10 @@ package Config::Scoped::Precomp; sub new {
                                                                                             'implicit' => undef,
                                                                                             'argcode' => undef,
                                                                                             'lookahead' => 0,
-                                                                                            'line' => 313
+                                                                                            'line' => 311
                                                                                           }, 'Parse::RecDescent::Subrule' )
                                                                                  ],
-                                                                      'line' => 313
+                                                                      'line' => 311
                                                                     }, 'Parse::RecDescent::Production' ),
                                                              bless( {
                                                                       'number' => '2',
@@ -9256,16 +9255,16 @@ package Config::Scoped::Precomp; sub new {
                                                                                             'implicit' => undef,
                                                                                             'argcode' => undef,
                                                                                             'lookahead' => 0,
-                                                                                            'line' => 313
+                                                                                            'line' => 311
                                                                                           }, 'Parse::RecDescent::Subrule' )
                                                                                  ],
-                                                                      'line' => 313
+                                                                      'line' => 311
                                                                     }, 'Parse::RecDescent::Production' )
                                                            ],
                                                 'name' => 'key',
                                                 'vars' => '',
                                                 'changed' => 0,
-                                                'line' => 312
+                                                'line' => 310
                                               }, 'Parse::RecDescent::Rule' ),
                               'pragma' => bless( {
                                                    'impcount' => 0,
@@ -9291,7 +9290,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'implicit' => undef,
                                                                                                'argcode' => undef,
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 234
+                                                                                               'line' => 232
                                                                                              }, 'Parse::RecDescent::Subrule' )
                                                                                     ],
                                                                          'line' => undef
@@ -9311,10 +9310,10 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'implicit' => undef,
                                                                                                'argcode' => undef,
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 234
+                                                                                               'line' => 232
                                                                                              }, 'Parse::RecDescent::Subrule' )
                                                                                     ],
-                                                                         'line' => 234
+                                                                         'line' => 232
                                                                        }, 'Parse::RecDescent::Production' ),
                                                                 bless( {
                                                                          'number' => '2',
@@ -9331,16 +9330,16 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'implicit' => undef,
                                                                                                'argcode' => undef,
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 234
+                                                                                               'line' => 232
                                                                                              }, 'Parse::RecDescent::Subrule' )
                                                                                     ],
-                                                                         'line' => 234
+                                                                         'line' => 232
                                                                        }, 'Parse::RecDescent::Production' )
                                                               ],
                                                    'name' => 'pragma',
                                                    'vars' => '',
                                                    'changed' => 0,
-                                                   'line' => 233
+                                                   'line' => 231
                                                  }, 'Parse::RecDescent::Rule' ),
                               'declaration' => bless( {
                                                         'impcount' => 0,
@@ -9364,7 +9363,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'name' => '<rulevar: local $params   = Storable::dclone $params>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 117
+                                                                                                    'line' => 115
                                                                                                   }, 'Parse::RecDescent::UncondReject' )
                                                                                          ],
                                                                               'line' => undef
@@ -9382,7 +9381,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'name' => '<rulevar: local $macros   = Storable::dclone $macros>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 118
+                                                                                                    'line' => 116
                                                                                                   }, 'Parse::RecDescent::UncondReject' )
                                                                                          ],
                                                                               'line' => undef
@@ -9400,7 +9399,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'name' => '<rulevar: local $warnings = Storable::dclone $warnings>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 119
+                                                                                                    'line' => 117
                                                                                                   }, 'Parse::RecDescent::UncondReject' )
                                                                                          ],
                                                                               'line' => undef
@@ -9423,26 +9422,26 @@ package Config::Scoped::Precomp; sub new {
                                                                                                     'matchrule' => 0,
                                                                                                     'repspec' => 's',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 121
+                                                                                                    'line' => 119
                                                                                                   }, 'Parse::RecDescent::Repetition' ),
                                                                                            bless( {
                                                                                                     'pattern' => '{',
                                                                                                     'hashname' => '__STRING1__',
                                                                                                     'description' => '\'\\{\'',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 121
+                                                                                                    'line' => 119
                                                                                                   }, 'Parse::RecDescent::Literal' ),
                                                                                            bless( {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'name' => '<commit>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 121,
+                                                                                                    'line' => 119,
                                                                                                     'code' => '$commit = 1'
                                                                                                   }, 'Parse::RecDescent::Directive' ),
                                                                                            bless( {
                                                                                                     'hashname' => '__ACTION1__',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 121,
+                                                                                                    'line' => 119,
                                                                                                     'code' => '{ ++$break }'
                                                                                                   }, 'Parse::RecDescent::Action' ),
                                                                                            bless( {
@@ -9454,14 +9453,14 @@ package Config::Scoped::Precomp; sub new {
                                                                                                     'matchrule' => 0,
                                                                                                     'repspec' => 's?',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 121
+                                                                                                    'line' => 119
                                                                                                   }, 'Parse::RecDescent::Repetition' ),
                                                                                            bless( {
                                                                                                     'pattern' => '}',
                                                                                                     'hashname' => '__STRING2__',
                                                                                                     'description' => '\'\\}\'',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 121
+                                                                                                    'line' => 119
                                                                                                   }, 'Parse::RecDescent::Literal' ),
                                                                                            bless( {
                                                                                                     'subrule' => 'stop_pattern',
@@ -9469,12 +9468,12 @@ package Config::Scoped::Precomp; sub new {
                                                                                                     'implicit' => undef,
                                                                                                     'argcode' => undef,
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 121
+                                                                                                    'line' => 119
                                                                                                   }, 'Parse::RecDescent::Subrule' ),
                                                                                            bless( {
                                                                                                     'hashname' => '__ACTION2__',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 122,
+                                                                                                    'line' => 120,
                                                                                                     'code' => '{
 		    local $thisparser->{local}{line}     = $thisline;
 		    local $thisparser->{local}{params}   = $params;
@@ -9507,16 +9506,16 @@ package Config::Scoped::Precomp; sub new {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'commitonly' => '?',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 136
+                                                                                                    'line' => 134
                                                                                                   }, 'Parse::RecDescent::Error' ),
                                                                                            bless( {
                                                                                                     'hashname' => '__DIRECTIVE2__',
                                                                                                     'name' => '<reject>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 136
+                                                                                                    'line' => 134
                                                                                                   }, 'Parse::RecDescent::UncondReject' )
                                                                                          ],
-                                                                              'line' => 136
+                                                                              'line' => 134
                                                                             }, 'Parse::RecDescent::Production' )
                                                                    ],
                                                         'name' => 'declaration',
@@ -9525,7 +9524,7 @@ package Config::Scoped::Precomp; sub new {
  local $warnings = Storable::dclone $warnings;
 ',
                                                         'changed' => 0,
-                                                        'line' => 116
+                                                        'line' => 114
                                                       }, 'Parse::RecDescent::Rule' ),
                               'warning_long' => bless( {
                                                          'impcount' => 0,
@@ -9553,7 +9552,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                      'lookahead' => 0,
                                                                                                      'ldelim' => '/',
                                                                                                      'mod' => 'i',
-                                                                                                     'line' => 290
+                                                                                                     'line' => 288
                                                                                                    }, 'Parse::RecDescent::Token' ),
                                                                                             bless( {
                                                                                                      'subrule' => 'on_off',
@@ -9561,7 +9560,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                      'implicit' => undef,
                                                                                                      'argcode' => undef,
                                                                                                      'lookahead' => -1,
-                                                                                                     'line' => 290
+                                                                                                     'line' => 288
                                                                                                    }, 'Parse::RecDescent::Subrule' ),
                                                                                             bless( {
                                                                                                      'subrule' => 'key',
@@ -9569,19 +9568,19 @@ package Config::Scoped::Precomp; sub new {
                                                                                                      'implicit' => undef,
                                                                                                      'argcode' => undef,
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 290
+                                                                                                     'line' => 288
                                                                                                    }, 'Parse::RecDescent::Subrule' ),
                                                                                             bless( {
                                                                                                      'hashname' => '__DIRECTIVE1__',
                                                                                                      'name' => '<commit>',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 290,
+                                                                                                     'line' => 288,
                                                                                                      'code' => '$commit = 1'
                                                                                                    }, 'Parse::RecDescent::Directive' ),
                                                                                             bless( {
                                                                                                      'hashname' => '__ACTION1__',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 290,
+                                                                                                     'line' => 288,
                                                                                                      'code' => '{ ++$break }'
                                                                                                    }, 'Parse::RecDescent::Action' ),
                                                                                             bless( {
@@ -9590,7 +9589,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                      'implicit' => undef,
                                                                                                      'argcode' => undef,
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 290
+                                                                                                     'line' => 288
                                                                                                    }, 'Parse::RecDescent::Subrule' ),
                                                                                             bless( {
                                                                                                      'subrule' => 'stop_pattern',
@@ -9598,12 +9597,12 @@ package Config::Scoped::Precomp; sub new {
                                                                                                      'implicit' => undef,
                                                                                                      'argcode' => undef,
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 290
+                                                                                                     'line' => 288
                                                                                                    }, 'Parse::RecDescent::Subrule' ),
                                                                                             bless( {
                                                                                                      'hashname' => '__ACTION2__',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 291,
+                                                                                                     'line' => 289,
                                                                                                      'code' => '{
         local $thisparser->{local}{line}     = $thisline;
         local $thisparser->{local}{params}   = $params;
@@ -9636,22 +9635,22 @@ package Config::Scoped::Precomp; sub new {
                                                                                                      'hashname' => '__DIRECTIVE1__',
                                                                                                      'commitonly' => '?',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 305
+                                                                                                     'line' => 303
                                                                                                    }, 'Parse::RecDescent::Error' ),
                                                                                             bless( {
                                                                                                      'hashname' => '__DIRECTIVE2__',
                                                                                                      'name' => '<reject>',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 305
+                                                                                                     'line' => 303
                                                                                                    }, 'Parse::RecDescent::UncondReject' )
                                                                                           ],
-                                                                               'line' => 305
+                                                                               'line' => 303
                                                                              }, 'Parse::RecDescent::Production' )
                                                                     ],
                                                          'name' => 'warning_long',
                                                          'vars' => '',
                                                          'changed' => 0,
-                                                         'line' => 289
+                                                         'line' => 287
                                                        }, 'Parse::RecDescent::Rule' ),
                               'statement' => bless( {
                                                       'impcount' => 0,
@@ -9677,7 +9676,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<rulevar: local $break>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 87
+                                                                                                  'line' => 85
                                                                                                 }, 'Parse::RecDescent::UncondReject' )
                                                                                        ],
                                                                             'line' => undef
@@ -9695,7 +9694,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<reject:<reject: $break>>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 88,
+                                                                                                  'line' => 86,
                                                                                                   'code' => '( $break) ? undef : 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
@@ -9704,7 +9703,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 88
+                                                                                                  'line' => 86
                                                                                                 }, 'Parse::RecDescent::Subrule' )
                                                                                        ],
                                                                             'line' => undef
@@ -9722,11 +9721,65 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<reject:<reject: $break>>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 89,
+                                                                                                  'line' => 87,
                                                                                                   'code' => '( $break) ? undef : 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
                                                                                                   'subrule' => 'block',
+                                                                                                  'matchrule' => 0,
+                                                                                                  'implicit' => undef,
+                                                                                                  'argcode' => undef,
+                                                                                                  'lookahead' => 0,
+                                                                                                  'line' => 87
+                                                                                                }, 'Parse::RecDescent::Subrule' )
+                                                                                       ],
+                                                                            'line' => 87
+                                                                          }, 'Parse::RecDescent::Production' ),
+                                                                   bless( {
+                                                                            'number' => '3',
+                                                                            'strcount' => 0,
+                                                                            'dircount' => 1,
+                                                                            'uncommit' => undef,
+                                                                            'error' => undef,
+                                                                            'patcount' => 0,
+                                                                            'actcount' => 0,
+                                                                            'items' => [
+                                                                                         bless( {
+                                                                                                  'hashname' => '__DIRECTIVE1__',
+                                                                                                  'name' => '<reject:<reject: $break>>',
+                                                                                                  'lookahead' => 0,
+                                                                                                  'line' => 88,
+                                                                                                  'code' => '( $break) ? undef : 1'
+                                                                                                }, 'Parse::RecDescent::Directive' ),
+                                                                                         bless( {
+                                                                                                  'subrule' => 'declaration',
+                                                                                                  'matchrule' => 0,
+                                                                                                  'implicit' => undef,
+                                                                                                  'argcode' => undef,
+                                                                                                  'lookahead' => 0,
+                                                                                                  'line' => 88
+                                                                                                }, 'Parse::RecDescent::Subrule' )
+                                                                                       ],
+                                                                            'line' => 88
+                                                                          }, 'Parse::RecDescent::Production' ),
+                                                                   bless( {
+                                                                            'number' => '4',
+                                                                            'strcount' => 0,
+                                                                            'dircount' => 1,
+                                                                            'uncommit' => undef,
+                                                                            'error' => undef,
+                                                                            'patcount' => 0,
+                                                                            'actcount' => 0,
+                                                                            'items' => [
+                                                                                         bless( {
+                                                                                                  'hashname' => '__DIRECTIVE1__',
+                                                                                                  'name' => '<reject:<reject: $break>>',
+                                                                                                  'lookahead' => 0,
+                                                                                                  'line' => 89,
+                                                                                                  'code' => '( $break) ? undef : 1'
+                                                                                                }, 'Parse::RecDescent::Directive' ),
+                                                                                         bless( {
+                                                                                                  'subrule' => 'pragma',
                                                                                                   'matchrule' => 0,
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
@@ -9737,7 +9790,7 @@ package Config::Scoped::Precomp; sub new {
                                                                             'line' => 89
                                                                           }, 'Parse::RecDescent::Production' ),
                                                                    bless( {
-                                                                            'number' => '3',
+                                                                            'number' => '5',
                                                                             'strcount' => 0,
                                                                             'dircount' => 1,
                                                                             'uncommit' => undef,
@@ -9753,7 +9806,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'code' => '( $break) ? undef : 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
-                                                                                                  'subrule' => 'declaration',
+                                                                                                  'subrule' => 'comment',
                                                                                                   'matchrule' => 0,
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
@@ -9762,67 +9815,13 @@ package Config::Scoped::Precomp; sub new {
                                                                                                 }, 'Parse::RecDescent::Subrule' )
                                                                                        ],
                                                                             'line' => 90
-                                                                          }, 'Parse::RecDescent::Production' ),
-                                                                   bless( {
-                                                                            'number' => '4',
-                                                                            'strcount' => 0,
-                                                                            'dircount' => 1,
-                                                                            'uncommit' => undef,
-                                                                            'error' => undef,
-                                                                            'patcount' => 0,
-                                                                            'actcount' => 0,
-                                                                            'items' => [
-                                                                                         bless( {
-                                                                                                  'hashname' => '__DIRECTIVE1__',
-                                                                                                  'name' => '<reject:<reject: $break>>',
-                                                                                                  'lookahead' => 0,
-                                                                                                  'line' => 91,
-                                                                                                  'code' => '( $break) ? undef : 1'
-                                                                                                }, 'Parse::RecDescent::Directive' ),
-                                                                                         bless( {
-                                                                                                  'subrule' => 'pragma',
-                                                                                                  'matchrule' => 0,
-                                                                                                  'implicit' => undef,
-                                                                                                  'argcode' => undef,
-                                                                                                  'lookahead' => 0,
-                                                                                                  'line' => 91
-                                                                                                }, 'Parse::RecDescent::Subrule' )
-                                                                                       ],
-                                                                            'line' => 91
-                                                                          }, 'Parse::RecDescent::Production' ),
-                                                                   bless( {
-                                                                            'number' => '5',
-                                                                            'strcount' => 0,
-                                                                            'dircount' => 1,
-                                                                            'uncommit' => undef,
-                                                                            'error' => undef,
-                                                                            'patcount' => 0,
-                                                                            'actcount' => 0,
-                                                                            'items' => [
-                                                                                         bless( {
-                                                                                                  'hashname' => '__DIRECTIVE1__',
-                                                                                                  'name' => '<reject:<reject: $break>>',
-                                                                                                  'lookahead' => 0,
-                                                                                                  'line' => 92,
-                                                                                                  'code' => '( $break) ? undef : 1'
-                                                                                                }, 'Parse::RecDescent::Directive' ),
-                                                                                         bless( {
-                                                                                                  'subrule' => 'comment',
-                                                                                                  'matchrule' => 0,
-                                                                                                  'implicit' => undef,
-                                                                                                  'argcode' => undef,
-                                                                                                  'lookahead' => 0,
-                                                                                                  'line' => 92
-                                                                                                }, 'Parse::RecDescent::Subrule' )
-                                                                                       ],
-                                                                            'line' => 92
                                                                           }, 'Parse::RecDescent::Production' )
                                                                  ],
                                                       'name' => 'statement',
                                                       'vars' => ' local $break;
 ',
                                                       'changed' => 0,
-                                                      'line' => 86
+                                                      'line' => 84
                                                     }, 'Parse::RecDescent::Rule' ),
                               'eofile' => bless( {
                                                    'impcount' => 0,
@@ -9846,7 +9845,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'lookahead' => 0,
                                                                                                'ldelim' => '/',
                                                                                                'mod' => '',
-                                                                                               'line' => 349
+                                                                                               'line' => 347
                                                                                              }, 'Parse::RecDescent::Token' )
                                                                                     ],
                                                                          'line' => undef
@@ -9855,7 +9854,7 @@ package Config::Scoped::Precomp; sub new {
                                                    'name' => 'eofile',
                                                    'vars' => '',
                                                    'changed' => 0,
-                                                   'line' => 349
+                                                   'line' => 347
                                                  }, 'Parse::RecDescent::Rule' ),
                               'perl_code' => bless( {
                                                       'impcount' => 0,
@@ -9879,20 +9878,20 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'lookahead' => 0,
                                                                                                   'ldelim' => '/',
                                                                                                   'mod' => 'i',
-                                                                                                  'line' => 329
+                                                                                                  'line' => 327
                                                                                                 }, 'Parse::RecDescent::Token' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<perl_codeblock>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 329,
+                                                                                                  'line' => 327,
                                                                                                   'code' => 'Text::Balanced::extract_codeblock($text,undef,$skip,\'{}\');
 					'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__ACTION1__',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 330,
+                                                                                                  'line' => 328,
                                                                                                   'code' => '{
         local $thisparser->{local}{line}     = $thisline;
         local $thisparser->{local}{params}   = $params;
@@ -9909,7 +9908,7 @@ package Config::Scoped::Precomp; sub new {
                                                       'name' => 'perl_code',
                                                       'vars' => '',
                                                       'changed' => 0,
-                                                      'line' => 329
+                                                      'line' => 327
                                                     }, 'Parse::RecDescent::Rule' ),
                               'token' => bless( {
                                                   'impcount' => 0,
@@ -9933,7 +9932,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'lookahead' => 0,
                                                                                               'ldelim' => '/',
                                                                                               'mod' => 'x',
-                                                                                              'line' => 317
+                                                                                              'line' => 315
                                                                                             }, 'Parse::RecDescent::Token' )
                                                                                    ],
                                                                         'line' => undef
@@ -9942,7 +9941,7 @@ package Config::Scoped::Precomp; sub new {
                                                   'name' => 'token',
                                                   'vars' => '',
                                                   'changed' => 0,
-                                                  'line' => 316
+                                                  'line' => 314
                                                 }, 'Parse::RecDescent::Rule' ),
                               'config_item' => bless( {
                                                         'impcount' => 0,
@@ -9964,7 +9963,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'name' => '<commit>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 74,
+                                                                                                    'line' => 72,
                                                                                                     'code' => '$commit = 1'
                                                                                                   }, 'Parse::RecDescent::Directive' ),
                                                                                            bless( {
@@ -9973,7 +9972,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                     'implicit' => undef,
                                                                                                     'argcode' => undef,
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 74
+                                                                                                    'line' => 72
                                                                                                   }, 'Parse::RecDescent::Subrule' )
                                                                                          ],
                                                                               'line' => undef
@@ -9992,22 +9991,22 @@ package Config::Scoped::Precomp; sub new {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'commitonly' => '?',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 75
+                                                                                                    'line' => 73
                                                                                                   }, 'Parse::RecDescent::Error' ),
                                                                                            bless( {
                                                                                                     'hashname' => '__DIRECTIVE2__',
                                                                                                     'name' => '<reject>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 75
+                                                                                                    'line' => 73
                                                                                                   }, 'Parse::RecDescent::UncondReject' )
                                                                                          ],
-                                                                              'line' => 75
+                                                                              'line' => 73
                                                                             }, 'Parse::RecDescent::Production' )
                                                                    ],
                                                         'name' => 'config_item',
                                                         'vars' => '',
                                                         'changed' => 0,
-                                                        'line' => 73
+                                                        'line' => 71
                                                       }, 'Parse::RecDescent::Rule' ),
                               'list' => bless( {
                                                  'impcount' => 0,
@@ -10029,7 +10028,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'name' => '<rulevar: local @list>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 171
+                                                                                             'line' => 169
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
                                                                        'line' => undef
@@ -10048,19 +10047,19 @@ package Config::Scoped::Precomp; sub new {
                                                                                              'hashname' => '__STRING1__',
                                                                                              'description' => '\'[\'',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 172
+                                                                                             'line' => 170
                                                                                            }, 'Parse::RecDescent::Literal' ),
                                                                                     bless( {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'name' => '<commit>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 172,
+                                                                                             'line' => 170,
                                                                                              'code' => '$commit = 1'
                                                                                            }, 'Parse::RecDescent::Directive' ),
                                                                                     bless( {
                                                                                              'hashname' => '__ACTION1__',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 172,
+                                                                                             'line' => 170,
                                                                                              'code' => '{ ++$break }'
                                                                                            }, 'Parse::RecDescent::Action' ),
                                                                                     bless( {
@@ -10072,19 +10071,19 @@ package Config::Scoped::Precomp; sub new {
                                                                                              'matchrule' => 0,
                                                                                              'repspec' => 's?',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 172
+                                                                                             'line' => 170
                                                                                            }, 'Parse::RecDescent::Repetition' ),
                                                                                     bless( {
                                                                                              'pattern' => ']',
                                                                                              'hashname' => '__STRING2__',
                                                                                              'description' => '\']\'',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 172
+                                                                                             'line' => 170
                                                                                            }, 'Parse::RecDescent::Literal' ),
                                                                                     bless( {
                                                                                              'hashname' => '__ACTION2__',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 173,
+                                                                                             'line' => 171,
                                                                                              'code' => '{
 		# returns just the filled list as value
 		$return = \\@list;
@@ -10107,23 +10106,23 @@ package Config::Scoped::Precomp; sub new {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'commitonly' => '?',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 177
+                                                                                             'line' => 175
                                                                                            }, 'Parse::RecDescent::Error' ),
                                                                                     bless( {
                                                                                              'hashname' => '__DIRECTIVE2__',
                                                                                              'name' => '<reject>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 177
+                                                                                             'line' => 175
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
-                                                                       'line' => 177
+                                                                       'line' => 175
                                                                      }, 'Parse::RecDescent::Production' )
                                                             ],
                                                  'name' => 'list',
                                                  'vars' => ' local @list;
 ',
                                                  'changed' => 0,
-                                                 'line' => 170
+                                                 'line' => 168
                                                }, 'Parse::RecDescent::Rule' ),
                               'parameter_or_macro_or_comment_or_warning' => bless( {
                                                                                      'impcount' => 0,
@@ -10148,7 +10147,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                                  'hashname' => '__DIRECTIVE1__',
                                                                                                                                  'name' => '<rulevar: local $break>',
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 209
+                                                                                                                                 'line' => 207
                                                                                                                                }, 'Parse::RecDescent::UncondReject' )
                                                                                                                       ],
                                                                                                            'line' => undef
@@ -10166,7 +10165,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                                  'hashname' => '__DIRECTIVE1__',
                                                                                                                                  'name' => '<reject:<reject: $break>>',
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 210,
+                                                                                                                                 'line' => 208,
                                                                                                                                  'code' => '( $break) ? undef : 1'
                                                                                                                                }, 'Parse::RecDescent::Directive' ),
                                                                                                                         bless( {
@@ -10175,7 +10174,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                                  'implicit' => undef,
                                                                                                                                  'argcode' => undef,
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 210
+                                                                                                                                 'line' => 208
                                                                                                                                }, 'Parse::RecDescent::Subrule' )
                                                                                                                       ],
                                                                                                            'line' => undef
@@ -10193,7 +10192,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                                  'hashname' => '__DIRECTIVE1__',
                                                                                                                                  'name' => '<reject:<reject: $break>>',
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 211,
+                                                                                                                                 'line' => 209,
                                                                                                                                  'code' => '( $break) ? undef : 1'
                                                                                                                                }, 'Parse::RecDescent::Directive' ),
                                                                                                                         bless( {
@@ -10202,10 +10201,10 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                                  'implicit' => undef,
                                                                                                                                  'argcode' => undef,
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 211
+                                                                                                                                 'line' => 209
                                                                                                                                }, 'Parse::RecDescent::Subrule' )
                                                                                                                       ],
-                                                                                                           'line' => 211
+                                                                                                           'line' => 209
                                                                                                          }, 'Parse::RecDescent::Production' ),
                                                                                                   bless( {
                                                                                                            'number' => '3',
@@ -10220,7 +10219,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                                  'hashname' => '__DIRECTIVE1__',
                                                                                                                                  'name' => '<reject:<reject: $break>>',
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 212,
+                                                                                                                                 'line' => 210,
                                                                                                                                  'code' => '( $break) ? undef : 1'
                                                                                                                                }, 'Parse::RecDescent::Directive' ),
                                                                                                                         bless( {
@@ -10229,10 +10228,10 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                                  'implicit' => undef,
                                                                                                                                  'argcode' => undef,
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 212
+                                                                                                                                 'line' => 210
                                                                                                                                }, 'Parse::RecDescent::Subrule' )
                                                                                                                       ],
-                                                                                                           'line' => 212
+                                                                                                           'line' => 210
                                                                                                          }, 'Parse::RecDescent::Production' ),
                                                                                                   bless( {
                                                                                                            'number' => '4',
@@ -10247,7 +10246,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                                  'hashname' => '__DIRECTIVE1__',
                                                                                                                                  'name' => '<reject:<reject: $break>>',
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 213,
+                                                                                                                                 'line' => 211,
                                                                                                                                  'code' => '( $break) ? undef : 1'
                                                                                                                                }, 'Parse::RecDescent::Directive' ),
                                                                                                                         bless( {
@@ -10256,17 +10255,17 @@ package Config::Scoped::Precomp; sub new {
                                                                                                                                  'implicit' => undef,
                                                                                                                                  'argcode' => undef,
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 213
+                                                                                                                                 'line' => 211
                                                                                                                                }, 'Parse::RecDescent::Subrule' )
                                                                                                                       ],
-                                                                                                           'line' => 213
+                                                                                                           'line' => 211
                                                                                                          }, 'Parse::RecDescent::Production' )
                                                                                                 ],
                                                                                      'name' => 'parameter_or_macro_or_comment_or_warning',
                                                                                      'vars' => ' local $break;
 ',
                                                                                      'changed' => 0,
-                                                                                     'line' => 208
+                                                                                     'line' => 206
                                                                                    }, 'Parse::RecDescent::Rule' ),
                               'on_off' => bless( {
                                                    'impcount' => 0,
@@ -10290,7 +10289,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'lookahead' => 0,
                                                                                                'ldelim' => '/',
                                                                                                'mod' => 'i',
-                                                                                               'line' => 307
+                                                                                               'line' => 305
                                                                                              }, 'Parse::RecDescent::Token' )
                                                                                     ],
                                                                          'line' => undef
@@ -10299,7 +10298,7 @@ package Config::Scoped::Precomp; sub new {
                                                    'name' => 'on_off',
                                                    'vars' => '',
                                                    'changed' => 0,
-                                                   'line' => 307
+                                                   'line' => 305
                                                  }, 'Parse::RecDescent::Rule' ),
                               'decl_item' => bless( {
                                                       'impcount' => 0,
@@ -10322,13 +10321,13 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'hashname' => '__STRING1__',
                                                                                                   'description' => '\'\\}\'',
                                                                                                   'lookahead' => -1,
-                                                                                                  'line' => 138
+                                                                                                  'line' => 136
                                                                                                 }, 'Parse::RecDescent::Literal' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<commit>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 138,
+                                                                                                  'line' => 136,
                                                                                                   'code' => '$commit = 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
@@ -10337,7 +10336,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 138
+                                                                                                  'line' => 136
                                                                                                 }, 'Parse::RecDescent::Subrule' )
                                                                                        ],
                                                                             'line' => undef
@@ -10356,22 +10355,22 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'commitonly' => '?',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 139
+                                                                                                  'line' => 137
                                                                                                 }, 'Parse::RecDescent::Error' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE2__',
                                                                                                   'name' => '<reject>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 139
+                                                                                                  'line' => 137
                                                                                                 }, 'Parse::RecDescent::UncondReject' )
                                                                                        ],
-                                                                            'line' => 139
+                                                                            'line' => 137
                                                                           }, 'Parse::RecDescent::Production' )
                                                                  ],
                                                       'name' => 'decl_item',
                                                       'vars' => '',
                                                       'changed' => 0,
-                                                      'line' => 138
+                                                      'line' => 136
                                                     }, 'Parse::RecDescent::Rule' ),
                               'value' => bless( {
                                                   'impcount' => 0,
@@ -10397,7 +10396,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 314
+                                                                                              'line' => 312
                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                    ],
                                                                         'line' => undef
@@ -10417,10 +10416,10 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 314
+                                                                                              'line' => 312
                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                    ],
-                                                                        'line' => 314
+                                                                        'line' => 312
                                                                       }, 'Parse::RecDescent::Production' ),
                                                                bless( {
                                                                         'number' => '2',
@@ -10437,16 +10436,16 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 314
+                                                                                              'line' => 312
                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                    ],
-                                                                        'line' => 314
+                                                                        'line' => 312
                                                                       }, 'Parse::RecDescent::Production' )
                                                              ],
                                                   'name' => 'value',
                                                   'vars' => '',
                                                   'changed' => 0,
-                                                  'line' => 314
+                                                  'line' => 312
                                                 }, 'Parse::RecDescent::Rule' ),
                               'stop_pattern' => bless( {
                                                          'impcount' => 0,
@@ -10466,7 +10465,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                      'hashname' => '__DIRECTIVE1__',
                                                                                                      'name' => '<skip: qr//>',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 347,
+                                                                                                     'line' => 345,
                                                                                                      'code' => 'my $oldskip = $skip; $skip= qr//; $oldskip'
                                                                                                    }, 'Parse::RecDescent::Directive' ),
                                                                                             bless( {
@@ -10477,7 +10476,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                      'lookahead' => 0,
                                                                                                      'ldelim' => '/',
                                                                                                      'mod' => 'x',
-                                                                                                     'line' => 347
+                                                                                                     'line' => 345
                                                                                                    }, 'Parse::RecDescent::Token' )
                                                                                           ],
                                                                                'line' => undef
@@ -10486,7 +10485,7 @@ package Config::Scoped::Precomp; sub new {
                                                          'name' => 'stop_pattern',
                                                          'vars' => '',
                                                          'changed' => 0,
-                                                         'line' => 346
+                                                         'line' => 344
                                                        }, 'Parse::RecDescent::Rule' ),
                               'warning_short' => bless( {
                                                           'impcount' => 0,
@@ -10513,7 +10512,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                       'lookahead' => 0,
                                                                                                       'ldelim' => '/',
                                                                                                       'mod' => 'i',
-                                                                                                      'line' => 275
+                                                                                                      'line' => 273
                                                                                                     }, 'Parse::RecDescent::Token' ),
                                                                                              bless( {
                                                                                                       'subrule' => 'on_off',
@@ -10521,19 +10520,19 @@ package Config::Scoped::Precomp; sub new {
                                                                                                       'implicit' => undef,
                                                                                                       'argcode' => undef,
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 275
+                                                                                                      'line' => 273
                                                                                                     }, 'Parse::RecDescent::Subrule' ),
                                                                                              bless( {
                                                                                                       'hashname' => '__DIRECTIVE1__',
                                                                                                       'name' => '<commit>',
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 275,
+                                                                                                      'line' => 273,
                                                                                                       'code' => '$commit = 1'
                                                                                                     }, 'Parse::RecDescent::Directive' ),
                                                                                              bless( {
                                                                                                       'hashname' => '__ACTION1__',
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 275,
+                                                                                                      'line' => 273,
                                                                                                       'code' => '{ ++$break }'
                                                                                                     }, 'Parse::RecDescent::Action' ),
                                                                                              bless( {
@@ -10542,12 +10541,12 @@ package Config::Scoped::Precomp; sub new {
                                                                                                       'implicit' => undef,
                                                                                                       'argcode' => undef,
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 275
+                                                                                                      'line' => 273
                                                                                                     }, 'Parse::RecDescent::Subrule' ),
                                                                                              bless( {
                                                                                                       'hashname' => '__ACTION2__',
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 276,
+                                                                                                      'line' => 274,
                                                                                                       'code' => '{
 		    local $thisparser->{local}{line}     = $thisline;
 		    local $thisparser->{local}{params}   = $params;
@@ -10577,22 +10576,22 @@ package Config::Scoped::Precomp; sub new {
                                                                                                       'hashname' => '__DIRECTIVE1__',
                                                                                                       'commitonly' => '?',
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 287
+                                                                                                      'line' => 285
                                                                                                     }, 'Parse::RecDescent::Error' ),
                                                                                              bless( {
                                                                                                       'hashname' => '__DIRECTIVE2__',
                                                                                                       'name' => '<reject>',
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 287
+                                                                                                      'line' => 285
                                                                                                     }, 'Parse::RecDescent::UncondReject' )
                                                                                            ],
-                                                                                'line' => 287
+                                                                                'line' => 285
                                                                               }, 'Parse::RecDescent::Production' )
                                                                      ],
                                                           'name' => 'warning_short',
                                                           'vars' => '',
                                                           'changed' => 0,
-                                                          'line' => 275
+                                                          'line' => 273
                                                         }, 'Parse::RecDescent::Rule' ),
                               'hash' => bless( {
                                                  'impcount' => 0,
@@ -10614,7 +10613,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'name' => '<rulevar: local $params   = {}>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 151
+                                                                                             'line' => 149
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
                                                                        'line' => undef
@@ -10632,7 +10631,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'name' => '<rulevar: local $macros   = Storable::dclone $macros>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 152
+                                                                                             'line' => 150
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
                                                                        'line' => undef
@@ -10650,7 +10649,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'name' => '<rulevar: local $warnings = Storable::dclone $warnings>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 153
+                                                                                             'line' => 151
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
                                                                        'line' => undef
@@ -10669,19 +10668,19 @@ package Config::Scoped::Precomp; sub new {
                                                                                              'hashname' => '__STRING1__',
                                                                                              'description' => '\'\\{\'',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 155
+                                                                                             'line' => 153
                                                                                            }, 'Parse::RecDescent::Literal' ),
                                                                                     bless( {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'name' => '<commit>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 155,
+                                                                                             'line' => 153,
                                                                                              'code' => '$commit = 1'
                                                                                            }, 'Parse::RecDescent::Directive' ),
                                                                                     bless( {
                                                                                              'hashname' => '__ACTION1__',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 155,
+                                                                                             'line' => 153,
                                                                                              'code' => '{ ++$break }'
                                                                                            }, 'Parse::RecDescent::Action' ),
                                                                                     bless( {
@@ -10693,19 +10692,19 @@ package Config::Scoped::Precomp; sub new {
                                                                                              'matchrule' => 0,
                                                                                              'repspec' => 's?',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 155
+                                                                                             'line' => 153
                                                                                            }, 'Parse::RecDescent::Repetition' ),
                                                                                     bless( {
                                                                                              'pattern' => '}',
                                                                                              'hashname' => '__STRING2__',
                                                                                              'description' => '\'\\}\'',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 155
+                                                                                             'line' => 153
                                                                                            }, 'Parse::RecDescent::Literal' ),
                                                                                     bless( {
                                                                                              'hashname' => '__ACTION2__',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 156,
+                                                                                             'line' => 154,
                                                                                              'code' => '{
 		# returns just the filled parameter hash as value
 		$return = $params
@@ -10728,16 +10727,16 @@ package Config::Scoped::Precomp; sub new {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'commitonly' => '?',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 160
+                                                                                             'line' => 158
                                                                                            }, 'Parse::RecDescent::Error' ),
                                                                                     bless( {
                                                                                              'hashname' => '__DIRECTIVE2__',
                                                                                              'name' => '<reject>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 160
+                                                                                             'line' => 158
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
-                                                                       'line' => 160
+                                                                       'line' => 158
                                                                      }, 'Parse::RecDescent::Production' )
                                                             ],
                                                  'name' => 'hash',
@@ -10746,7 +10745,7 @@ package Config::Scoped::Precomp; sub new {
  local $warnings = Storable::dclone $warnings;
 ',
                                                  'changed' => 0,
-                                                 'line' => 150
+                                                 'line' => 148
                                                }, 'Parse::RecDescent::Rule' ),
                               'parameter' => bless( {
                                                       'impcount' => 0,
@@ -10772,7 +10771,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 186
+                                                                                                  'line' => 184
                                                                                                 }, 'Parse::RecDescent::Subrule' ),
                                                                                          bless( {
                                                                                                   'description' => '/=>?/',
@@ -10782,19 +10781,19 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'lookahead' => 0,
                                                                                                   'ldelim' => '/',
                                                                                                   'mod' => '',
-                                                                                                  'line' => 186
+                                                                                                  'line' => 184
                                                                                                 }, 'Parse::RecDescent::Token' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<commit>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 186,
+                                                                                                  'line' => 184,
                                                                                                   'code' => '$commit = 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__ACTION1__',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 186,
+                                                                                                  'line' => 184,
                                                                                                   'code' => '{ ++$break }'
                                                                                                 }, 'Parse::RecDescent::Action' ),
                                                                                          bless( {
@@ -10803,7 +10802,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 186
+                                                                                                  'line' => 184
                                                                                                 }, 'Parse::RecDescent::Subrule' ),
                                                                                          bless( {
                                                                                                   'subrule' => 'stop_pattern',
@@ -10811,12 +10810,12 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 186
+                                                                                                  'line' => 184
                                                                                                 }, 'Parse::RecDescent::Subrule' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__ACTION2__',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 187,
+                                                                                                  'line' => 185,
                                                                                                   'code' => '{
 		local $thisparser->{local}{line}     = $thisline;
 		local $thisparser->{local}{params}   = $params;
@@ -10850,22 +10849,22 @@ package Config::Scoped::Precomp; sub new {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'commitonly' => '?',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 202
+                                                                                                  'line' => 200
                                                                                                 }, 'Parse::RecDescent::Error' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE2__',
                                                                                                   'name' => '<reject>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 202
+                                                                                                  'line' => 200
                                                                                                 }, 'Parse::RecDescent::UncondReject' )
                                                                                        ],
-                                                                            'line' => 202
+                                                                            'line' => 200
                                                                           }, 'Parse::RecDescent::Production' )
                                                                  ],
                                                       'name' => 'parameter',
                                                       'vars' => '',
                                                       'changed' => 0,
-                                                      'line' => 185
+                                                      'line' => 183
                                                     }, 'Parse::RecDescent::Rule' ),
                               'comment' => bless( {
                                                     'impcount' => 0,
@@ -10889,7 +10888,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                 'lookahead' => 0,
                                                                                                 'ldelim' => '/',
                                                                                                 'mod' => '',
-                                                                                                'line' => 351
+                                                                                                'line' => 349
                                                                                               }, 'Parse::RecDescent::Token' )
                                                                                      ],
                                                                           'line' => undef
@@ -10898,7 +10897,7 @@ package Config::Scoped::Precomp; sub new {
                                                     'name' => 'comment',
                                                     'vars' => '',
                                                     'changed' => 0,
-                                                    'line' => 351
+                                                    'line' => 349
                                                   }, 'Parse::RecDescent::Rule' ),
                               'warning' => bless( {
                                                     'impcount' => 0,
@@ -10923,7 +10922,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                 'implicit' => undef,
                                                                                                 'argcode' => undef,
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 273
+                                                                                                'line' => 271
                                                                                               }, 'Parse::RecDescent::Subrule' )
                                                                                      ],
                                                                           'line' => undef
@@ -10943,16 +10942,16 @@ package Config::Scoped::Precomp; sub new {
                                                                                                 'implicit' => undef,
                                                                                                 'argcode' => undef,
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 273
+                                                                                                'line' => 271
                                                                                               }, 'Parse::RecDescent::Subrule' )
                                                                                      ],
-                                                                          'line' => 273
+                                                                          'line' => 271
                                                                         }, 'Parse::RecDescent::Production' )
                                                                ],
                                                     'name' => 'warning',
                                                     'vars' => '',
                                                     'changed' => 0,
-                                                    'line' => 273
+                                                    'line' => 271
                                                   }, 'Parse::RecDescent::Rule' ),
                               'block' => bless( {
                                                   'impcount' => 0,
@@ -10975,7 +10974,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'name' => '<rulevar: local $params   = Storable::dclone $params>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 102
+                                                                                              'line' => 100
                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                    ],
                                                                         'line' => undef
@@ -10993,7 +10992,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'name' => '<rulevar: local $macros   = Storable::dclone $macros>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 103
+                                                                                              'line' => 101
                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                    ],
                                                                         'line' => undef
@@ -11011,7 +11010,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'name' => '<rulevar: local $warnings = Storable::dclone $warnings>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 104
+                                                                                              'line' => 102
                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                    ],
                                                                         'line' => undef
@@ -11030,19 +11029,19 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'hashname' => '__STRING1__',
                                                                                               'description' => '\'\\{\'',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 106
+                                                                                              'line' => 104
                                                                                             }, 'Parse::RecDescent::Literal' ),
                                                                                      bless( {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'name' => '<commit>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 106,
+                                                                                              'line' => 104,
                                                                                               'code' => '$commit = 1'
                                                                                             }, 'Parse::RecDescent::Directive' ),
                                                                                      bless( {
                                                                                               'hashname' => '__ACTION1__',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 106,
+                                                                                              'line' => 104,
                                                                                               'code' => '{ ++$break }'
                                                                                             }, 'Parse::RecDescent::Action' ),
                                                                                      bless( {
@@ -11054,14 +11053,14 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'matchrule' => 0,
                                                                                               'repspec' => 's',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 106
+                                                                                              'line' => 104
                                                                                             }, 'Parse::RecDescent::Repetition' ),
                                                                                      bless( {
                                                                                               'pattern' => '}',
                                                                                               'hashname' => '__STRING2__',
                                                                                               'description' => '\'\\}\'',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 106
+                                                                                              'line' => 104
                                                                                             }, 'Parse::RecDescent::Literal' ),
                                                                                      bless( {
                                                                                               'subrule' => 'stop_pattern',
@@ -11069,7 +11068,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 106
+                                                                                              'line' => 104
                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                    ],
                                                                         'line' => undef
@@ -11088,16 +11087,16 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'commitonly' => '?',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 107
+                                                                                              'line' => 105
                                                                                             }, 'Parse::RecDescent::Error' ),
                                                                                      bless( {
                                                                                               'hashname' => '__DIRECTIVE2__',
                                                                                               'name' => '<reject>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 107
+                                                                                              'line' => 105
                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                    ],
-                                                                        'line' => 107
+                                                                        'line' => 105
                                                                       }, 'Parse::RecDescent::Production' )
                                                              ],
                                                   'name' => 'block',
@@ -11106,7 +11105,7 @@ package Config::Scoped::Precomp; sub new {
  local $warnings = Storable::dclone $warnings;
 ',
                                                   'changed' => 0,
-                                                  'line' => 101
+                                                  'line' => 99
                                                 }, 'Parse::RecDescent::Rule' ),
                               'config' => bless( {
                                                    'impcount' => 0,
@@ -11129,7 +11128,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'hashname' => '__DIRECTIVE1__',
                                                                                                'name' => '<rulevar: local $params   = $thisparser->{local}{params}>',
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 48
+                                                                                               'line' => 46
                                                                                              }, 'Parse::RecDescent::UncondReject' )
                                                                                     ],
                                                                          'line' => undef
@@ -11147,7 +11146,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'hashname' => '__DIRECTIVE1__',
                                                                                                'name' => '<rulevar: local $macros   = $thisparser->{local}{macros}>',
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 49
+                                                                                               'line' => 47
                                                                                              }, 'Parse::RecDescent::UncondReject' )
                                                                                     ],
                                                                          'line' => undef
@@ -11165,7 +11164,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'hashname' => '__DIRECTIVE1__',
                                                                                                'name' => '<rulevar: local $warnings = $thisparser->{local}{warnings}>',
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 50
+                                                                                               'line' => 48
                                                                                              }, 'Parse::RecDescent::UncondReject' )
                                                                                     ],
                                                                          'line' => undef
@@ -11188,7 +11187,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'matchrule' => 0,
                                                                                                'repspec' => 's',
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 52
+                                                                                               'line' => 50
                                                                                              }, 'Parse::RecDescent::Repetition' ),
                                                                                       bless( {
                                                                                                'subrule' => 'eofile',
@@ -11196,7 +11195,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'implicit' => undef,
                                                                                                'argcode' => undef,
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 52
+                                                                                               'line' => 50
                                                                                              }, 'Parse::RecDescent::Subrule' )
                                                                                     ],
                                                                          'line' => undef
@@ -11213,7 +11212,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                       bless( {
                                                                                                'hashname' => '__ACTION1__',
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 53,
+                                                                                               'line' => 51,
                                                                                                'code' => '{
 		# Error handling:
 		# fetch only the first error, this is the most important one
@@ -11234,10 +11233,10 @@ package Config::Scoped::Precomp; sub new {
                                                                                                'hashname' => '__DIRECTIVE1__',
                                                                                                'name' => '<reject>',
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 67
+                                                                                               'line' => 65
                                                                                              }, 'Parse::RecDescent::UncondReject' )
                                                                                     ],
-                                                                         'line' => 53
+                                                                         'line' => 51
                                                                        }, 'Parse::RecDescent::Production' )
                                                               ],
                                                    'name' => 'config',
@@ -11246,7 +11245,7 @@ package Config::Scoped::Precomp; sub new {
  local $warnings = $thisparser->{local}{warnings};
 ',
                                                    'changed' => 0,
-                                                   'line' => 47
+                                                   'line' => 45
                                                  }, 'Parse::RecDescent::Rule' ),
                               'perl_quote' => bless( {
                                                        'impcount' => 0,
@@ -11270,13 +11269,13 @@ package Config::Scoped::Precomp; sub new {
                                                                                                    'lookahead' => 1,
                                                                                                    'ldelim' => '/',
                                                                                                    'mod' => '',
-                                                                                                   'line' => 319
+                                                                                                   'line' => 317
                                                                                                  }, 'Parse::RecDescent::Token' ),
                                                                                           bless( {
                                                                                                    'hashname' => '__DIRECTIVE1__',
                                                                                                    'name' => '<perl_quotelike>',
                                                                                                    'lookahead' => 0,
-                                                                                                   'line' => 319,
+                                                                                                   'line' => 317,
                                                                                                    'code' => 'my ($match,@res);
 					 ($match,$text,undef,@res) =
 						  Text::Balanced::extract_quotelike($text,$skip);
@@ -11286,7 +11285,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                           bless( {
                                                                                                    'hashname' => '__ACTION1__',
                                                                                                    'lookahead' => 0,
-                                                                                                   'line' => 320,
+                                                                                                   'line' => 318,
                                                                                                    'code' => '{
         local $thisparser->{local}{line}     = $thisline;
         local $thisparser->{local}{params}   = $params;
@@ -11303,7 +11302,7 @@ package Config::Scoped::Precomp; sub new {
                                                        'name' => 'perl_quote',
                                                        'vars' => '',
                                                        'changed' => 0,
-                                                       'line' => 319
+                                                       'line' => 317
                                                      }, 'Parse::RecDescent::Rule' ),
                               'macro' => bless( {
                                                   'impcount' => 0,
@@ -11328,19 +11327,19 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'hashname' => '__STRING1__',
                                                                                               'description' => '\'%macro\'',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 236
+                                                                                              'line' => 234
                                                                                             }, 'Parse::RecDescent::Literal' ),
                                                                                      bless( {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'name' => '<commit>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 236,
+                                                                                              'line' => 234,
                                                                                               'code' => '$commit = 1'
                                                                                             }, 'Parse::RecDescent::Directive' ),
                                                                                      bless( {
                                                                                               'hashname' => '__ACTION1__',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 236,
+                                                                                              'line' => 234,
                                                                                               'code' => '{ ++$break }'
                                                                                             }, 'Parse::RecDescent::Action' ),
                                                                                      bless( {
@@ -11349,7 +11348,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 236
+                                                                                              'line' => 234
                                                                                             }, 'Parse::RecDescent::Subrule' ),
                                                                                      bless( {
                                                                                               'subrule' => 'value',
@@ -11357,7 +11356,7 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 236
+                                                                                              'line' => 234
                                                                                             }, 'Parse::RecDescent::Subrule' ),
                                                                                      bless( {
                                                                                               'subrule' => 'stop_pattern',
@@ -11365,12 +11364,12 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 236
+                                                                                              'line' => 234
                                                                                             }, 'Parse::RecDescent::Subrule' ),
                                                                                      bless( {
                                                                                               'hashname' => '__ACTION2__',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 237,
+                                                                                              'line' => 235,
                                                                                               'code' => '{
 		local $thisparser->{local}{line}     = $thisline;
 		local $thisparser->{local}{params}   = $params;
@@ -11403,22 +11402,22 @@ package Config::Scoped::Precomp; sub new {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'commitonly' => '?',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 252
+                                                                                              'line' => 250
                                                                                             }, 'Parse::RecDescent::Error' ),
                                                                                      bless( {
                                                                                               'hashname' => '__DIRECTIVE2__',
                                                                                               'name' => '<reject>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 252
+                                                                                              'line' => 250
                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                    ],
-                                                                        'line' => 252
+                                                                        'line' => 250
                                                                       }, 'Parse::RecDescent::Production' )
                                                              ],
                                                   'name' => 'macro',
                                                   'vars' => '',
                                                   'changed' => 0,
-                                                  'line' => 236
+                                                  'line' => 234
                                                 }, 'Parse::RecDescent::Rule' )
                             }
                }, 'Parse::RecDescent' );

@@ -1,6 +1,6 @@
 package Config::Scoped;
 
-# $Id: Scoped.pm,v 1.28 2004/08/02 12:42:59 gaissmai Exp $
+# $Id: Scoped.pm,v 1.29 2004/08/03 17:54:20 gaissmai Exp gaissmai $
 
 =head1 NAME
 
@@ -13,12 +13,11 @@ Config:Scoped - feature rich configuration file parser
   $config = $parser->parse;
   $parser->store_cache( cache => 'foo.cfg.dump' );
 
-or with a string to parse
+just a string to parse in one rush
 
-  $parser = Config::Scoped->new->parse( text => "foo bar { baz = 1 }" );
-  $config = $parser->get_config;
+  $config = Config::Scoped->new->parse( text => "foo bar { baz = 1 }" );
 
-or retrieve a previously parsed cfg cache:
+retrieve a previously parsed cfg cache:
 
   $config = Config::Scoped->new->retrieve_cache( cache => 'foo.cfg.dump' );
 
@@ -34,10 +33,14 @@ use File::Basename qw(fileparse);
 use File::Spec;
 use Config::Scoped::Error;
 
+our $VERSION = 0.06;
+
 # inherit from a precompiled grammar package
 use base 'Config::Scoped::Precomp';
 
-our $VERSION = 0.05;
+# force VERSION's in synchron
+$Config::Scoped::Precomp::VERSION = $VERSION;
+
 
 my @state_hashes = qw(config params macros warnings includes);
 
@@ -364,6 +367,13 @@ See also the methods new() and set_warnings() for object wide settings. Differen
 =head1 EXPORTS
 
 Nothing.
+
+=cut
+
+# just to override the import precompile fake of P::RD
+sub import {};
+
+=pod
 
 =head1 CONSTRUCTOR
 

@@ -1,14 +1,19 @@
-Mon Aug  2 17:09:56 CEST 2004
-0.05 -- allow lowercase conversion for parameters and declarations 
+0.06 -- Tue Aug  3 20:38:57 CEST 2004
+- arrgh, typo in SYNOPSYS.
+- Version synchronize with Precomp.pm
+- import override for Parse::RecDescent
 
-Mon Aug  2 12:58:11 CEST 2004
-0.04 -- test problem's with tar and patched P::RD on Win32 solved
+0.05 -- Mon Aug  2 17:09:56 CEST 2004
+allow lowercase conversion for parameters and declarations 
 
-Sun Aug  1 21:32:34 CEST 2004
-0.03  -- Macro's expand now in eval blocks unconditionally
+0.04 -- Mon Aug  2 12:58:11 CEST 2004
+test problem's with tar and patched P::RD on Win32 solved
 
-Sun Aug  1 15:23:27 CEST 2004
-0.02  -- solved problems with permissions and file paths on Win32
+0.03 -- Sun Aug  1 21:32:34 CEST 2004
+Macro's expand now in eval blocks unconditionally
 
-Sat Jul 31 22:40:16 CEST 2004
-0.01  -- Initial release uploaded to CPAN
+0.02 -- Sun Aug  1 15:23:27 CEST 2004
+solved problems with permissions and file paths on Win32
+
+0.01 -- Sat Jul 31 22:40:16 CEST 2004
+Initial release uploaded to CPAN
