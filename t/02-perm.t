@@ -5,11 +5,10 @@ use warnings;
 use strict;
 
 use Test::More tests => 4;
-use FindBin qw($Bin);
 use File::Spec;
 
 BEGIN { use_ok('Config::Scoped') }
-my $unsafe_cfg = File::Spec->catfile( $Bin, 'test-files', 'fvalid.cfg' );
+my $unsafe_cfg = File::Spec->catfile( 't', 'files', 'fvalid.cfg' );
 chmod 0664, $unsafe_cfg;
 my ($p, $cfg);
 isa_ok($p = Config::Scoped->new(file => $unsafe_cfg), 'Config::Scoped');

@@ -1,3 +1,9 @@
+0.11 -- Sun Aug  8 23:35:23 CEST 2004
+- collapsed localization statements in the grammar file where possible
+- some minor interface changes 
+- some minor pod changes
+- added test for parsing perl datastructures
+
 0.10 -- Thu Aug  5 09:52:48 CEST 2004
 - precompile dependencies revisited, no new features
 

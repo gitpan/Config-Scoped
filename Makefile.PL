@@ -3,7 +3,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME      => 'Config::Scoped',
-    VERSION   => '0.10',
+    VERSION   => '0.11',
     PREREQ_PM => {
         'Parse::RecDescent' => 0,
         Error               => 0,

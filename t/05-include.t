@@ -4,11 +4,10 @@ use warnings;
 use strict;
 
 use Test::More tests => 5;
-use FindBin qw($Bin);
 use File::Spec;
 
 BEGIN { use_ok('Config::Scoped') }
-my $cfg_file = File::Spec->catfile( $Bin, 'test-files', 'include.cfg' );
+my $cfg_file = File::Spec->catfile( 't', 'files', 'include.cfg' );
 
 my ( $p, $cfg );
 my $text = "%include $cfg_file; foo{}";

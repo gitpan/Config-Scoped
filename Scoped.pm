@@ -1,6 +1,6 @@
 package Config::Scoped;
 
-# $Id: Scoped.pm,v 1.30 2004/08/03 19:26:29 gaissmai Exp gaissmai $
+# $Id: Scoped.pm,v 1.31 2004/08/06 11:54:33 gaissmai Exp $
 
 =head1 NAME
 
@@ -11,15 +11,25 @@ Config:Scoped - feature rich configuration file parser
   use Config::Scoped;
   $parser = Config::Scoped->new( file => 'foo.cfg' );
   $config = $parser->parse;
+
   $parser->store_cache( cache => 'foo.cfg.dump' );
 
 just a string to parse in one rush
 
-  $config = Config::Scoped->new->parse( text => "foo bar { baz = 1 }" );
+  $config =
+    Config::Scoped->new->parse(
+      text => "foo bar { baz = 1 }" );
 
 retrieve a previously parsed cfg cache:
 
-  $config = Config::Scoped->new->retrieve_cache( cache => 'foo.cfg.dump' );
+  $cfg =
+    Config::Scoped->new->retrieve_cache(
+      cache => 'foo.cfg.dump' );
+
+  $cfg = Config::Scoped->new(
+      file     => 'foo.cfg',
+      warnings => 'off'
+  )->retrieve_cache;
 
 =cut
 
@@ -33,7 +43,7 @@ use File::Basename qw(fileparse);
 use File::Spec;
 use Config::Scoped::Error;
 
-our $VERSION = 0.10;
+our $VERSION = 0.11;
 
 # inherit from a precompiled grammar package
 use base 'Config::Scoped::Precomp';
@@ -356,7 +366,11 @@ and with a proper C<%warnings> directive a redefinition is possible:
 
     param1 = default
     foo { param2 = something };
-    bar { %warnings parameter off; param1 = special; param2 = "doesn't matter" }
+    bar {
+        %warnings parameter off;
+        param1 = special;
+        param2 = "doesn't matter";
+      }
 
 See also the methods new() and set_warnings() for object wide settings. Different warning names are possible just by naming them and may be used by subclassed validation methods.
 
@@ -396,30 +410,30 @@ May take a set of named parameters as key => value pairs. Returns a Config::Scop
 
 =over 4
 
-=item B<file =E<gt> $cfg_file>
+=item I<file =E<gt> $cfg_file>
 
 Optional, without a configuration file the parse() method needs a string to parse.
 
-=item B<lc =E<gt> true|false>
+=item I<lc =E<gt> true|false>
 
 Optional, if true converts all declaration and parameter names to I<lowercase>. Default is false.
 
-=item B<safe =E<gt> $compartment>
+=item I<safe =E<gt> $compartment>
 
 Safe compartment, optional. Defaults to a Safe compartment with no extra shares and the :default operator tag.
 
-=item B<warnings =E<gt> $warnings>
+=item I<warnings =E<gt> $warnings>
 
 Redefiniton and other safety warnings, defaults to all 'on'. The value is either just a literal 'on' or 'off' or a hashref with finer control.
 
   warnings => 'off'  # all warnings 'off'
 
-  # all 'on', except for macro and an application defined your_name
+  # all 'on', except for macro and an appl. defined your_name
   warnings => { macro => 'off', your_name => 'off' }
 
 May be overridden by warnings pragmas in the config file. Warnings are relativ to the scopes of definition.
 
-=item B<your_item =E<gt> $your_value>
+=item I<your_item =E<gt> $your_value>
 
 Any unknown key => value pair is also stored unaltered in the object. Please use a special prefix for subclass object data (subclass_prefix_key => $value) not to override the existing one. With this scheme perhaps you don't need to override the new() constructor.
 
@@ -568,7 +582,7 @@ May take one named parameter if the object was constructed without the file argu
 
 =over 4
 
-=item B<text =E<gt> $string_to_parse>
+=item I<text =E<gt> $string_to_parse>
 
 The config file to parse in one string.
 
@@ -652,21 +666,6 @@ sub parse {
 
 =pod
 
-=head2 B<$parser-E<gt>get_config()>
-
-Returns the config hash after a parse.
-
-    $config = $parser->get_config;
-
-=cut
-
-sub get_config {
-    my $thisparser = shift;
-    return $thisparser->{local}{config};
-}
-
-=pod
-
 =head2 B<$parser-E<gt>warnings_on()>
 
 Returns true if warnings are enabled for $item (macro, parameter, declaration, permissions, ...). May be used in the different (possibly overridden) validation methods.
@@ -679,7 +678,7 @@ May take a set of named parameters as key => value pairs:
 
 =over 4
 
-=item B<name>
+=item I<name> =E<gt> $item>
 
 Mandatory, the name of the questionable warnings switch. The following names are predefined (expandable):
 
@@ -739,7 +738,7 @@ May take a set of named parameters as key => value pairs:
 
 =over 4
 
-=item B<name>
+=item I<name> =E<gt> $item>
 
 The name of the questionable warnings switch. Optional, defaults to 'all'. The following names are predefined (expandable):
 
@@ -751,7 +750,7 @@ The name of the questionable warnings switch. Optional, defaults to 'all'. The f
 
 Different warning names are possible just by naming them and may be used by subclassed validation methods.
 
-=item B<switch>
+=item I<switch> =E<gt> 'on|off'>
 
 Enable 'on' or disable 'off' the warning.
 
@@ -829,7 +828,7 @@ May take one named parameter:
 
 =over 4
 
-=item B<cache>
+=item I<cache> =E<gt> $filename>
 
 Cache file, optional. Defaults to "${cfg_file}.dump".
 
@@ -887,7 +886,7 @@ May take one named parameter:
 
 =over 4
 
-=item B<cache>
+=item I<cache> =E<gt> $filename>
 
 Cache file, optional. Defaults to "${cfg_file}.dump".
 

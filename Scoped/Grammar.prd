@@ -1,4 +1,4 @@
-# $Id: Grammar.prd,v 1.17 2004/08/01 20:05:19 gaissmai Exp gaissmai $
+# $Id: Grammar.prd,v 1.19 2004/08/08 20:40:46 gaissmai Exp gaissmai $
 
 # First, read the Config::Scoped manual to understand what's going on here!
 #
@@ -41,11 +41,8 @@
 #
 #########################################################################
 #
-# STARTRULE, get the localized state hashes per parser, call by ref
+# STARTRULE
 #
-config : <rulevar: local $params   = $thisparser->{local}{params}>
-config : <rulevar: local $macros   = $thisparser->{local}{macros}>
-config : <rulevar: local $warnings = $thisparser->{local}{warnings}>
 
 config :      config_item(s) eofile 
 	    | {
@@ -95,11 +92,15 @@ statement :    <reject: $break> parameter
 #
 # Open a new scope, inherit (deep copy) the scoped hashes.
 #
-# call by value:
-#
-block : <rulevar: local $params   = Storable::dclone $params>
-block : <rulevar: local $macros   = Storable::dclone $macros>
-block : <rulevar: local $warnings = Storable::dclone $warnings>
+
+block : <rulevar: local $thisparser->{local}{params} =
+	      Storable::dclone $thisparser->{local}{params}>
+
+block :	<rulevar: local $thisparser->{local}{macros} =
+	      Storable::dclone $thisparser->{local}{macros}>
+
+block : <rulevar: local $thisparser->{local}{warnings} =
+	      Storable::dclone $thisparser->{local}{warnings}>
 
 block : '{' <commit> { ++$break } statement(s) '}' stop_pattern
        | <error?> <reject>
@@ -110,22 +111,22 @@ block : '{' <commit> { ++$break } statement(s) '}' stop_pattern
 #
 # Open a new scope, inherit (deep copy) the scoped hashes.
 #
-# call by value:
-#
-declaration : <rulevar: local $params   = Storable::dclone $params>
-declaration : <rulevar: local $macros   = Storable::dclone $macros>
-declaration : <rulevar: local $warnings = Storable::dclone $warnings>
+
+declaration : <rulevar:	local $thisparser->{local}{params} =
+		  Storable::dclone $thisparser->{local}{params}>
+
+declaration : <rulevar:	local $thisparser->{local}{macros} =
+		  Storable::dclone $thisparser->{local}{macros}>
+
+declaration : <rulevar:	local $thisparser->{local}{warnings} =
+		  Storable::dclone $thisparser->{local}{warnings}>
 
 declaration : key(s) '{' <commit> { ++$break } decl_item(s?) '}' stop_pattern
 		{
-		    local $thisparser->{local}{line}     = $thisline;
-		    local $thisparser->{local}{params}   = $params;
-		    local $thisparser->{local}{macros}   = $macros;
-		    local $thisparser->{local}{warnings} = $warnings;
-
+		    $thisparser->{local}{line} = $thisline;
 		    $thisparser->_store_declaration(
 			name  => $item{'key(s)'},
-			value => $params,
+			value => $thisparser->{local}{params},
 		    );
 
 		    # rule success, errors in the method don't raise syntax errors
@@ -140,20 +141,23 @@ decl_item : ...!'}' <commit> parameter_or_macro_or_comment_or_warning
 # HASH
 #########################################################################
 #
-# Reset the params hash!
 # Open a new scope, inherit (deep copy) the localized hashes
 # for macros and warnings.
+# Reset the params hash!
 #
-# call by value:
-#
-hash : <rulevar: local $params   = {}>
-hash : <rulevar: local $macros   = Storable::dclone $macros>
-hash : <rulevar: local $warnings = Storable::dclone $warnings>
+
+hash : <rulevar: local $thisparser->{local}{params} = {}>
+
+hash : <rulevar: local $thisparser->{local}{macros} =
+	      Storable::dclone $thisparser->{local}{macros}>
+
+hash : <rulevar: local $thisparser->{local}{warnings} =
+	      Storable::dclone $thisparser->{local}{warnings}>
 
 hash : '{' <commit> { ++$break } hash_item(s?) '}'
 	    {
 		# returns just the filled parameter hash as value
-		$return = $params
+		$return = $thisparser->{local}{params};
 	    }
       | <error?> <reject>
 
@@ -183,11 +187,7 @@ list_item :  ...!']' <commit> hash_or_list_or_value_or_comment m/,?/
 #
 parameter : key /=>?/ <commit> { ++$break } hash_or_list_or_value stop_pattern
 	    {
-		local $thisparser->{local}{line}     = $thisline;
-		local $thisparser->{local}{params}   = $params;
-		local $thisparser->{local}{macros}   = $macros;
-		local $thisparser->{local}{warnings} = $warnings;
-
+		$thisparser->{local}{line}  = $thisline;
 		# store the parameter in the local scope
 		$thisparser->_store_parameter(
 		    name  => $item{key},
@@ -213,11 +213,11 @@ parameter_or_macro_or_comment_or_warning :  <reject: $break> parameter
 # use $break to shortcut the alternations after a rejected commit
 hash_or_list_or_value_or_comment : <rulevar: local $break>
 hash_or_list_or_value_or_comment :  <reject: $break> hash_or_list_or_value
-					{
-					    # fill the list, but not with comments!
-					    push @list, $item{hash_or_list_or_value}
-					}
-				 |  <reject: $break> comment
+				{
+				    # fill the list, but not with comments!
+				    push @list, $item{hash_or_list_or_value}
+				}
+			     |  <reject: $break> comment
 
 # use $break to shortcut the alternations after a rejected commit
 hash_or_list_or_value :  <rulevar: local $break>
@@ -233,11 +233,7 @@ pragma : macro | include | warning
 
 macro : '%macro' <commit> { ++$break } key value stop_pattern
 	    {
-		local $thisparser->{local}{line}     = $thisline;
-		local $thisparser->{local}{params}   = $params;
-		local $thisparser->{local}{macros}   = $macros;
-		local $thisparser->{local}{warnings} = $warnings;
-
+		$thisparser->{local}{line} = $thisline;
 		$thisparser->_store_macro(
 		    name  => $item{key},
 		    value => $item{value},
@@ -249,18 +245,14 @@ macro : '%macro' <commit> { ++$break } key value stop_pattern
 
 	| <error?> <reject>
 
+# call recursively a new P::RD parser for this include file
+# call by value for the current $warnings
+include : <rulevar: local $thisparser->{local}{warnings} =
+		  Storable::dclone $thisparser->{local}{warnings}>
+
 include : '%include' <commit> { ++$break } value stop_pattern
 	    {
-
-		# call recursively a new P::RD parser for this include file
-		# call by ref for the current $params and $macros
-		# call by value for the current $warnings
-
-		local $thisparser->{local}{line}     = $thisline;
-		local $thisparser->{local}{params}   = $params;
-		local $thisparser->{local}{macros}   = $macros;
-		local $thisparser->{local}{warnings} = Storable::dclone $warnings;
-
+		$thisparser->{local}{line}  = $thisline;
 		$thisparser->_include( file => $item{value}, );
 
 		# rule success, errors in the method don't raise syntax errors
@@ -271,27 +263,19 @@ include : '%include' <commit> { ++$break } value stop_pattern
 warning : warning_short | warning_long
 
 warning_short : /%warnings?/i on_off <commit> { ++$break } stop_pattern
-		{
-		    local $thisparser->{local}{line}     = $thisline;
-		    local $thisparser->{local}{params}   = $params;
-		    local $thisparser->{local}{macros}   = $macros;
-		    local $thisparser->{local}{warnings} = $warnings;
+	{
+	    $thisparser->{local}{line} = $thisline;
+	    $thisparser->_set_warnings( switch => $item{on_off} );
 
-		    $thisparser->_set_warnings( switch => $item{on_off} );
-
-		    # rule success, errors in the method don't raise syntax errors
-		    1;
-		}
+	    # rule success, errors in the method don't raise syntax errors
+	    1;
+	}
 	| <error?> <reject>
 
 warning_long :
     /%warnings?/i ...!on_off key <commit> { ++$break } on_off stop_pattern
     {
-        local $thisparser->{local}{line}     = $thisline;
-        local $thisparser->{local}{params}   = $params;
-        local $thisparser->{local}{macros}   = $macros;
-        local $thisparser->{local}{warnings} = $warnings;
-
+	$thisparser->{local}{line} = $thisline;
         $thisparser->_set_warnings(
             name   => $item{key},
             switch => $item{on_off},
@@ -316,21 +300,13 @@ token : /[^ \s >< }{ )( [\] ; , ' " = # % ]+/x
 
 perl_quote : .../"|'|<</ <perl_quotelike>
     {
-        local $thisparser->{local}{line}     = $thisline;
-        local $thisparser->{local}{params}   = $params;
-        local $thisparser->{local}{macros}   = $macros;
-        local $thisparser->{local}{warnings} = $warnings;
-
+	$thisparser->{local}{line} = $thisline;
         $return = $thisparser->_quotelike( value => $item{__DIRECTIVE1__} );
     }
 
 perl_code : /perl_code|eval/i <perl_codeblock>
     {
-        local $thisparser->{local}{line}     = $thisline;
-        local $thisparser->{local}{params}   = $params;
-        local $thisparser->{local}{macros}   = $macros;
-        local $thisparser->{local}{warnings} = $warnings;
-
+	$thisparser->{local}{line} = $thisline;
         $return = $thisparser->_perl_code( expr => $item{__DIRECTIVE1__}, );
     }
 

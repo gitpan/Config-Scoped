@@ -5,11 +5,10 @@ use warnings;
 use strict;
 
 use Test::More tests => 3;
-use FindBin qw($Bin);
 use File::Spec;
 
 BEGIN { use_ok('Config::Scoped') }
-my $scalar_cfg = File::Spec->catfile( $Bin, 'test-files', 'scalar.cfg' );
+my $scalar_cfg = File::Spec->catfile( 't', 'files', 'scalar.cfg' );
 my ( $p, $cfg );
 isa_ok(
     $p = Config::Scoped->new(

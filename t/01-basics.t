@@ -3,7 +3,6 @@
 use warnings;
 use strict;
 use Test::More tests => 10;
-use FindBin qw($Bin);
 use File::Spec;
 
 BEGIN { use_ok('Config::Scoped') }
@@ -16,7 +15,7 @@ ok( $p->parse( text => 'a=b;' ), 'basic parse test: string' );
 
 ok(
     $p = Config::Scoped->new(
-        file => File::Spec->catfile( $Bin, 'test-files', 'basic.cfg' ),
+        file => File::Spec->catfile( 't', 'files', 'basic.cfg' ),
         warnings => 'off',
     ),
     'Constructor'
