@@ -1,3 +1,7 @@
+0.09 --
+- again Makefile.PL munging and version information in
+  precompiled package, no new features, just distribution fiddling
+
 0.08 -- Wed Aug  4 11:57:07 CEST 2004
 - new P::RD->Precompile patch in order to stuff a VERSION
   into the precompiled package.

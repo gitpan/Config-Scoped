@@ -1,8 +1,9 @@
 use 5.006_001;
 use ExtUtils::MakeMaker;
+
 WriteMakefile(
     NAME      => 'Config::Scoped',
-    VERSION   => '0.08',
+    VERSION   => 0.09,
     PREREQ_PM => {
         'Parse::RecDescent' => 0,
         Error               => 0,
@@ -12,14 +13,19 @@ WriteMakefile(
         'File::Spec'        => 0,
         'File::Basename'    => 0,
         'Digest::MD5'       => 0,
-      },
-    ABSTRACT  => 'A config file parser with scopes, macros, includes, ...',
-    AUTHOR    => 'Karl Gaissmaier <karl.gaissmaier@kiz.uni-ulm.de>',
+    },
+
+    ABSTRACT => 'feature rich configuration file parser',
+    AUTHOR   => 'Karl Gaissmaier <karl.gaissmaier@kiz.uni-ulm.de>',
 
     macro => {
-        PRECOMP => 'Scoped/Precomp.pm',
-        GRAMMAR => 'Scoped/Grammar.prd',
+        PRECOMP           => 'Scoped/Precomp.pm',
+        GRAMMAR           => 'Scoped/Grammar.prd',
+        PRECOMPILE_SCRIPT => 'script/precompile.pl',
+        P_RD              => 'patched/Parse/RecDescent.pm',
+        MY_PRD            => 'patched-prd.tgz',
     },
+
 );
 
 sub MY::libscan {
@@ -32,9 +38,14 @@ sub MY::depend {
 
     return <<'EOT';
 
-$(PRECOMP): $(GRAMMAR)
-	$(TAR) xvf my-prd
-	$(PERL) script/precompile.pl
+prd :
+	$(TAR) -zcvf $(MY_PRD) ./patched
+
+$(P_RD) :
+	$(TAR) -zxvf $(MY_PRD)
+
+$(PRECOMP): $(GRAMMAR) $(P_RD) $(PRECOMPILE_SCRIPT)
+	$(PERL) $(PRECOMPILE_SCRIPT) $(VERSION);
 EOT
 
 }

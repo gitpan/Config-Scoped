@@ -7,7 +7,7 @@ Scoped.pm
 Scoped/Error.pm
 Scoped/Grammar.prd
 Scoped/Precomp.pm
-my-prd
+patched-prd.tgz
 script/cfgtest.pl
 script/precompile.pl
 t/01-basics.t

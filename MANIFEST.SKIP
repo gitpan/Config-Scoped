@@ -9,9 +9,7 @@ CVS/.*
 \.ptkdb$
 \.tar$
 \.tar\.gz$
-\.tgz$
 ^blib/
-\/tries\/
 ^Makefile$
 ^Makefile\.[a-z]+$
 ^pm_to_blib$
