@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-use Test::More tests => 7;
+use Test::More tests => 8;
 
 BEGIN { use_ok('Config::Scoped') }
 my ( $p, $cfg );
@@ -75,3 +75,13 @@ $p = Config::Scoped->new;
 eval { $p->parse( text => $text ) };
 isa_ok($@, 'Config::Scoped::Error::Validate::Parameter');
 like($@, qr/redefinition/i, "$@");
+
+$text = <<'eot';
+LowerCase = 'Values dont convert'
+eot
+
+$expected = { _GLOBAL => { 'lowercase' => 'Values dont convert', }, };
+
+$p = Config::Scoped->new(lc => 1);
+is_deeply( $p->parse( text => $text ), $expected, 'lowercase conversion' );
+

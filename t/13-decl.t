@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-use Test::More tests => 3;
+use Test::More tests => 4;
 
 BEGIN { use_ok('Config::Scoped') }
 my ( $p, $cfg );
@@ -57,3 +57,16 @@ my $expected = {
 
 isa_ok( $p = Config::Scoped->new(), 'Config::Scoped' );
 is_deeply( $p->parse( text => $text ), $expected, 'decl test' );
+
+$text = <<'eot';
+Foo BAR BaZ { LowerCase = 'Values dont convert' };
+eot
+
+$expected =
+  { 'foo' => { 'bar' => { 'baz' => { 'lowercase' => 'Values dont convert' } } }
+  };
+
+
+$p = Config::Scoped->new(lc => 1);
+is_deeply( $p->parse( text => $text ), $expected, 'lowercase conversion' );
+

@@ -1,8 +1,8 @@
-# $Id: Error.pm,v 1.2 2004/07/30 20:28:22 gaissmai Exp gaissmai $
+# $Id: Error.pm,v 1.3 2004/08/02 12:42:55 gaissmai Exp gaissmai $
 
 =head1 NAME
 
-Config:Scoped::Error - an exception class hierarchy based on Error.pm
+Config:Scoped::Error - an exception class hierarchy based on Error.pm for Config::Scoped
 
 =head1 SYNOPSIS
 

@@ -15,7 +15,7 @@ my $dv = Dumpvalue->new( compactDump => 1 )
   or die "Can't create a Dumpvalue object,";
 
 my %opts;
-getopts( 'wvtdDc', \%opts ) or usage();
+getopts( 'lwvtdDc', \%opts ) or usage();
 
 my $cfg_file;
 $cfg_file = shift || usage() unless $opts{t};
@@ -25,6 +25,7 @@ local $::RD_TRACE = 40 if $opts{v};
 my $parser = Config::Scoped->new(
     file     => $cfg_file,
     $opts{w} ? (warnings => 'off') : (),
+    $opts{l} ? (lc => 1) : (),
   )
   or die "Can't create a scoped parser,";
 
@@ -58,6 +59,7 @@ sub usage {
     die <<USAGE;
 Usage: $0 [-v] [-t] [-d] [-c] [cfg_file]
 	-w		warnings off
+	-l		lowercase on
 	-v		verbose
 	-t		read text to parse from stdin
 	-d		dump cfg hash, Dumpvalue

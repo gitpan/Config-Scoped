@@ -1,6 +1,6 @@
 package Config::Scoped;
 
-# $Id: Scoped.pm,v 1.27 2004/08/02 11:05:20 gaissmai Exp gaissmai $
+# $Id: Scoped.pm,v 1.28 2004/08/02 12:42:59 gaissmai Exp $
 
 =head1 NAME
 
@@ -37,7 +37,7 @@ use Config::Scoped::Error;
 # inherit from a precompiled grammar package
 use base 'Config::Scoped::Precomp';
 
-our $VERSION = 0.04;
+our $VERSION = 0.05;
 
 my @state_hashes = qw(config params macros warnings includes);
 
@@ -373,6 +373,7 @@ May take a set of named parameters as key => value pairs. Returns a Config::Scop
 
     my $parser = Config::Scoped->new(
         file      => '/etc/appl/foo.cfg',
+        lc        => 1,
         safe      => $your_compartment,
         your_item => $your_value,
 
@@ -392,6 +393,10 @@ May take a set of named parameters as key => value pairs. Returns a Config::Scop
 =item B<file =E<gt> $cfg_file>
 
 Optional, without a configuration file the parse() method needs a string to parse.
+
+=item B<lc =E<gt> true|false>
+
+Optional, if true converts all declaration and parameter names to I<lowercase>. Default is false.
 
 =item B<safe =E<gt> $compartment>
 
@@ -441,6 +446,13 @@ sub new {
     # only one global config hash
     #
     $thisparser->{local} = {%args};
+
+    # frequent typos, be polite
+    $thisparser->{local}{warnings} ||= $thisparser->{local}{warning};
+    $thisparser->{local}{lc}       ||= $thisparser->{local}{lowercase};
+    $thisparser->{local}{safe}     ||= $thisparser->{local}{Safe};
+    $thisparser->{local}{file}     ||= $thisparser->{local}{File};
+
 
     ##############################################
     # validate and munge the 'file' param
@@ -1108,6 +1120,8 @@ sub _store_parameter {
         -text => Carp::shortmess("missing parameters") )
       unless ( defined $args{value} && defined $args{name} );
 
+    $args{name} = lc( $args{name} ) if $thisparser->{local}{lc};
+
     # parameter validation, may be overwritten by the application
     my $valid_value = $thisparser->parameter_validate(%args);
 
@@ -1169,6 +1183,12 @@ sub _store_declaration {
     Config::Scoped::Error->throw(
         -text => Carp::shortmess("missing parameters") )
       unless ( defined $args{name} && defined $args{value} );
+
+    {
+        local $_;
+        map { $_ = lc($_) } @{ $args{name} }
+          if $thisparser->{local}{lc};
+    }
 
     # convert declaration: foo bar ... baz { parameters }
     # to the data structure

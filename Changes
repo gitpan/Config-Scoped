@@ -1,3 +1,6 @@
+Mon Aug  2 17:09:56 CEST 2004
+0.05 -- allow lowercase conversion for parameters and declarations 
+
 Mon Aug  2 12:58:11 CEST 2004
 0.04 -- test problem's with tar and patched P::RD on Win32 solved
 
