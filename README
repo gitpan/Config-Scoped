@@ -1,0 +1,121 @@
+==============================================================================
+                 Release of version 0.01 of Config::Scoped
+==============================================================================
+
+
+NAME
+
+    Config:Scoped - a config file parser for complex config files
+
+FEATURES
+
+    Config::Scoped has the following highlights as a configuration file
+    parser:
+
+    * Complex recursive datastructures to any extent with scalars, lists and
+      hashes as elements,
+
+    * As a subset parses any complex Perl datastructures (no references and
+      globs) without *do* or *require*,
+
+    * Include files with recursion checks,
+
+    * Controlled macro expansion in double quoted tokens,
+
+    * Lexically scoped parameter assignments and pragma directives,
+
+    * Perl quote like constructs to any extent, '', "", and here docs <<,
+
+    * Perl code evaluation in Safe compartments,
+
+    * Caching and restore with MD5 checks to determine alterations in the
+      original config files,
+
+    * Standard macro, parameter, declaration redefinition validation, may be
+      overridden to validate on semantic knowledge,
+
+    * Standard file permission and ownership safety validation, may be
+      overridden,
+
+    * Fine control for redefiniton warnings with pragma's and other safety
+      checks,
+
+    * Easy inheritable, may be subclassed to build parsers with specialized
+      validation features,
+
+    * Condoning syntax checker, semicolons and or commas are not always
+      necessary to finish a statement or a list item if the end can be
+      guessed by other means like newlines, closing brackets, braces etc.,
+
+    * Well spotted messages for syntax errors even within include files with
+      correct line numbers and file names,
+
+    * Exception based error handling,
+
+    * etc.,
+
+PREREQUISITES
+
+    Parse::RecDescent, Error
+
+    Standard modules: 
+
+        Carp          
+        Storable        
+        File::Spec 
+        File::Basename
+        Digest::MD5
+        Safe           
+
+APPETIZER
+
+Configuration file example:
+
+    # default parameters
+    community = public;
+    variables = [ ifInOctets, ifOutOctets ];
+    oids = {
+	ifInOctets  = 1.3.6.1.2.1.2.2.1.10;
+	ifOutOctets = 1.3.6.1.2.1.2.2.1.16;
+    };
+
+    %warnings parameter off;    ### allow parameter redefinition
+
+    # declarations
+    devices rtr001 {
+	ports = [ 1, 2, 8, 9 ];
+    }
+
+    devices rtr007 {
+	community = 'really top secret!';
+	ports = [ 1, 2, 3, 4 ];
+    }
+
+
+INSTALLATION
+
+    It's all pure Perl.
+
+    perl Makefile.PL
+    make
+    make test
+    make install
+
+AUTHOR
+
+    Karl Gaissmaier (karl.gaissmaier@kiz.uni-ulm.de)
+
+
+COPYRIGHT
+
+     Copyright (c) 2004, Karl Gaissmaier. All Rights Reserved.
+     This program is free software; you can redistribute it and/or
+     modify it under the same terms as Perl itself.
+
+==============================================================================
+
+AVAILABILITY
+
+Config::Scoped has been uploaded to the CPAN
+
+==============================================================================
