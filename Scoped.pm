@@ -1,6 +1,6 @@
 package Config::Scoped;
 
-# $Id: Scoped.pm,v 1.29 2004/08/03 17:54:20 gaissmai Exp gaissmai $
+# $Id: Scoped.pm,v 1.30 2004/08/03 19:26:29 gaissmai Exp gaissmai $
 
 =head1 NAME
 
@@ -40,7 +40,6 @@ use base 'Config::Scoped::Precomp';
 
 # force VERSION's in synchron
 $Config::Scoped::Precomp::VERSION = $VERSION;
-
 
 my @state_hashes = qw(config params macros warnings includes);
 
@@ -371,7 +370,7 @@ Nothing.
 =cut
 
 # just to override the import precompile fake of P::RD
-sub import {};
+sub import { }
 
 =pod
 
@@ -440,13 +439,10 @@ sub new {
 
     my %args = @_;
 
-    $class = ref($class) || $class;
-    my $thisparser = bless {}, $class;
-
     ##############################################
     # create the precompiled parser object
     #
-    $thisparser = $thisparser->SUPER::new
+    my $thisparser = $class->SUPER::new
       or Config::Scoped::Error->throw(
         -text => "Can't create a '$class' parser," );
 
@@ -462,7 +458,6 @@ sub new {
     $thisparser->{local}{lc}       ||= $thisparser->{local}{lowercase};
     $thisparser->{local}{safe}     ||= $thisparser->{local}{Safe};
     $thisparser->{local}{file}     ||= $thisparser->{local}{File};
-
 
     ##############################################
     # validate and munge the 'file' param
@@ -1018,7 +1013,8 @@ sub _include {
     # include parser creation.
     #
     my $clone_parser =
-      $thisparser->new( %{ $thisparser->{local} }, file => $include_file )
+      ( ref $thisparser )
+      ->new( %{ $thisparser->{local} }, file => $include_file )
 
       or Config::Scoped::Error->throw(
         -file => $parent_cfg_file,

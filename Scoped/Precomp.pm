@@ -8690,9 +8690,9 @@ sub Parse::RecDescent::Config::Scoped::Precomp::macro
 	return $return;
 }
 }
-package Config::Scoped::Precomp; sub new { 
-  $class = shift;
-  $class = ref $class || $class;
+package Config::Scoped::Precomp;
+sub new { 
+  my $class = shift;
   my $self = bless( {
                  '_AUTOTREE' => undef,
                  'localvars' => ' $params $macros $warnings $break $params $macros $warnings $params $macros $warnings $params $macros $warnings @list $break $break $break',
