@@ -16,7 +16,8 @@ ok( $p->parse( text => 'a=b;' ), 'basic parse test: string' );
 
 ok(
     $p = Config::Scoped->new(
-        file => File::Spec->catfile( $Bin, 'test-files', 'basic.cfg' )
+        file => File::Spec->catfile( $Bin, 'test-files', 'basic.cfg' ),
+        warnings => 'off',
     ),
     'Constructor'
 );

@@ -1,10 +1,9 @@
 # vim: cindent ft=perl
 
-# change 'tests => 1' to 'tests => last_test_to_print';
 use warnings;
 use strict;
 
-use Test::More tests => 5;
+use Test::More tests => 6;
 use FindBin qw($Bin);
 use File::Spec;
 
@@ -12,6 +11,7 @@ BEGIN { use_ok('Config::Scoped') }
 my $macros_cfg = File::Spec->catfile( $Bin, 'test-files', 'macros.cfg' );
 my ($p, $cfg);
 isa_ok($p = Config::Scoped->new(file => $macros_cfg), 'Config::Scoped');
+ok($p->set_warnings(name => 'perm', switch => 'off'), 'permission warnings off');
 ok(eval {$cfg = $p->parse}, 'parsing macros');
 
 my $text = <<'eot';

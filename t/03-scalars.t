@@ -14,7 +14,7 @@ my ( $p, $cfg );
 isa_ok(
     $p = Config::Scoped->new(
         file     => $scalar_cfg,
-        warnings => { parameter => 'off' }
+        warnings => { parameter => 'off', permissions => 'off' }
     ),
     'Config::Scoped'
 );

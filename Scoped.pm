@@ -1,6 +1,6 @@
 package Config::Scoped;
 
-# $Id: Scoped.pm,v 1.24 2004/07/31 14:52:21 gaissmai Exp gaissmai $
+# $Id: Scoped.pm,v 1.25 2004/08/01 13:23:58 gaissmai Exp gaissmai $
 
 =head1 NAME
 
@@ -955,8 +955,7 @@ sub _include {
     my $parent_cfg_dir  = $thisparser->{local}{cfg_dir};
 
     # absolute path? else concat with parent cfg dir
-    unless ( $include_file =~ m#^/# ) {
-
+    unless ( File::Spec->file_name_is_absolute($include_file) ) {
         $include_file = File::Spec->catfile( $parent_cfg_dir, $include_file )
           or Config::Scoped::Error->throw(
             -file => $parent_cfg_file,

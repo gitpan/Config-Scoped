@@ -37,13 +37,15 @@ isa_ok( $@, 'Config::Scoped::Error' );
 like( $@, qr/no text/i, "$@" );
 
 $p = Config::Scoped->new(
-    file => File::Spec->catfile( $Bin, 'test-files', 'null' ) );
+    file => File::Spec->catfile( $Bin, 'test-files', 'null' ),
+    warnings => { perm => 'off' } );
 eval { $cfg = $p->parse};
 isa_ok( $@, 'Config::Scoped::Error' );
 like( $@, qr/is empty/i, "$@" );
 
 $p = Config::Scoped->new(
-    file => File::Spec->catfile( $Bin, 'test-files', 'increc1' ) );
+    file => File::Spec->catfile( $Bin, 'test-files', 'increc1' ),
+    warnings => { perm => 'off' } );
 eval { $cfg = $p->parse; };
 isa_ok( $@, 'Config::Scoped::Error' );
 like( $@, qr/include loop/i, "$@" );

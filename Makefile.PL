@@ -2,8 +2,7 @@ use 5.006_001;
 use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME      => 'Config::Scoped',
-    #VERSION   => 0.00_18, # last alpa
-    VERSION   => 0.01,
+    VERSION   => '0.02',
     PREREQ_PM => {
         'Parse::RecDescent' => 0,
         Error               => 0,

@@ -13,7 +13,8 @@ my $cfg_file = File::Spec->catfile( $Bin, 'test-files', 'include.cfg' );
 my ( $p, $cfg );
 my $text = "%include $cfg_file; foo{}";
 
-isa_ok( $p = Config::Scoped->new(), 'Config::Scoped' );
+isa_ok( $p = Config::Scoped->new( warnings => { perm => 'off' } ),
+    'Config::Scoped' );
 ok( eval { $cfg = $p->parse( text => $text ) }, 'include test' );
 
 my $expected = {
@@ -29,7 +30,6 @@ my $expected = {
 };
 is_deeply( $cfg, $expected, 'datastructure after include' );
 
-
 $text = <<eot;
 {
     %include $cfg_file
@@ -39,5 +39,5 @@ eot
 
 $expected = { foo => {} };
 
-$p = Config::Scoped->new();
+$p = Config::Scoped->new( warnings => { perm => 'off' } );
 is_deeply( $p->parse( text => $text ), $expected, 'include in block' );
