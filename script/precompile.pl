@@ -7,14 +7,24 @@ use File::Spec;
 
 use lib 'patched';
 use Parse::RecDescent;
-$::RD_HINT=1;
+
+use blib;
+use Config::Scoped;
 
 chdir File::Spec->catdir(qw(Scoped))
   or die "Can't chdir: $!,";
 
-open GRAMMAR, 'Grammar.prd' or die "Can't open grammarfile 'grammar'. $!,";
+my $grammar_file = 'Grammar.prd';
+open GRAMMAR, $grammar_file
+  or die "Can't open grammarfile '$grammar_file': $!,";
+my $grammar = join '', <GRAMMAR>
+  or die "Can't slurp '$grammar_file': $!";
 
-Parse::RecDescent->Precompile(join('', <GRAMMAR>), "Config::Scoped::Precomp");
+my $class        = 'Config::Scoped::Precomp';
+my $mod_version  = $Config::Scoped::VERSION || 0.00;
+
+$::RD_HINT = 1;
+Parse::RecDescent->Precompile( $grammar, $class, $grammar_file, $mod_version );
 exit 0;
 
 # vim: cindent sm nohls sw=2 sts=2

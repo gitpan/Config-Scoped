@@ -65,8 +65,8 @@ config :      config_item(s) eofile
 	      } <reject>
 
 
-# hack, could be done wihtout this intermediate rule, but
-# the error messages are more readable wiht this hack.
+# hack, could be done without this intermediate rule, but
+# the error messages are more readable with this hack.
 #
 # commit hack: with a <commit> we get better error messages
 config_item :   <commit> statement

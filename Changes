@@ -1,6 +1,12 @@
+0.08 -- Wed Aug  4 11:57:07 CEST 2004
+- new P::RD->Precompile patch in order to stuff a VERSION
+  into the precompiled package.
+- new P::RD->Precompile patch in order to stuff some
+  POD into the precompiled package.
+
 0.07 -- Tue Aug  3 21:30:50 CEST 2004
-- new() must be called with a Class name and not with a ref
-  end of cargo cult programming, Merlyn's fight againt this
+- new() must be called with a Class name and not with a ref.
+  See Merlyn's fight againt this
 
 0.06 -- Tue Aug  3 20:38:57 CEST 2004
 - arrgh, typo in SYNOPSYS.

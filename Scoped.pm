@@ -33,13 +33,10 @@ use File::Basename qw(fileparse);
 use File::Spec;
 use Config::Scoped::Error;
 
-our $VERSION = 0.06;
+our $VERSION = 0.08;
 
 # inherit from a precompiled grammar package
 use base 'Config::Scoped::Precomp';
-
-# force VERSION's in synchron
-$Config::Scoped::Precomp::VERSION = $VERSION;
 
 my @state_hashes = qw(config params macros warnings includes);
 
