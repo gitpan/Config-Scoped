@@ -1,10 +1,10 @@
 package Config::Scoped;
 
-# $Id: Scoped.pm,v 1.26 2004/08/01 13:28:22 gaissmai Exp gaissmai $
+# $Id: Scoped.pm,v 1.27 2004/08/02 11:05:20 gaissmai Exp gaissmai $
 
 =head1 NAME
 
-Config:Scoped - a config file parser for complex config files
+Config:Scoped - feature rich configuration file parser
 
 =head1 SYNOPSIS
 
@@ -37,7 +37,7 @@ use Config::Scoped::Error;
 # inherit from a precompiled grammar package
 use base 'Config::Scoped::Precomp';
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 my @state_hashes = qw(config params macros warnings includes);
 
@@ -308,7 +308,7 @@ A I<macro> consists of the keyword C<%macro> followed by a I<name> and a I<value
 	
     %macro "_FOO_ again" 'believe me: in ANY double quoted token!';
 
-    # in eval blocks quotes doesn't mater for expansion!
+    # in eval blocks quotes doesn't matter for expansion!
     unquot = eval { _FOO_  . ' in eval just before evaluation!' };
     anyway = eval {
 	_FOO_ . ' _FOO_ ' . "_FOO_ " . 'with or without quotes!'
