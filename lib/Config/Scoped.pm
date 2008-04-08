@@ -41,7 +41,7 @@ use File::Basename qw(fileparse);
 use File::Spec;
 use Config::Scoped::Error;
 
-our $VERSION = '0.11_01';
+our $VERSION = '0.11_02';
 
 # inherit from a precompiled grammar package
 use base 'Config::Scoped::Precomp';
@@ -1104,7 +1104,7 @@ sub _expand_macro {
     my $value = $args{value};
 
     while ( my ( $macro, $defn ) = each %{ $thisparser->{local}{macros} } ) {
-        $value =~ s/$macro/$defn/g;
+        $value =~ s/\Q$macro\E/$defn/g;
     }
 
     # a P::RD rule can't return undef, then the rule will fail

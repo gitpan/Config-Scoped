@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-use Test::More tests => 6;
+use Test::More tests => 8;
 use File::Spec;
 
 BEGIN { use_ok('Config::Scoped') }
@@ -62,3 +62,30 @@ $expected = {
 
 $p = Config::Scoped->new;
 is_deeply( $p->parse( text => $text ), $expected, 'macros lexically scoped' );
+
+# no metacharacters expansion
+$text = <<'eot';
+%macro _M. 'quote metacharacter .';
+bar { _M1 = "_M1" }
+eot
+
+$expected = {
+    'bar' => { '_M1' => '_M1' },
+};
+
+$p = Config::Scoped->new;
+is_deeply( $p->parse( text => $text ), $expected, 'quoting meta-characters' );
+
+$text = <<'eot';
+%macro _M. 'quote metacharacter .';
+foo { _M1 = "_M." }
+eot
+
+$expected = {
+    'foo' => { '_M1' => 'quote metacharacter .' },
+};
+
+$p = Config::Scoped->new;
+is_deeply( $p->parse( text => $text ), $expected, 'quoting meta-characters' );
+
+

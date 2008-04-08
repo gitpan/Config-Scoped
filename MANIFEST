@@ -3,7 +3,8 @@ lib/Config/Scoped.pm
 lib/Config/Scoped/Error.pm
 lib/Config/Scoped/Grammar.prd
 lib/Config/Scoped/Precomp.pm
-MANIFEST
+Makefile.PL
+MANIFEST			This list of files
 META.yml
 patched-prd.tgz
 README
@@ -26,6 +27,7 @@ t/14-except.t
 t/15-cache.t
 t/16-warn.t
 t/17-perldsc.t
+t/boilerplate.t
 t/files/basic.cfg
 t/files/cache-test.cfg
 t/files/fvalid.cfg

@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                Config-Scoped
-version:             0.11_01
+version:             0.11_02
 abstract:            feature rich configuration file parser
 license:             perl
 author:              

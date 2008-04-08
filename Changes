@@ -1,3 +1,11 @@
+0.11_02 -- Mi 9. Apr 00:52:04 CEST 2008
+- grml, Makefile.PL missing in dist, wrong MANIFEST.SKIP
+
+0.11_01 -- Di 8. Apr 18:38:43 CEST 2008
+- fix version requirement for Parse::RecDescent
+- fix meta-character in macro expansion
+- no interface changes 
+
 0.11 -- Sun Aug  8 23:35:23 CEST 2004
 - collapsed localization statements in the grammar file where possible
 - some minor interface changes 
