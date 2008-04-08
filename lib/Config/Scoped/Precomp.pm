@@ -1,7 +1,7 @@
 package Config::Scoped::Precomp;
 use base 'Parse::RecDescent';
 
-$Config::Scoped::Precomp::VERSION = 0.11_02;
+$Config::Scoped::Precomp::VERSION = '0.11_03';
 
 =head1 NAME
 
@@ -8665,7 +8665,7 @@ $self = bless( {
                                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                                               'name' => '<rulevar: local $break>',
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 230
+                                                                                                              'line' => 232
                                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                                    ],
                                                                                         'line' => undef
@@ -8683,7 +8683,7 @@ $self = bless( {
                                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                                               'name' => '<reject:<reject: $break>>',
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 231,
+                                                                                                              'line' => 233,
                                                                                                               'code' => '( $break) ? undef : 1'
                                                                                                             }, 'Parse::RecDescent::Directive' ),
                                                                                                      bless( {
@@ -8692,7 +8692,7 @@ $self = bless( {
                                                                                                               'implicit' => undef,
                                                                                                               'argcode' => undef,
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 231
+                                                                                                              'line' => 233
                                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                                    ],
                                                                                         'line' => undef
@@ -8710,7 +8710,7 @@ $self = bless( {
                                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                                               'name' => '<reject:<reject: $break>>',
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 232,
+                                                                                                              'line' => 234,
                                                                                                               'code' => '( $break) ? undef : 1'
                                                                                                             }, 'Parse::RecDescent::Directive' ),
                                                                                                      bless( {
@@ -8719,10 +8719,10 @@ $self = bless( {
                                                                                                               'implicit' => undef,
                                                                                                               'argcode' => undef,
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 232
+                                                                                                              'line' => 234
                                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                                    ],
-                                                                                        'line' => 232
+                                                                                        'line' => 234
                                                                                       }, 'Parse::RecDescent::Production' ),
                                                                                bless( {
                                                                                         'number' => '3',
@@ -8737,7 +8737,7 @@ $self = bless( {
                                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                                               'name' => '<reject:<reject: $break>>',
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 233,
+                                                                                                              'line' => 235,
                                                                                                               'code' => '( $break) ? undef : 1'
                                                                                                             }, 'Parse::RecDescent::Directive' ),
                                                                                                      bless( {
@@ -8746,16 +8746,16 @@ $self = bless( {
                                                                                                               'implicit' => undef,
                                                                                                               'argcode' => undef,
                                                                                                               'lookahead' => 0,
-                                                                                                              'line' => 233
+                                                                                                              'line' => 235
                                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                                    ],
-                                                                                        'line' => 233
+                                                                                        'line' => 235
                                                                                       }, 'Parse::RecDescent::Production' )
                                                                              ],
                                                                   'name' => 'hash_or_list_or_value',
                                                                   'vars' => ' local $break;
 ',
-                                                                  'line' => 229
+                                                                  'line' => 231
                                                                 }, 'Parse::RecDescent::Rule' ),
                               'hash_or_list_or_value_or_comment' => bless( {
                                                                              'impcount' => 0,
@@ -8779,7 +8779,7 @@ $self = bless( {
                                                                                                                          'hashname' => '__DIRECTIVE1__',
                                                                                                                          'name' => '<rulevar: local $break>',
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 221
+                                                                                                                         'line' => 223
                                                                                                                        }, 'Parse::RecDescent::UncondReject' )
                                                                                                               ],
                                                                                                    'line' => undef
@@ -8797,7 +8797,7 @@ $self = bless( {
                                                                                                                          'hashname' => '__DIRECTIVE1__',
                                                                                                                          'name' => '<reject:<reject: $break>>',
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 222,
+                                                                                                                         'line' => 224,
                                                                                                                          'code' => '( $break) ? undef : 1'
                                                                                                                        }, 'Parse::RecDescent::Directive' ),
                                                                                                                 bless( {
@@ -8806,12 +8806,12 @@ $self = bless( {
                                                                                                                          'implicit' => undef,
                                                                                                                          'argcode' => undef,
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 222
+                                                                                                                         'line' => 224
                                                                                                                        }, 'Parse::RecDescent::Subrule' ),
                                                                                                                 bless( {
                                                                                                                          'hashname' => '__ACTION1__',
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 223,
+                                                                                                                         'line' => 225,
                                                                                                                          'code' => '{
 				    # fill the list, but not with comments!
 				    push @list, $item{hash_or_list_or_value}
@@ -8833,7 +8833,7 @@ $self = bless( {
                                                                                                                          'hashname' => '__DIRECTIVE1__',
                                                                                                                          'name' => '<reject:<reject: $break>>',
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 227,
+                                                                                                                         'line' => 229,
                                                                                                                          'code' => '( $break) ? undef : 1'
                                                                                                                        }, 'Parse::RecDescent::Directive' ),
                                                                                                                 bless( {
@@ -8842,16 +8842,16 @@ $self = bless( {
                                                                                                                          'implicit' => undef,
                                                                                                                          'argcode' => undef,
                                                                                                                          'lookahead' => 0,
-                                                                                                                         'line' => 227
+                                                                                                                         'line' => 229
                                                                                                                        }, 'Parse::RecDescent::Subrule' )
                                                                                                               ],
-                                                                                                   'line' => 227
+                                                                                                   'line' => 229
                                                                                                  }, 'Parse::RecDescent::Production' )
                                                                                         ],
                                                                              'name' => 'hash_or_list_or_value_or_comment',
                                                                              'vars' => ' local $break;
 ',
-                                                                             'line' => 220
+                                                                             'line' => 222
                                                                            }, 'Parse::RecDescent::Rule' ),
                               'include' => bless( {
                                                     'impcount' => 0,
@@ -8876,7 +8876,7 @@ $self = bless( {
                                                                                                 'name' => '<rulevar: local $thisparser->{local}{warnings} =
 		  Storable::dclone $thisparser->{local}{warnings}>',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 257
+                                                                                                'line' => 259
                                                                                               }, 'Parse::RecDescent::UncondReject' )
                                                                                      ],
                                                                           'line' => undef
@@ -8895,19 +8895,19 @@ $self = bless( {
                                                                                                 'hashname' => '__STRING1__',
                                                                                                 'description' => '\'%include\'',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 260
+                                                                                                'line' => 262
                                                                                               }, 'Parse::RecDescent::Literal' ),
                                                                                        bless( {
                                                                                                 'hashname' => '__DIRECTIVE1__',
                                                                                                 'name' => '<commit>',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 260,
+                                                                                                'line' => 262,
                                                                                                 'code' => '$commit = 1'
                                                                                               }, 'Parse::RecDescent::Directive' ),
                                                                                        bless( {
                                                                                                 'hashname' => '__ACTION1__',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 260,
+                                                                                                'line' => 262,
                                                                                                 'code' => '{ ++$break }'
                                                                                               }, 'Parse::RecDescent::Action' ),
                                                                                        bless( {
@@ -8916,7 +8916,7 @@ $self = bless( {
                                                                                                 'implicit' => undef,
                                                                                                 'argcode' => undef,
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 260
+                                                                                                'line' => 262
                                                                                               }, 'Parse::RecDescent::Subrule' ),
                                                                                        bless( {
                                                                                                 'subrule' => 'stop_pattern',
@@ -8924,12 +8924,12 @@ $self = bless( {
                                                                                                 'implicit' => undef,
                                                                                                 'argcode' => undef,
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 260
+                                                                                                'line' => 262
                                                                                               }, 'Parse::RecDescent::Subrule' ),
                                                                                        bless( {
                                                                                                 'hashname' => '__ACTION2__',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 261,
+                                                                                                'line' => 263,
                                                                                                 'code' => '{
 		$thisparser->{local}{line}  = $thisline;
 		$thisparser->_include( file => $item{value}, );
@@ -8955,23 +8955,23 @@ $self = bless( {
                                                                                                 'hashname' => '__DIRECTIVE1__',
                                                                                                 'commitonly' => '?',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 268
+                                                                                                'line' => 270
                                                                                               }, 'Parse::RecDescent::Error' ),
                                                                                        bless( {
                                                                                                 'hashname' => '__DIRECTIVE2__',
                                                                                                 'name' => '<reject>',
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 268
+                                                                                                'line' => 270
                                                                                               }, 'Parse::RecDescent::UncondReject' )
                                                                                      ],
-                                                                          'line' => 268
+                                                                          'line' => 270
                                                                         }, 'Parse::RecDescent::Production' )
                                                                ],
                                                     'name' => 'include',
                                                     'vars' => ' local $thisparser->{local}{warnings} =
 		  Storable::dclone $thisparser->{local}{warnings};
 ',
-                                                    'line' => 256
+                                                    'line' => 258
                                                   }, 'Parse::RecDescent::Rule' ),
                               'list_item' => bless( {
                                                       'impcount' => 0,
@@ -8995,13 +8995,13 @@ $self = bless( {
                                                                                                   'hashname' => '__STRING1__',
                                                                                                   'description' => '\']\'',
                                                                                                   'lookahead' => -1,
-                                                                                                  'line' => 188
+                                                                                                  'line' => 190
                                                                                                 }, 'Parse::RecDescent::Literal' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<commit>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 188,
+                                                                                                  'line' => 190,
                                                                                                   'code' => '$commit = 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
@@ -9010,7 +9010,7 @@ $self = bless( {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 188
+                                                                                                  'line' => 190
                                                                                                 }, 'Parse::RecDescent::Subrule' ),
                                                                                          bless( {
                                                                                                   'pattern' => ',?',
@@ -9018,7 +9018,7 @@ $self = bless( {
                                                                                                   'description' => '/,?/',
                                                                                                   'lookahead' => 0,
                                                                                                   'rdelim' => '/',
-                                                                                                  'line' => 188,
+                                                                                                  'line' => 190,
                                                                                                   'mod' => '',
                                                                                                   'ldelim' => '/'
                                                                                                 }, 'Parse::RecDescent::Token' )
@@ -9039,21 +9039,21 @@ $self = bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'commitonly' => '?',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 189
+                                                                                                  'line' => 191
                                                                                                 }, 'Parse::RecDescent::Error' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE2__',
                                                                                                   'name' => '<reject>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 189
+                                                                                                  'line' => 191
                                                                                                 }, 'Parse::RecDescent::UncondReject' )
                                                                                        ],
-                                                                            'line' => 189
+                                                                            'line' => 191
                                                                           }, 'Parse::RecDescent::Production' )
                                                                  ],
                                                       'name' => 'list_item',
                                                       'vars' => '',
-                                                      'line' => 188
+                                                      'line' => 190
                                                     }, 'Parse::RecDescent::Rule' ),
                               'hash_item' => bless( {
                                                       'impcount' => 0,
@@ -9077,13 +9077,13 @@ $self = bless( {
                                                                                                   'hashname' => '__STRING1__',
                                                                                                   'description' => '\'\\}\'',
                                                                                                   'lookahead' => -1,
-                                                                                                  'line' => 171
+                                                                                                  'line' => 173
                                                                                                 }, 'Parse::RecDescent::Literal' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<commit>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 171,
+                                                                                                  'line' => 173,
                                                                                                   'code' => '$commit = 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
@@ -9092,7 +9092,7 @@ $self = bless( {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 171
+                                                                                                  'line' => 173
                                                                                                 }, 'Parse::RecDescent::Subrule' ),
                                                                                          bless( {
                                                                                                   'pattern' => ',?',
@@ -9100,7 +9100,7 @@ $self = bless( {
                                                                                                   'description' => '/,?/',
                                                                                                   'lookahead' => 0,
                                                                                                   'rdelim' => '/',
-                                                                                                  'line' => 171,
+                                                                                                  'line' => 173,
                                                                                                   'mod' => '',
                                                                                                   'ldelim' => '/'
                                                                                                 }, 'Parse::RecDescent::Token' )
@@ -9121,21 +9121,21 @@ $self = bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'commitonly' => '?',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 172
+                                                                                                  'line' => 174
                                                                                                 }, 'Parse::RecDescent::Error' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE2__',
                                                                                                   'name' => '<reject>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 172
+                                                                                                  'line' => 174
                                                                                                 }, 'Parse::RecDescent::UncondReject' )
                                                                                        ],
-                                                                            'line' => 172
+                                                                            'line' => 174
                                                                           }, 'Parse::RecDescent::Production' )
                                                                  ],
                                                       'name' => 'hash_item',
                                                       'vars' => '',
-                                                      'line' => 171
+                                                      'line' => 173
                                                     }, 'Parse::RecDescent::Rule' ),
                               'key' => bless( {
                                                 'impcount' => 0,
@@ -9162,7 +9162,7 @@ $self = bless( {
                                                                                             'implicit' => undef,
                                                                                             'argcode' => undef,
                                                                                             'lookahead' => 0,
-                                                                                            'line' => 302
+                                                                                            'line' => 304
                                                                                           }, 'Parse::RecDescent::Subrule' )
                                                                                  ],
                                                                       'line' => undef
@@ -9182,10 +9182,10 @@ $self = bless( {
                                                                                             'implicit' => undef,
                                                                                             'argcode' => undef,
                                                                                             'lookahead' => 0,
-                                                                                            'line' => 302
+                                                                                            'line' => 304
                                                                                           }, 'Parse::RecDescent::Subrule' )
                                                                                  ],
-                                                                      'line' => 302
+                                                                      'line' => 304
                                                                     }, 'Parse::RecDescent::Production' ),
                                                              bless( {
                                                                       'number' => '2',
@@ -9202,15 +9202,15 @@ $self = bless( {
                                                                                             'implicit' => undef,
                                                                                             'argcode' => undef,
                                                                                             'lookahead' => 0,
-                                                                                            'line' => 302
+                                                                                            'line' => 304
                                                                                           }, 'Parse::RecDescent::Subrule' )
                                                                                  ],
-                                                                      'line' => 302
+                                                                      'line' => 304
                                                                     }, 'Parse::RecDescent::Production' )
                                                            ],
                                                 'name' => 'key',
                                                 'vars' => '',
-                                                'line' => 301
+                                                'line' => 303
                                               }, 'Parse::RecDescent::Rule' ),
                               'pragma' => bless( {
                                                    'impcount' => 0,
@@ -9237,7 +9237,7 @@ $self = bless( {
                                                                                                'implicit' => undef,
                                                                                                'argcode' => undef,
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 239
+                                                                                               'line' => 241
                                                                                              }, 'Parse::RecDescent::Subrule' )
                                                                                     ],
                                                                          'line' => undef
@@ -9257,10 +9257,10 @@ $self = bless( {
                                                                                                'implicit' => undef,
                                                                                                'argcode' => undef,
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 239
+                                                                                               'line' => 241
                                                                                              }, 'Parse::RecDescent::Subrule' )
                                                                                     ],
-                                                                         'line' => 239
+                                                                         'line' => 241
                                                                        }, 'Parse::RecDescent::Production' ),
                                                                 bless( {
                                                                          'number' => '2',
@@ -9277,15 +9277,15 @@ $self = bless( {
                                                                                                'implicit' => undef,
                                                                                                'argcode' => undef,
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 239
+                                                                                               'line' => 241
                                                                                              }, 'Parse::RecDescent::Subrule' )
                                                                                     ],
-                                                                         'line' => 239
+                                                                         'line' => 241
                                                                        }, 'Parse::RecDescent::Production' )
                                                               ],
                                                    'name' => 'pragma',
                                                    'vars' => '',
-                                                   'line' => 238
+                                                   'line' => 240
                                                  }, 'Parse::RecDescent::Rule' ),
                               'declaration' => bless( {
                                                         'impcount' => 0,
@@ -9311,7 +9311,7 @@ $self = bless( {
                                                                                                     'name' => '<rulevar:	local $thisparser->{local}{params} =
 		  Storable::dclone $thisparser->{local}{params}>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 122
+                                                                                                    'line' => 124
                                                                                                   }, 'Parse::RecDescent::UncondReject' )
                                                                                          ],
                                                                               'line' => undef
@@ -9330,7 +9330,7 @@ $self = bless( {
                                                                                                     'name' => '<rulevar:	local $thisparser->{local}{macros} =
 		  Storable::dclone $thisparser->{local}{macros}>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 125
+                                                                                                    'line' => 127
                                                                                                   }, 'Parse::RecDescent::UncondReject' )
                                                                                          ],
                                                                               'line' => undef
@@ -9349,7 +9349,7 @@ $self = bless( {
                                                                                                     'name' => '<rulevar:	local $thisparser->{local}{warnings} =
 		  Storable::dclone $thisparser->{local}{warnings}>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 128
+                                                                                                    'line' => 130
                                                                                                   }, 'Parse::RecDescent::UncondReject' )
                                                                                          ],
                                                                               'line' => undef
@@ -9372,26 +9372,26 @@ $self = bless( {
                                                                                                     'matchrule' => 0,
                                                                                                     'repspec' => 's',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 131
+                                                                                                    'line' => 133
                                                                                                   }, 'Parse::RecDescent::Repetition' ),
                                                                                            bless( {
                                                                                                     'pattern' => '{',
                                                                                                     'hashname' => '__STRING1__',
                                                                                                     'description' => '\'\\{\'',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 131
+                                                                                                    'line' => 133
                                                                                                   }, 'Parse::RecDescent::Literal' ),
                                                                                            bless( {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'name' => '<commit>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 131,
+                                                                                                    'line' => 133,
                                                                                                     'code' => '$commit = 1'
                                                                                                   }, 'Parse::RecDescent::Directive' ),
                                                                                            bless( {
                                                                                                     'hashname' => '__ACTION1__',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 131,
+                                                                                                    'line' => 133,
                                                                                                     'code' => '{ ++$break }'
                                                                                                   }, 'Parse::RecDescent::Action' ),
                                                                                            bless( {
@@ -9403,14 +9403,14 @@ $self = bless( {
                                                                                                     'matchrule' => 0,
                                                                                                     'repspec' => 's?',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 131
+                                                                                                    'line' => 133
                                                                                                   }, 'Parse::RecDescent::Repetition' ),
                                                                                            bless( {
                                                                                                     'pattern' => '}',
                                                                                                     'hashname' => '__STRING2__',
                                                                                                     'description' => '\'\\}\'',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 131
+                                                                                                    'line' => 133
                                                                                                   }, 'Parse::RecDescent::Literal' ),
                                                                                            bless( {
                                                                                                     'subrule' => 'stop_pattern',
@@ -9418,12 +9418,12 @@ $self = bless( {
                                                                                                     'implicit' => undef,
                                                                                                     'argcode' => undef,
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 131
+                                                                                                    'line' => 133
                                                                                                   }, 'Parse::RecDescent::Subrule' ),
                                                                                            bless( {
                                                                                                     'hashname' => '__ACTION2__',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 132,
+                                                                                                    'line' => 134,
                                                                                                     'code' => '{
 		    $thisparser->{local}{line} = $thisline;
 		    $thisparser->_store_declaration(
@@ -9452,16 +9452,16 @@ $self = bless( {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'commitonly' => '?',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 142
+                                                                                                    'line' => 144
                                                                                                   }, 'Parse::RecDescent::Error' ),
                                                                                            bless( {
                                                                                                     'hashname' => '__DIRECTIVE2__',
                                                                                                     'name' => '<reject>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 142
+                                                                                                    'line' => 144
                                                                                                   }, 'Parse::RecDescent::UncondReject' )
                                                                                          ],
-                                                                              'line' => 142
+                                                                              'line' => 144
                                                                             }, 'Parse::RecDescent::Production' )
                                                                    ],
                                                         'name' => 'declaration',
@@ -9472,7 +9472,7 @@ $self = bless( {
 	local $thisparser->{local}{warnings} =
 		  Storable::dclone $thisparser->{local}{warnings};
 ',
-                                                        'line' => 120
+                                                        'line' => 122
                                                       }, 'Parse::RecDescent::Rule' ),
                               'warning_long' => bless( {
                                                          'impcount' => 0,
@@ -9499,7 +9499,7 @@ $self = bless( {
                                                                                                      'description' => '/%warnings?/i',
                                                                                                      'lookahead' => 0,
                                                                                                      'rdelim' => '/',
-                                                                                                     'line' => 283,
+                                                                                                     'line' => 285,
                                                                                                      'mod' => 'i',
                                                                                                      'ldelim' => '/'
                                                                                                    }, 'Parse::RecDescent::Token' ),
@@ -9509,7 +9509,7 @@ $self = bless( {
                                                                                                      'implicit' => undef,
                                                                                                      'argcode' => undef,
                                                                                                      'lookahead' => -1,
-                                                                                                     'line' => 283
+                                                                                                     'line' => 285
                                                                                                    }, 'Parse::RecDescent::Subrule' ),
                                                                                             bless( {
                                                                                                      'subrule' => 'key',
@@ -9517,19 +9517,19 @@ $self = bless( {
                                                                                                      'implicit' => undef,
                                                                                                      'argcode' => undef,
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 283
+                                                                                                     'line' => 285
                                                                                                    }, 'Parse::RecDescent::Subrule' ),
                                                                                             bless( {
                                                                                                      'hashname' => '__DIRECTIVE1__',
                                                                                                      'name' => '<commit>',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 283,
+                                                                                                     'line' => 285,
                                                                                                      'code' => '$commit = 1'
                                                                                                    }, 'Parse::RecDescent::Directive' ),
                                                                                             bless( {
                                                                                                      'hashname' => '__ACTION1__',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 283,
+                                                                                                     'line' => 285,
                                                                                                      'code' => '{ ++$break }'
                                                                                                    }, 'Parse::RecDescent::Action' ),
                                                                                             bless( {
@@ -9538,7 +9538,7 @@ $self = bless( {
                                                                                                      'implicit' => undef,
                                                                                                      'argcode' => undef,
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 283
+                                                                                                     'line' => 285
                                                                                                    }, 'Parse::RecDescent::Subrule' ),
                                                                                             bless( {
                                                                                                      'subrule' => 'stop_pattern',
@@ -9546,12 +9546,12 @@ $self = bless( {
                                                                                                      'implicit' => undef,
                                                                                                      'argcode' => undef,
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 283
+                                                                                                     'line' => 285
                                                                                                    }, 'Parse::RecDescent::Subrule' ),
                                                                                             bless( {
                                                                                                      'hashname' => '__ACTION2__',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 284,
+                                                                                                     'line' => 286,
                                                                                                      'code' => '{
 	$thisparser->{local}{line} = $thisline;
         $thisparser->_set_warnings(
@@ -9580,21 +9580,21 @@ $self = bless( {
                                                                                                      'hashname' => '__DIRECTIVE1__',
                                                                                                      'commitonly' => '?',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 294
+                                                                                                     'line' => 296
                                                                                                    }, 'Parse::RecDescent::Error' ),
                                                                                             bless( {
                                                                                                      'hashname' => '__DIRECTIVE2__',
                                                                                                      'name' => '<reject>',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 294
+                                                                                                     'line' => 296
                                                                                                    }, 'Parse::RecDescent::UncondReject' )
                                                                                           ],
-                                                                               'line' => 294
+                                                                               'line' => 296
                                                                              }, 'Parse::RecDescent::Production' )
                                                                     ],
                                                          'name' => 'warning_long',
                                                          'vars' => '',
-                                                         'line' => 282
+                                                         'line' => 284
                                                        }, 'Parse::RecDescent::Rule' ),
                               'statement' => bless( {
                                                       'impcount' => 0,
@@ -9621,7 +9621,7 @@ $self = bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<rulevar: local $break>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 89
+                                                                                                  'line' => 91
                                                                                                 }, 'Parse::RecDescent::UncondReject' )
                                                                                        ],
                                                                             'line' => undef
@@ -9639,7 +9639,7 @@ $self = bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<reject:<reject: $break>>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 90,
+                                                                                                  'line' => 92,
                                                                                                   'code' => '( $break) ? undef : 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
@@ -9648,7 +9648,7 @@ $self = bless( {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 90
+                                                                                                  'line' => 92
                                                                                                 }, 'Parse::RecDescent::Subrule' )
                                                                                        ],
                                                                             'line' => undef
@@ -9666,65 +9666,11 @@ $self = bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<reject:<reject: $break>>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 91,
-                                                                                                  'code' => '( $break) ? undef : 1'
-                                                                                                }, 'Parse::RecDescent::Directive' ),
-                                                                                         bless( {
-                                                                                                  'subrule' => 'block',
-                                                                                                  'matchrule' => 0,
-                                                                                                  'implicit' => undef,
-                                                                                                  'argcode' => undef,
-                                                                                                  'lookahead' => 0,
-                                                                                                  'line' => 91
-                                                                                                }, 'Parse::RecDescent::Subrule' )
-                                                                                       ],
-                                                                            'line' => 91
-                                                                          }, 'Parse::RecDescent::Production' ),
-                                                                   bless( {
-                                                                            'number' => '3',
-                                                                            'strcount' => 0,
-                                                                            'dircount' => 1,
-                                                                            'uncommit' => undef,
-                                                                            'error' => undef,
-                                                                            'patcount' => 0,
-                                                                            'actcount' => 0,
-                                                                            'items' => [
-                                                                                         bless( {
-                                                                                                  'hashname' => '__DIRECTIVE1__',
-                                                                                                  'name' => '<reject:<reject: $break>>',
-                                                                                                  'lookahead' => 0,
-                                                                                                  'line' => 92,
-                                                                                                  'code' => '( $break) ? undef : 1'
-                                                                                                }, 'Parse::RecDescent::Directive' ),
-                                                                                         bless( {
-                                                                                                  'subrule' => 'declaration',
-                                                                                                  'matchrule' => 0,
-                                                                                                  'implicit' => undef,
-                                                                                                  'argcode' => undef,
-                                                                                                  'lookahead' => 0,
-                                                                                                  'line' => 92
-                                                                                                }, 'Parse::RecDescent::Subrule' )
-                                                                                       ],
-                                                                            'line' => 92
-                                                                          }, 'Parse::RecDescent::Production' ),
-                                                                   bless( {
-                                                                            'number' => '4',
-                                                                            'strcount' => 0,
-                                                                            'dircount' => 1,
-                                                                            'uncommit' => undef,
-                                                                            'error' => undef,
-                                                                            'patcount' => 0,
-                                                                            'actcount' => 0,
-                                                                            'items' => [
-                                                                                         bless( {
-                                                                                                  'hashname' => '__DIRECTIVE1__',
-                                                                                                  'name' => '<reject:<reject: $break>>',
-                                                                                                  'lookahead' => 0,
                                                                                                   'line' => 93,
                                                                                                   'code' => '( $break) ? undef : 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
-                                                                                                  'subrule' => 'pragma',
+                                                                                                  'subrule' => 'block',
                                                                                                   'matchrule' => 0,
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
@@ -9735,7 +9681,7 @@ $self = bless( {
                                                                             'line' => 93
                                                                           }, 'Parse::RecDescent::Production' ),
                                                                    bless( {
-                                                                            'number' => '5',
+                                                                            'number' => '3',
                                                                             'strcount' => 0,
                                                                             'dircount' => 1,
                                                                             'uncommit' => undef,
@@ -9751,7 +9697,7 @@ $self = bless( {
                                                                                                   'code' => '( $break) ? undef : 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
-                                                                                                  'subrule' => 'comment',
+                                                                                                  'subrule' => 'declaration',
                                                                                                   'matchrule' => 0,
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
@@ -9760,12 +9706,66 @@ $self = bless( {
                                                                                                 }, 'Parse::RecDescent::Subrule' )
                                                                                        ],
                                                                             'line' => 94
+                                                                          }, 'Parse::RecDescent::Production' ),
+                                                                   bless( {
+                                                                            'number' => '4',
+                                                                            'strcount' => 0,
+                                                                            'dircount' => 1,
+                                                                            'uncommit' => undef,
+                                                                            'error' => undef,
+                                                                            'patcount' => 0,
+                                                                            'actcount' => 0,
+                                                                            'items' => [
+                                                                                         bless( {
+                                                                                                  'hashname' => '__DIRECTIVE1__',
+                                                                                                  'name' => '<reject:<reject: $break>>',
+                                                                                                  'lookahead' => 0,
+                                                                                                  'line' => 95,
+                                                                                                  'code' => '( $break) ? undef : 1'
+                                                                                                }, 'Parse::RecDescent::Directive' ),
+                                                                                         bless( {
+                                                                                                  'subrule' => 'pragma',
+                                                                                                  'matchrule' => 0,
+                                                                                                  'implicit' => undef,
+                                                                                                  'argcode' => undef,
+                                                                                                  'lookahead' => 0,
+                                                                                                  'line' => 95
+                                                                                                }, 'Parse::RecDescent::Subrule' )
+                                                                                       ],
+                                                                            'line' => 95
+                                                                          }, 'Parse::RecDescent::Production' ),
+                                                                   bless( {
+                                                                            'number' => '5',
+                                                                            'strcount' => 0,
+                                                                            'dircount' => 1,
+                                                                            'uncommit' => undef,
+                                                                            'error' => undef,
+                                                                            'patcount' => 0,
+                                                                            'actcount' => 0,
+                                                                            'items' => [
+                                                                                         bless( {
+                                                                                                  'hashname' => '__DIRECTIVE1__',
+                                                                                                  'name' => '<reject:<reject: $break>>',
+                                                                                                  'lookahead' => 0,
+                                                                                                  'line' => 96,
+                                                                                                  'code' => '( $break) ? undef : 1'
+                                                                                                }, 'Parse::RecDescent::Directive' ),
+                                                                                         bless( {
+                                                                                                  'subrule' => 'comment',
+                                                                                                  'matchrule' => 0,
+                                                                                                  'implicit' => undef,
+                                                                                                  'argcode' => undef,
+                                                                                                  'lookahead' => 0,
+                                                                                                  'line' => 96
+                                                                                                }, 'Parse::RecDescent::Subrule' )
+                                                                                       ],
+                                                                            'line' => 96
                                                                           }, 'Parse::RecDescent::Production' )
                                                                  ],
                                                       'name' => 'statement',
                                                       'vars' => ' local $break;
 ',
-                                                      'line' => 88
+                                                      'line' => 90
                                                     }, 'Parse::RecDescent::Rule' ),
                               'eofile' => bless( {
                                                    'impcount' => 0,
@@ -9788,7 +9788,7 @@ $self = bless( {
                                                                                                'description' => '/\\\\z/',
                                                                                                'lookahead' => 0,
                                                                                                'rdelim' => '/',
-                                                                                               'line' => 330,
+                                                                                               'line' => 332,
                                                                                                'mod' => '',
                                                                                                'ldelim' => '/'
                                                                                              }, 'Parse::RecDescent::Token' )
@@ -9798,7 +9798,7 @@ $self = bless( {
                                                               ],
                                                    'name' => 'eofile',
                                                    'vars' => '',
-                                                   'line' => 330
+                                                   'line' => 332
                                                  }, 'Parse::RecDescent::Rule' ),
                               'perl_code' => bless( {
                                                       'impcount' => 0,
@@ -9821,7 +9821,7 @@ $self = bless( {
                                                                                                   'description' => '/perl_code|eval/i',
                                                                                                   'lookahead' => 0,
                                                                                                   'rdelim' => '/',
-                                                                                                  'line' => 314,
+                                                                                                  'line' => 316,
                                                                                                   'mod' => 'i',
                                                                                                   'ldelim' => '/'
                                                                                                 }, 'Parse::RecDescent::Token' ),
@@ -9829,14 +9829,14 @@ $self = bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<perl_codeblock>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 314,
+                                                                                                  'line' => 316,
                                                                                                   'code' => 'Text::Balanced::extract_codeblock($text,undef,$skip,\'{}\');
 					'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__ACTION1__',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 315,
+                                                                                                  'line' => 317,
                                                                                                   'code' => '{
 	$thisparser->{local}{line} = $thisline;
         $return = $thisparser->_perl_code( expr => $item{__DIRECTIVE1__}, );
@@ -9848,7 +9848,7 @@ $self = bless( {
                                                                  ],
                                                       'name' => 'perl_code',
                                                       'vars' => '',
-                                                      'line' => 314
+                                                      'line' => 316
                                                     }, 'Parse::RecDescent::Rule' ),
                               'token' => bless( {
                                                   'impcount' => 0,
@@ -9871,7 +9871,7 @@ $self = bless( {
                                                                                               'description' => '/[^ \\\\s >< \\}\\{ )( [\\\\] ; , \' " = # % ]+/x',
                                                                                               'lookahead' => 0,
                                                                                               'rdelim' => '/',
-                                                                                              'line' => 306,
+                                                                                              'line' => 308,
                                                                                               'mod' => 'x',
                                                                                               'ldelim' => '/'
                                                                                             }, 'Parse::RecDescent::Token' )
@@ -9881,7 +9881,7 @@ $self = bless( {
                                                              ],
                                                   'name' => 'token',
                                                   'vars' => '',
-                                                  'line' => 305
+                                                  'line' => 307
                                                 }, 'Parse::RecDescent::Rule' ),
                               'list' => bless( {
                                                  'impcount' => 0,
@@ -9904,7 +9904,7 @@ $self = bless( {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'name' => '<rulevar: local @list>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 180
+                                                                                             'line' => 182
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
                                                                        'line' => undef
@@ -9923,19 +9923,19 @@ $self = bless( {
                                                                                              'hashname' => '__STRING1__',
                                                                                              'description' => '\'[\'',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 181
+                                                                                             'line' => 183
                                                                                            }, 'Parse::RecDescent::Literal' ),
                                                                                     bless( {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'name' => '<commit>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 181,
+                                                                                             'line' => 183,
                                                                                              'code' => '$commit = 1'
                                                                                            }, 'Parse::RecDescent::Directive' ),
                                                                                     bless( {
                                                                                              'hashname' => '__ACTION1__',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 181,
+                                                                                             'line' => 183,
                                                                                              'code' => '{ ++$break }'
                                                                                            }, 'Parse::RecDescent::Action' ),
                                                                                     bless( {
@@ -9947,19 +9947,19 @@ $self = bless( {
                                                                                              'matchrule' => 0,
                                                                                              'repspec' => 's?',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 181
+                                                                                             'line' => 183
                                                                                            }, 'Parse::RecDescent::Repetition' ),
                                                                                     bless( {
                                                                                              'pattern' => ']',
                                                                                              'hashname' => '__STRING2__',
                                                                                              'description' => '\']\'',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 181
+                                                                                             'line' => 183
                                                                                            }, 'Parse::RecDescent::Literal' ),
                                                                                     bless( {
                                                                                              'hashname' => '__ACTION2__',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 182,
+                                                                                             'line' => 184,
                                                                                              'code' => '{
 		# returns just the filled list as value
 		$return = \\@list;
@@ -9982,22 +9982,22 @@ $self = bless( {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'commitonly' => '?',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 186
+                                                                                             'line' => 188
                                                                                            }, 'Parse::RecDescent::Error' ),
                                                                                     bless( {
                                                                                              'hashname' => '__DIRECTIVE2__',
                                                                                              'name' => '<reject>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 186
+                                                                                             'line' => 188
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
-                                                                       'line' => 186
+                                                                       'line' => 188
                                                                      }, 'Parse::RecDescent::Production' )
                                                             ],
                                                  'name' => 'list',
                                                  'vars' => ' local @list;
 ',
-                                                 'line' => 179
+                                                 'line' => 181
                                                }, 'Parse::RecDescent::Rule' ),
                               'config_item' => bless( {
                                                         'impcount' => 0,
@@ -10020,7 +10020,7 @@ $self = bless( {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'name' => '<commit>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 76,
+                                                                                                    'line' => 78,
                                                                                                     'code' => '$commit = 1'
                                                                                                   }, 'Parse::RecDescent::Directive' ),
                                                                                            bless( {
@@ -10029,7 +10029,7 @@ $self = bless( {
                                                                                                     'implicit' => undef,
                                                                                                     'argcode' => undef,
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 76
+                                                                                                    'line' => 78
                                                                                                   }, 'Parse::RecDescent::Subrule' )
                                                                                          ],
                                                                               'line' => undef
@@ -10048,21 +10048,21 @@ $self = bless( {
                                                                                                     'hashname' => '__DIRECTIVE1__',
                                                                                                     'commitonly' => '?',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 77
+                                                                                                    'line' => 79
                                                                                                   }, 'Parse::RecDescent::Error' ),
                                                                                            bless( {
                                                                                                     'hashname' => '__DIRECTIVE2__',
                                                                                                     'name' => '<reject>',
                                                                                                     'lookahead' => 0,
-                                                                                                    'line' => 77
+                                                                                                    'line' => 79
                                                                                                   }, 'Parse::RecDescent::UncondReject' )
                                                                                          ],
-                                                                              'line' => 77
+                                                                              'line' => 79
                                                                             }, 'Parse::RecDescent::Production' )
                                                                    ],
                                                         'name' => 'config_item',
                                                         'vars' => '',
-                                                        'line' => 75
+                                                        'line' => 77
                                                       }, 'Parse::RecDescent::Rule' ),
                               'parameter_or_macro_or_comment_or_warning' => bless( {
                                                                                      'impcount' => 0,
@@ -10088,7 +10088,7 @@ $self = bless( {
                                                                                                                                  'hashname' => '__DIRECTIVE1__',
                                                                                                                                  'name' => '<rulevar: local $break>',
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 214
+                                                                                                                                 'line' => 216
                                                                                                                                }, 'Parse::RecDescent::UncondReject' )
                                                                                                                       ],
                                                                                                            'line' => undef
@@ -10106,7 +10106,7 @@ $self = bless( {
                                                                                                                                  'hashname' => '__DIRECTIVE1__',
                                                                                                                                  'name' => '<reject:<reject: $break>>',
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 215,
+                                                                                                                                 'line' => 217,
                                                                                                                                  'code' => '( $break) ? undef : 1'
                                                                                                                                }, 'Parse::RecDescent::Directive' ),
                                                                                                                         bless( {
@@ -10115,7 +10115,7 @@ $self = bless( {
                                                                                                                                  'implicit' => undef,
                                                                                                                                  'argcode' => undef,
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 215
+                                                                                                                                 'line' => 217
                                                                                                                                }, 'Parse::RecDescent::Subrule' )
                                                                                                                       ],
                                                                                                            'line' => undef
@@ -10133,7 +10133,7 @@ $self = bless( {
                                                                                                                                  'hashname' => '__DIRECTIVE1__',
                                                                                                                                  'name' => '<reject:<reject: $break>>',
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 216,
+                                                                                                                                 'line' => 218,
                                                                                                                                  'code' => '( $break) ? undef : 1'
                                                                                                                                }, 'Parse::RecDescent::Directive' ),
                                                                                                                         bless( {
@@ -10142,10 +10142,10 @@ $self = bless( {
                                                                                                                                  'implicit' => undef,
                                                                                                                                  'argcode' => undef,
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 216
+                                                                                                                                 'line' => 218
                                                                                                                                }, 'Parse::RecDescent::Subrule' )
                                                                                                                       ],
-                                                                                                           'line' => 216
+                                                                                                           'line' => 218
                                                                                                          }, 'Parse::RecDescent::Production' ),
                                                                                                   bless( {
                                                                                                            'number' => '3',
@@ -10160,7 +10160,7 @@ $self = bless( {
                                                                                                                                  'hashname' => '__DIRECTIVE1__',
                                                                                                                                  'name' => '<reject:<reject: $break>>',
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 217,
+                                                                                                                                 'line' => 219,
                                                                                                                                  'code' => '( $break) ? undef : 1'
                                                                                                                                }, 'Parse::RecDescent::Directive' ),
                                                                                                                         bless( {
@@ -10169,10 +10169,10 @@ $self = bless( {
                                                                                                                                  'implicit' => undef,
                                                                                                                                  'argcode' => undef,
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 217
+                                                                                                                                 'line' => 219
                                                                                                                                }, 'Parse::RecDescent::Subrule' )
                                                                                                                       ],
-                                                                                                           'line' => 217
+                                                                                                           'line' => 219
                                                                                                          }, 'Parse::RecDescent::Production' ),
                                                                                                   bless( {
                                                                                                            'number' => '4',
@@ -10187,7 +10187,7 @@ $self = bless( {
                                                                                                                                  'hashname' => '__DIRECTIVE1__',
                                                                                                                                  'name' => '<reject:<reject: $break>>',
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 218,
+                                                                                                                                 'line' => 220,
                                                                                                                                  'code' => '( $break) ? undef : 1'
                                                                                                                                }, 'Parse::RecDescent::Directive' ),
                                                                                                                         bless( {
@@ -10196,16 +10196,16 @@ $self = bless( {
                                                                                                                                  'implicit' => undef,
                                                                                                                                  'argcode' => undef,
                                                                                                                                  'lookahead' => 0,
-                                                                                                                                 'line' => 218
+                                                                                                                                 'line' => 220
                                                                                                                                }, 'Parse::RecDescent::Subrule' )
                                                                                                                       ],
-                                                                                                           'line' => 218
+                                                                                                           'line' => 220
                                                                                                          }, 'Parse::RecDescent::Production' )
                                                                                                 ],
                                                                                      'name' => 'parameter_or_macro_or_comment_or_warning',
                                                                                      'vars' => ' local $break;
 ',
-                                                                                     'line' => 213
+                                                                                     'line' => 215
                                                                                    }, 'Parse::RecDescent::Rule' ),
                               'on_off' => bless( {
                                                    'impcount' => 0,
@@ -10228,7 +10228,7 @@ $self = bless( {
                                                                                                'description' => '/on|off/i',
                                                                                                'lookahead' => 0,
                                                                                                'rdelim' => '/',
-                                                                                               'line' => 296,
+                                                                                               'line' => 298,
                                                                                                'mod' => 'i',
                                                                                                'ldelim' => '/'
                                                                                              }, 'Parse::RecDescent::Token' )
@@ -10238,7 +10238,7 @@ $self = bless( {
                                                               ],
                                                    'name' => 'on_off',
                                                    'vars' => '',
-                                                   'line' => 296
+                                                   'line' => 298
                                                  }, 'Parse::RecDescent::Rule' ),
                               'decl_item' => bless( {
                                                       'impcount' => 0,
@@ -10262,13 +10262,13 @@ $self = bless( {
                                                                                                   'hashname' => '__STRING1__',
                                                                                                   'description' => '\'\\}\'',
                                                                                                   'lookahead' => -1,
-                                                                                                  'line' => 144
+                                                                                                  'line' => 146
                                                                                                 }, 'Parse::RecDescent::Literal' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<commit>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 144,
+                                                                                                  'line' => 146,
                                                                                                   'code' => '$commit = 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
@@ -10277,7 +10277,7 @@ $self = bless( {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 144
+                                                                                                  'line' => 146
                                                                                                 }, 'Parse::RecDescent::Subrule' )
                                                                                        ],
                                                                             'line' => undef
@@ -10296,21 +10296,21 @@ $self = bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'commitonly' => '?',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 145
+                                                                                                  'line' => 147
                                                                                                 }, 'Parse::RecDescent::Error' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE2__',
                                                                                                   'name' => '<reject>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 145
+                                                                                                  'line' => 147
                                                                                                 }, 'Parse::RecDescent::UncondReject' )
                                                                                        ],
-                                                                            'line' => 145
+                                                                            'line' => 147
                                                                           }, 'Parse::RecDescent::Production' )
                                                                  ],
                                                       'name' => 'decl_item',
                                                       'vars' => '',
-                                                      'line' => 144
+                                                      'line' => 146
                                                     }, 'Parse::RecDescent::Rule' ),
                               'value' => bless( {
                                                   'impcount' => 0,
@@ -10337,7 +10337,7 @@ $self = bless( {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 303
+                                                                                              'line' => 305
                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                    ],
                                                                         'line' => undef
@@ -10357,10 +10357,10 @@ $self = bless( {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 303
+                                                                                              'line' => 305
                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                    ],
-                                                                        'line' => 303
+                                                                        'line' => 305
                                                                       }, 'Parse::RecDescent::Production' ),
                                                                bless( {
                                                                         'number' => '2',
@@ -10377,15 +10377,15 @@ $self = bless( {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 303
+                                                                                              'line' => 305
                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                    ],
-                                                                        'line' => 303
+                                                                        'line' => 305
                                                                       }, 'Parse::RecDescent::Production' )
                                                              ],
                                                   'name' => 'value',
                                                   'vars' => '',
-                                                  'line' => 303
+                                                  'line' => 305
                                                 }, 'Parse::RecDescent::Rule' ),
                               'stop_pattern' => bless( {
                                                          'impcount' => 0,
@@ -10406,7 +10406,7 @@ $self = bless( {
                                                                                                      'hashname' => '__DIRECTIVE1__',
                                                                                                      'name' => '<skip: qr//>',
                                                                                                      'lookahead' => 0,
-                                                                                                     'line' => 328,
+                                                                                                     'line' => 330,
                                                                                                      'code' => 'my $oldskip = $skip; $skip= qr//; $oldskip'
                                                                                                    }, 'Parse::RecDescent::Directive' ),
                                                                                             bless( {
@@ -10415,7 +10415,7 @@ $self = bless( {
                                                                                                      'description' => '/\\\\s* (\\\\n | ; | , | \\\\z | (?=[ \\\\\\} \\\\] \\\\s ]) )/x',
                                                                                                      'lookahead' => 0,
                                                                                                      'rdelim' => '/',
-                                                                                                     'line' => 328,
+                                                                                                     'line' => 330,
                                                                                                      'mod' => 'x',
                                                                                                      'ldelim' => '/'
                                                                                                    }, 'Parse::RecDescent::Token' )
@@ -10425,7 +10425,7 @@ $self = bless( {
                                                                     ],
                                                          'name' => 'stop_pattern',
                                                          'vars' => '',
-                                                         'line' => 327
+                                                         'line' => 329
                                                        }, 'Parse::RecDescent::Rule' ),
                               'warning_short' => bless( {
                                                           'impcount' => 0,
@@ -10451,7 +10451,7 @@ $self = bless( {
                                                                                                       'description' => '/%warnings?/i',
                                                                                                       'lookahead' => 0,
                                                                                                       'rdelim' => '/',
-                                                                                                      'line' => 272,
+                                                                                                      'line' => 274,
                                                                                                       'mod' => 'i',
                                                                                                       'ldelim' => '/'
                                                                                                     }, 'Parse::RecDescent::Token' ),
@@ -10461,19 +10461,19 @@ $self = bless( {
                                                                                                       'implicit' => undef,
                                                                                                       'argcode' => undef,
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 272
+                                                                                                      'line' => 274
                                                                                                     }, 'Parse::RecDescent::Subrule' ),
                                                                                              bless( {
                                                                                                       'hashname' => '__DIRECTIVE1__',
                                                                                                       'name' => '<commit>',
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 272,
+                                                                                                      'line' => 274,
                                                                                                       'code' => '$commit = 1'
                                                                                                     }, 'Parse::RecDescent::Directive' ),
                                                                                              bless( {
                                                                                                       'hashname' => '__ACTION1__',
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 272,
+                                                                                                      'line' => 274,
                                                                                                       'code' => '{ ++$break }'
                                                                                                     }, 'Parse::RecDescent::Action' ),
                                                                                              bless( {
@@ -10482,12 +10482,12 @@ $self = bless( {
                                                                                                       'implicit' => undef,
                                                                                                       'argcode' => undef,
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 272
+                                                                                                      'line' => 274
                                                                                                     }, 'Parse::RecDescent::Subrule' ),
                                                                                              bless( {
                                                                                                       'hashname' => '__ACTION2__',
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 273,
+                                                                                                      'line' => 275,
                                                                                                       'code' => '{
 	    $thisparser->{local}{line} = $thisline;
 	    $thisparser->_set_warnings( switch => $item{on_off} );
@@ -10513,21 +10513,21 @@ $self = bless( {
                                                                                                       'hashname' => '__DIRECTIVE1__',
                                                                                                       'commitonly' => '?',
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 280
+                                                                                                      'line' => 282
                                                                                                     }, 'Parse::RecDescent::Error' ),
                                                                                              bless( {
                                                                                                       'hashname' => '__DIRECTIVE2__',
                                                                                                       'name' => '<reject>',
                                                                                                       'lookahead' => 0,
-                                                                                                      'line' => 280
+                                                                                                      'line' => 282
                                                                                                     }, 'Parse::RecDescent::UncondReject' )
                                                                                            ],
-                                                                                'line' => 280
+                                                                                'line' => 282
                                                                               }, 'Parse::RecDescent::Production' )
                                                                      ],
                                                           'name' => 'warning_short',
                                                           'vars' => '',
-                                                          'line' => 272
+                                                          'line' => 274
                                                         }, 'Parse::RecDescent::Rule' ),
                               'hash' => bless( {
                                                  'impcount' => 0,
@@ -10550,7 +10550,7 @@ $self = bless( {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'name' => '<rulevar: local $thisparser->{local}{params} = {}>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 156
+                                                                                             'line' => 158
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
                                                                        'line' => undef
@@ -10569,7 +10569,7 @@ $self = bless( {
                                                                                              'name' => '<rulevar: local $thisparser->{local}{macros} =
 	      Storable::dclone $thisparser->{local}{macros}>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 158
+                                                                                             'line' => 160
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
                                                                        'line' => undef
@@ -10588,7 +10588,7 @@ $self = bless( {
                                                                                              'name' => '<rulevar: local $thisparser->{local}{warnings} =
 	      Storable::dclone $thisparser->{local}{warnings}>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 161
+                                                                                             'line' => 163
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
                                                                        'line' => undef
@@ -10607,19 +10607,19 @@ $self = bless( {
                                                                                              'hashname' => '__STRING1__',
                                                                                              'description' => '\'\\{\'',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 164
+                                                                                             'line' => 166
                                                                                            }, 'Parse::RecDescent::Literal' ),
                                                                                     bless( {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'name' => '<commit>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 164,
+                                                                                             'line' => 166,
                                                                                              'code' => '$commit = 1'
                                                                                            }, 'Parse::RecDescent::Directive' ),
                                                                                     bless( {
                                                                                              'hashname' => '__ACTION1__',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 164,
+                                                                                             'line' => 166,
                                                                                              'code' => '{ ++$break }'
                                                                                            }, 'Parse::RecDescent::Action' ),
                                                                                     bless( {
@@ -10631,19 +10631,19 @@ $self = bless( {
                                                                                              'matchrule' => 0,
                                                                                              'repspec' => 's?',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 164
+                                                                                             'line' => 166
                                                                                            }, 'Parse::RecDescent::Repetition' ),
                                                                                     bless( {
                                                                                              'pattern' => '}',
                                                                                              'hashname' => '__STRING2__',
                                                                                              'description' => '\'\\}\'',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 164
+                                                                                             'line' => 166
                                                                                            }, 'Parse::RecDescent::Literal' ),
                                                                                     bless( {
                                                                                              'hashname' => '__ACTION2__',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 165,
+                                                                                             'line' => 167,
                                                                                              'code' => '{
 		# returns just the filled parameter hash as value
 		$return = $thisparser->{local}{params};
@@ -10666,16 +10666,16 @@ $self = bless( {
                                                                                              'hashname' => '__DIRECTIVE1__',
                                                                                              'commitonly' => '?',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 169
+                                                                                             'line' => 171
                                                                                            }, 'Parse::RecDescent::Error' ),
                                                                                     bless( {
                                                                                              'hashname' => '__DIRECTIVE2__',
                                                                                              'name' => '<reject>',
                                                                                              'lookahead' => 0,
-                                                                                             'line' => 169
+                                                                                             'line' => 171
                                                                                            }, 'Parse::RecDescent::UncondReject' )
                                                                                   ],
-                                                                       'line' => 169
+                                                                       'line' => 171
                                                                      }, 'Parse::RecDescent::Production' )
                                                             ],
                                                  'name' => 'hash',
@@ -10685,7 +10685,7 @@ $self = bless( {
  local $thisparser->{local}{warnings} =
 	      Storable::dclone $thisparser->{local}{warnings};
 ',
-                                                 'line' => 154
+                                                 'line' => 156
                                                }, 'Parse::RecDescent::Rule' ),
                               'parameter' => bless( {
                                                       'impcount' => 0,
@@ -10712,7 +10712,7 @@ $self = bless( {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 195
+                                                                                                  'line' => 197
                                                                                                 }, 'Parse::RecDescent::Subrule' ),
                                                                                          bless( {
                                                                                                   'pattern' => '=>?',
@@ -10720,7 +10720,7 @@ $self = bless( {
                                                                                                   'description' => '/=>?/',
                                                                                                   'lookahead' => 0,
                                                                                                   'rdelim' => '/',
-                                                                                                  'line' => 195,
+                                                                                                  'line' => 197,
                                                                                                   'mod' => '',
                                                                                                   'ldelim' => '/'
                                                                                                 }, 'Parse::RecDescent::Token' ),
@@ -10728,13 +10728,13 @@ $self = bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'name' => '<commit>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 195,
+                                                                                                  'line' => 197,
                                                                                                   'code' => '$commit = 1'
                                                                                                 }, 'Parse::RecDescent::Directive' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__ACTION1__',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 195,
+                                                                                                  'line' => 197,
                                                                                                   'code' => '{ ++$break }'
                                                                                                 }, 'Parse::RecDescent::Action' ),
                                                                                          bless( {
@@ -10743,7 +10743,7 @@ $self = bless( {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 195
+                                                                                                  'line' => 197
                                                                                                 }, 'Parse::RecDescent::Subrule' ),
                                                                                          bless( {
                                                                                                   'subrule' => 'stop_pattern',
@@ -10751,12 +10751,12 @@ $self = bless( {
                                                                                                   'implicit' => undef,
                                                                                                   'argcode' => undef,
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 195
+                                                                                                  'line' => 197
                                                                                                 }, 'Parse::RecDescent::Subrule' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__ACTION2__',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 196,
+                                                                                                  'line' => 198,
                                                                                                   'code' => '{
 		$thisparser->{local}{line}  = $thisline;
 		# store the parameter in the local scope
@@ -10786,21 +10786,21 @@ $self = bless( {
                                                                                                   'hashname' => '__DIRECTIVE1__',
                                                                                                   'commitonly' => '?',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 207
+                                                                                                  'line' => 209
                                                                                                 }, 'Parse::RecDescent::Error' ),
                                                                                          bless( {
                                                                                                   'hashname' => '__DIRECTIVE2__',
                                                                                                   'name' => '<reject>',
                                                                                                   'lookahead' => 0,
-                                                                                                  'line' => 207
+                                                                                                  'line' => 209
                                                                                                 }, 'Parse::RecDescent::UncondReject' )
                                                                                        ],
-                                                                            'line' => 207
+                                                                            'line' => 209
                                                                           }, 'Parse::RecDescent::Production' )
                                                                  ],
                                                       'name' => 'parameter',
                                                       'vars' => '',
-                                                      'line' => 194
+                                                      'line' => 196
                                                     }, 'Parse::RecDescent::Rule' ),
                               'comment' => bless( {
                                                     'impcount' => 0,
@@ -10823,7 +10823,7 @@ $self = bless( {
                                                                                                 'description' => '/#.*\\\\n/',
                                                                                                 'lookahead' => 0,
                                                                                                 'rdelim' => '/',
-                                                                                                'line' => 332,
+                                                                                                'line' => 334,
                                                                                                 'mod' => '',
                                                                                                 'ldelim' => '/'
                                                                                               }, 'Parse::RecDescent::Token' )
@@ -10833,7 +10833,7 @@ $self = bless( {
                                                                ],
                                                     'name' => 'comment',
                                                     'vars' => '',
-                                                    'line' => 332
+                                                    'line' => 334
                                                   }, 'Parse::RecDescent::Rule' ),
                               'warning' => bless( {
                                                     'impcount' => 0,
@@ -10859,7 +10859,7 @@ $self = bless( {
                                                                                                 'implicit' => undef,
                                                                                                 'argcode' => undef,
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 270
+                                                                                                'line' => 272
                                                                                               }, 'Parse::RecDescent::Subrule' )
                                                                                      ],
                                                                           'line' => undef
@@ -10879,15 +10879,15 @@ $self = bless( {
                                                                                                 'implicit' => undef,
                                                                                                 'argcode' => undef,
                                                                                                 'lookahead' => 0,
-                                                                                                'line' => 270
+                                                                                                'line' => 272
                                                                                               }, 'Parse::RecDescent::Subrule' )
                                                                                      ],
-                                                                          'line' => 270
+                                                                          'line' => 272
                                                                         }, 'Parse::RecDescent::Production' )
                                                                ],
                                                     'name' => 'warning',
                                                     'vars' => '',
-                                                    'line' => 270
+                                                    'line' => 272
                                                   }, 'Parse::RecDescent::Rule' ),
                               'block' => bless( {
                                                   'impcount' => 0,
@@ -10912,7 +10912,7 @@ $self = bless( {
                                                                                               'name' => '<rulevar: local $thisparser->{local}{params} =
 	      Storable::dclone $thisparser->{local}{params}>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 103
+                                                                                              'line' => 105
                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                    ],
                                                                         'line' => undef
@@ -10931,7 +10931,7 @@ $self = bless( {
                                                                                               'name' => '<rulevar: local $thisparser->{local}{macros} =
 	      Storable::dclone $thisparser->{local}{macros}>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 106
+                                                                                              'line' => 108
                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                    ],
                                                                         'line' => undef
@@ -10950,7 +10950,7 @@ $self = bless( {
                                                                                               'name' => '<rulevar: local $thisparser->{local}{warnings} =
 	      Storable::dclone $thisparser->{local}{warnings}>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 109
+                                                                                              'line' => 111
                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                    ],
                                                                         'line' => undef
@@ -10969,19 +10969,19 @@ $self = bless( {
                                                                                               'hashname' => '__STRING1__',
                                                                                               'description' => '\'\\{\'',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 112
+                                                                                              'line' => 114
                                                                                             }, 'Parse::RecDescent::Literal' ),
                                                                                      bless( {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'name' => '<commit>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 112,
+                                                                                              'line' => 114,
                                                                                               'code' => '$commit = 1'
                                                                                             }, 'Parse::RecDescent::Directive' ),
                                                                                      bless( {
                                                                                               'hashname' => '__ACTION1__',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 112,
+                                                                                              'line' => 114,
                                                                                               'code' => '{ ++$break }'
                                                                                             }, 'Parse::RecDescent::Action' ),
                                                                                      bless( {
@@ -10993,14 +10993,14 @@ $self = bless( {
                                                                                               'matchrule' => 0,
                                                                                               'repspec' => 's',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 112
+                                                                                              'line' => 114
                                                                                             }, 'Parse::RecDescent::Repetition' ),
                                                                                      bless( {
                                                                                               'pattern' => '}',
                                                                                               'hashname' => '__STRING2__',
                                                                                               'description' => '\'\\}\'',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 112
+                                                                                              'line' => 114
                                                                                             }, 'Parse::RecDescent::Literal' ),
                                                                                      bless( {
                                                                                               'subrule' => 'stop_pattern',
@@ -11008,7 +11008,7 @@ $self = bless( {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 112
+                                                                                              'line' => 114
                                                                                             }, 'Parse::RecDescent::Subrule' )
                                                                                    ],
                                                                         'line' => undef
@@ -11027,16 +11027,16 @@ $self = bless( {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'commitonly' => '?',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 113
+                                                                                              'line' => 115
                                                                                             }, 'Parse::RecDescent::Error' ),
                                                                                      bless( {
                                                                                               'hashname' => '__DIRECTIVE2__',
                                                                                               'name' => '<reject>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 113
+                                                                                              'line' => 115
                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                    ],
-                                                                        'line' => 113
+                                                                        'line' => 115
                                                                       }, 'Parse::RecDescent::Production' )
                                                              ],
                                                   'name' => 'block',
@@ -11047,7 +11047,7 @@ $self = bless( {
  local $thisparser->{local}{warnings} =
 	      Storable::dclone $thisparser->{local}{warnings};
 ',
-                                                  'line' => 101
+                                                  'line' => 103
                                                 }, 'Parse::RecDescent::Rule' ),
                               'config' => bless( {
                                                    'impcount' => 0,
@@ -11076,7 +11076,7 @@ $self = bless( {
                                                                                                'matchrule' => 0,
                                                                                                'repspec' => 's',
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 54
+                                                                                               'line' => 56
                                                                                              }, 'Parse::RecDescent::Repetition' ),
                                                                                       bless( {
                                                                                                'subrule' => 'eofile',
@@ -11084,7 +11084,7 @@ $self = bless( {
                                                                                                'implicit' => undef,
                                                                                                'argcode' => undef,
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 54
+                                                                                               'line' => 56
                                                                                              }, 'Parse::RecDescent::Subrule' )
                                                                                     ],
                                                                          'line' => undef
@@ -11101,7 +11101,7 @@ $self = bless( {
                                                                                       bless( {
                                                                                                'hashname' => '__ACTION1__',
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 55,
+                                                                                               'line' => 57,
                                                                                                'code' => '{
 		# Error handling:
 		# fetch only the first error, this is the most important one
@@ -11122,15 +11122,15 @@ $self = bless( {
                                                                                                'hashname' => '__DIRECTIVE1__',
                                                                                                'name' => '<reject>',
                                                                                                'lookahead' => 0,
-                                                                                               'line' => 69
+                                                                                               'line' => 71
                                                                                              }, 'Parse::RecDescent::UncondReject' )
                                                                                     ],
-                                                                         'line' => 55
+                                                                         'line' => 57
                                                                        }, 'Parse::RecDescent::Production' )
                                                               ],
                                                    'name' => 'config',
                                                    'vars' => '',
-                                                   'line' => 52
+                                                   'line' => 54
                                                  }, 'Parse::RecDescent::Rule' ),
                               'perl_quote' => bless( {
                                                        'impcount' => 0,
@@ -11153,7 +11153,7 @@ $self = bless( {
                                                                                                    'description' => '/"|\'|<</',
                                                                                                    'lookahead' => 1,
                                                                                                    'rdelim' => '/',
-                                                                                                   'line' => 308,
+                                                                                                   'line' => 310,
                                                                                                    'mod' => '',
                                                                                                    'ldelim' => '/'
                                                                                                  }, 'Parse::RecDescent::Token' ),
@@ -11161,7 +11161,7 @@ $self = bless( {
                                                                                                    'hashname' => '__DIRECTIVE1__',
                                                                                                    'name' => '<perl_quotelike>',
                                                                                                    'lookahead' => 0,
-                                                                                                   'line' => 308,
+                                                                                                   'line' => 310,
                                                                                                    'code' => 'my ($match,@res);
 					 ($match,$text,undef,@res) =
 						  Text::Balanced::extract_quotelike($text,$skip);
@@ -11171,7 +11171,7 @@ $self = bless( {
                                                                                           bless( {
                                                                                                    'hashname' => '__ACTION1__',
                                                                                                    'lookahead' => 0,
-                                                                                                   'line' => 309,
+                                                                                                   'line' => 311,
                                                                                                    'code' => '{
 	$thisparser->{local}{line} = $thisline;
         $return = $thisparser->_quotelike( value => $item{__DIRECTIVE1__} );
@@ -11183,7 +11183,7 @@ $self = bless( {
                                                                   ],
                                                        'name' => 'perl_quote',
                                                        'vars' => '',
-                                                       'line' => 308
+                                                       'line' => 310
                                                      }, 'Parse::RecDescent::Rule' ),
                               'macro' => bless( {
                                                   'impcount' => 0,
@@ -11209,19 +11209,19 @@ $self = bless( {
                                                                                               'hashname' => '__STRING1__',
                                                                                               'description' => '\'%macro\'',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 241
+                                                                                              'line' => 243
                                                                                             }, 'Parse::RecDescent::Literal' ),
                                                                                      bless( {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'name' => '<commit>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 241,
+                                                                                              'line' => 243,
                                                                                               'code' => '$commit = 1'
                                                                                             }, 'Parse::RecDescent::Directive' ),
                                                                                      bless( {
                                                                                               'hashname' => '__ACTION1__',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 241,
+                                                                                              'line' => 243,
                                                                                               'code' => '{ ++$break }'
                                                                                             }, 'Parse::RecDescent::Action' ),
                                                                                      bless( {
@@ -11230,7 +11230,7 @@ $self = bless( {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 241
+                                                                                              'line' => 243
                                                                                             }, 'Parse::RecDescent::Subrule' ),
                                                                                      bless( {
                                                                                               'subrule' => 'value',
@@ -11238,7 +11238,7 @@ $self = bless( {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 241
+                                                                                              'line' => 243
                                                                                             }, 'Parse::RecDescent::Subrule' ),
                                                                                      bless( {
                                                                                               'subrule' => 'stop_pattern',
@@ -11246,12 +11246,12 @@ $self = bless( {
                                                                                               'implicit' => undef,
                                                                                               'argcode' => undef,
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 241
+                                                                                              'line' => 243
                                                                                             }, 'Parse::RecDescent::Subrule' ),
                                                                                      bless( {
                                                                                               'hashname' => '__ACTION2__',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 242,
+                                                                                              'line' => 244,
                                                                                               'code' => '{
 		$thisparser->{local}{line} = $thisline;
 		$thisparser->_store_macro(
@@ -11280,21 +11280,21 @@ $self = bless( {
                                                                                               'hashname' => '__DIRECTIVE1__',
                                                                                               'commitonly' => '?',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 253
+                                                                                              'line' => 255
                                                                                             }, 'Parse::RecDescent::Error' ),
                                                                                      bless( {
                                                                                               'hashname' => '__DIRECTIVE2__',
                                                                                               'name' => '<reject>',
                                                                                               'lookahead' => 0,
-                                                                                              'line' => 253
+                                                                                              'line' => 255
                                                                                             }, 'Parse::RecDescent::UncondReject' )
                                                                                    ],
-                                                                        'line' => 253
+                                                                        'line' => 255
                                                                       }, 'Parse::RecDescent::Production' )
                                                              ],
                                                   'name' => 'macro',
                                                   'vars' => '',
-                                                  'line' => 241
+                                                  'line' => 243
                                                 }, 'Parse::RecDescent::Rule' )
                             }
                }, 'Parse::RecDescent' );

@@ -10,7 +10,11 @@ use Parse::RecDescent;
 die "Can't find the patched P::RD in %INC, stopped"
   unless $INC{'Parse/RecDescent.pm'} =~ /patched/;
 
-my $version      = shift || 0.00;
+my $version = shift or die "Version information needed, stopped";
+
+# wrap it into single quotes
+$version = "'$version'";
+
 my $class        = 'Config::Scoped::Precomp';
 my $grammar_file = 'Grammar.prd';
 
