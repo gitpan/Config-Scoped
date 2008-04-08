@@ -1,4 +1,5 @@
-# $Id: Error.pm,v 1.3 2004/08/02 12:42:55 gaissmai Exp gaissmai $
+use strict;
+use warnings;
 
 =head1 NAME
 
@@ -48,31 +49,30 @@ Config::Scoped::Error is a class hierarchy based on Error.pm. The following Exce
 
 =cut
 
-use warnings;
-use strict;
-
 package Config::Scoped::Error;
 use base 'Error';
-our $VERSION=0.01;
+our $VERSION='0.01_01';
 
-# called by zero-argument "die"
+#Error propagation, see perldoc -f die
 sub PROPAGATE {
     no warnings 'uninitialized';
     $_[0]->{-propagate} .= "propagated at $_[1] line $_[2]\n";
     return $_[0];
 }
 
-sub propagate {
+# private accessor
+sub _propagate {
     return exists $_[0]->{-propagate} ? $_[0]->{-propagate} : undef;
 }
 
-# add the file and line if not ending in a newline
-# and add the propagated text
+# Override Error::stringify.
+# Add the file and line if not ending in a newline and
+# add the propagated text.
 sub stringify {
     no warnings 'uninitialized';
     my $file      = $_[0]->file;
     my $line      = $_[0]->line;
-    my $propagate = $_[0]->propagate || '';
+    my $propagate = $_[0]->_propagate || '';
 
     my $text = $_[0]->SUPER::stringify;
 
@@ -86,31 +86,31 @@ sub stringify {
 
 package Config::Scoped::Error::Parse;
 use base 'Config::Scoped::Error';
-our $VERSION=0.01;
+our $VERSION='0.01_01';
 
 package Config::Scoped::Error::IO;
 use base 'Config::Scoped::Error';
-our $VERSION=0.01;
+our $VERSION='0.01_01';
 
 package Config::Scoped::Error::Validate;
 use base 'Config::Scoped::Error';
-our $VERSION=0.01;
+our $VERSION='0.01_01';
 
 package Config::Scoped::Error::Validate::Macro;
 use base 'Config::Scoped::Error::Validate';
-our $VERSION=0.01;
+our $VERSION='0.01_01';
 
 package Config::Scoped::Error::Validate::Parameter;
 use base 'Config::Scoped::Error::Validate';
-our $VERSION=0.01;
+our $VERSION='0.01_01';
 
 package Config::Scoped::Error::Validate::Declaration;
 use base 'Config::Scoped::Error::Validate';
-our $VERSION=0.01;
+our $VERSION='0.01_01';
 
 package Config::Scoped::Error::Validate::Permissions;
 use base 'Config::Scoped::Error::Validate';
-our $VERSION=0.01;
+our $VERSION='0.01_01';
 
 1;
 
@@ -120,11 +120,11 @@ Config::Scoped, Error
 
 =head1 AUTHOR
 
-Karl Gaissmaier E<lt>karl.gaissmaier@kiz.uni-ulm.deE<gt>
+Karl Gaissmaier E<lt>karl.gaissmaier at uni-ulm.deE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2004 by Karl Gaissmaier
+Copyright (c) 2004-2008 by Karl Gaissmaier
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 

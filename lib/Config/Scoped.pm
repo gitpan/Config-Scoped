@@ -1,10 +1,8 @@
 package Config::Scoped;
 
-# $Id: Scoped.pm,v 1.31 2004/08/06 11:54:33 gaissmai Exp $
-
 =head1 NAME
 
-Config:Scoped - feature rich configuration file parser
+Config::Scoped - feature rich configuration file parser
 
 =head1 SYNOPSIS
 
@@ -43,7 +41,7 @@ use File::Basename qw(fileparse);
 use File::Spec;
 use Config::Scoped::Error;
 
-our $VERSION = 0.11;
+our $VERSION = '0.11_01';
 
 # inherit from a precompiled grammar package
 use base 'Config::Scoped::Precomp';
@@ -1500,11 +1498,11 @@ Inspired by the application specific configuration file parser of the ToGather p
 
 =head1 AUTHOR
 
-Karl Gaissmaier E<lt>karl.gaissmaier@kiz.uni-ulm.deE<gt>
+Karl Gaissmaier E<lt>karl.gaissmaier at uni-ulm.deE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2004 by Karl Gaissmaier
+Copyright (c) 2004-2008 by Karl Gaissmaier
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 

@@ -1,0 +1,21 @@
+--- #YAML:1.0
+name:                Config-Scoped
+version:             0.11_01
+abstract:            feature rich configuration file parser
+license:             perl
+author:              
+    - Karl Gaissmaier <karl.gaissmaier at uni-ulm.de>
+generated_by:        ExtUtils::MakeMaker version 6.44
+distribution_type:   module
+requires:     
+    Carp:                          0
+    Digest::MD5:                   0
+    Error:                         0
+    File::Basename:                0
+    File::Spec:                    0
+    Parse::RecDescent:             1.94
+    Safe:                          0
+    Storable:                      0
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3

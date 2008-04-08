@@ -14,7 +14,7 @@ my $version      = shift || 0.00;
 my $class        = 'Config::Scoped::Precomp';
 my $grammar_file = 'Grammar.prd';
 
-chdir File::Spec->catdir(qw(Scoped))
+chdir File::Spec->catdir(qw(lib Config Scoped))
   or die "Can't chdir: $!,";
 
 open GRAMMAR, $grammar_file

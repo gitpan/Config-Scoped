@@ -1,5 +1,5 @@
 ==============================================================================
-                 Release of version 0.11 of Config::Scoped
+                 Release of version 0.11_01 of Config::Scoped
 ==============================================================================
 
 
@@ -112,12 +112,12 @@ INSTALLATION
 
 AUTHOR
 
-    Karl Gaissmaier (karl.gaissmaier@kiz.uni-ulm.de)
+    Karl Gaissmaier (karl.gaissmaier at uni-ulm.de)
 
 
 COPYRIGHT
 
-     Copyright (c) 2004, Karl Gaissmaier. All Rights Reserved.
+     Copyright (c) 2004-2008, Karl Gaissmaier. All Rights Reserved.
      This program is free software; you can redistribute it and/or
      modify it under the same terms as Perl itself.
 

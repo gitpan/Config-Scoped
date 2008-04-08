@@ -1,12 +1,19 @@
-# $Id: Grammar.prd,v 1.19 2004/08/08 20:40:46 gaissmai Exp gaissmai $
-
+#######################################################################
+#
+# Copyright (c) 2004-2008 by Karl Gaissmaier
+#
+# This library is free software; you can redistribute it and/or modify
+# it under the same terms as Perl itself. 
+#
+#######################################################################
+#
+# Do you still wish to understand this grammar?
+# Be warned, dragons ahead, recursive brain damage possible!
+#
 # First, read the Config::Scoped manual to understand what's going on here!
 #
 # Second, read the Parse::RecDescent manual and learn it by heart to
 # understand what's going on here!
-#
-# Do you still wish to understand this grammar?
-# Be warned, dragons ahead, recursive brain damage possible!
 #
 # INHERITANCE!
 # The real action is done via $thisparser->_method() calls

@@ -1,13 +1,12 @@
 Changes
-MANIFEST			This list of files
-MANIFEST.SKIP
-Makefile.PL
-README
-Scoped.pm
-Scoped/Error.pm
-Scoped/Grammar.prd
-Scoped/Precomp.pm
+lib/Config/Scoped.pm
+lib/Config/Scoped/Error.pm
+lib/Config/Scoped/Grammar.prd
+lib/Config/Scoped/Precomp.pm
+MANIFEST
+META.yml
 patched-prd.tgz
+README
 script/cfgtest.pl
 script/precompile.pl
 t/01-basics.t
@@ -29,7 +28,6 @@ t/16-warn.t
 t/17-perldsc.t
 t/files/basic.cfg
 t/files/cache-test.cfg
-t/files/cache-test.cfg.dump
 t/files/fvalid.cfg
 t/files/include.cfg
 t/files/increc1
@@ -38,3 +36,5 @@ t/files/increc3
 t/files/macros.cfg
 t/files/null
 t/files/scalar.cfg
+t/pod-coverage.t
+t/pod.t
