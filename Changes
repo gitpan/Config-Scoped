@@ -1,3 +1,9 @@
+0.12 -- Mi 9. Apr 22:48:49 CEST 2008
+- version upgrade from developer to working release
+
+0.11_03 -- Mi 9. Apr 01:10:56 CEST 2008
+- fix version in precompiled grammar
+
 0.11_02 -- Mi 9. Apr 00:52:04 CEST 2008
 - grml, Makefile.PL missing in dist, wrong MANIFEST.SKIP
 

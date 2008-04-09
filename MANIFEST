@@ -1,4 +1,5 @@
 Changes
+example/cfgtest.pl
 lib/Config/Scoped.pm
 lib/Config/Scoped/Error.pm
 lib/Config/Scoped/Grammar.prd
@@ -8,7 +9,6 @@ MANIFEST			This list of files
 META.yml
 patched-prd.tgz
 README
-script/cfgtest.pl
 script/precompile.pl
 t/01-basics.t
 t/02-perm.t
