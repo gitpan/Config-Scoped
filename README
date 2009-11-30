@@ -1,130 +1,394 @@
-==============================================================================
-                 Release of VERSION 0.12 of Config::Scoped
-==============================================================================
-
-
 NAME
-
     Config::Scoped - feature rich configuration file parser
 
 ABSTRACT
+    "Config::Scoped" is a configuration file parser.
 
-    Config::Scoped is a configuration file parser for complex
-    configuration files based on Parse::RecDescent. Files
-    similar to the ISC named or ISC dhcpd configurations are
-    possible. In order to be fast a precompiled
-    grammar and optionally a config cache is used.
+  Features
+    *   recursive data structures with scalars, lists, and hashes
 
+    *   parses ISC named and dhcpd config files
 
-FEATURES
+    *   parses many Perl data structures without "eval", "do" or "require"
 
-    Config::Scoped has the following highlights as a configuration file
-    parser:
+    *   Perl quoting syntax: single quotes (''), double quotes(""), and here
+        docs ("<<EOF")
 
-    * Complex recursive datastructures to any extent with scalars, lists and
-      hashes as elements,
+    *   Perl code evaluation in "Safe" compartments
 
-    * As a subset parses any complex Perl datastructures (no references and
-      globs) without *do* or *require*,
+    *   simplified syntax with minimal punctuation
 
-    * Include files with recursion checks,
+    *   include files with recursion checks
 
-    * Controlled macro expansion in double quoted tokens,
+    *   controlled macro expansion in double quoted tokens
 
-    * Lexically scoped parameter assignments and pragma directives,
+    *   lexically scoped parameter assignments and directives
 
-    * Perl quote like constructs to any extent, '', "", and here docs <<,
+    *   duplicate macro, parameter, and declaration checks
 
-    * Perl code evaluation in Safe compartments,
+    *   file permission and ownership safety checks
 
-    * Caching and restore with MD5 checks to determine alterations in the
-      original config files,
+    *   fine control over error checking
 
-    * Standard macro, parameter, declaration redefinition validation, may be
-      overridden to validate on semantic knowledge,
+    *   error messages report config file names and line numbers
 
-    * Standard file permission and ownership safety validation, may be
-      overridden,
+    *   exception-based error handling
 
-    * Fine control for redefiniton warnings with pragma's and other safety
-      checks,
+    *   "Parse::RecDescent"-based parser; precompiled grammar for speed
 
-    * Easy inheritable, may be subclassed to build parsers with specialized
-      validation features,
+    *   configuration caching with MD5 checksums on the original files
 
-    * Condoning syntax checker, semicolons and or commas are not always
-      necessary to finish a statement or a list item if the end can be
-      guessed by other means like newlines, closing brackets, braces etc.,
+    *   may be subclassed to build parsers with specialized features
 
-    * Well spotted messages for syntax errors even within include files with
-      correct line numbers and file names,
+CONFIG FILE FORMAT
+    "Config::Scoped" reads configuration files. If we have a config file
 
-    * Exception based error handling,
+      % cat host.cfg
+      host
+      {
+          name = cpan.org
+          port = 22
+      }
+      %
 
-    * etc.,
+    we can read it into Perl with code like
 
-PREREQUISITES
+      $parser = new Config::Scoped file => host.cfg;
+      $config = $parser->parse;
 
-    Parse::RecDescent, Error
+    The resulting $config is always a hash ref. We'll call this the *config
+    hash*, and write
 
-    Standard modules: 
+      $config = {
+                  host => { name => 'cpan.org',
+                            port => 22        }
+                }
 
-        Carp          
-        Storable        
-        File::Spec 
-        File::Basename
-        Digest::MD5
-        Safe           
+    to show its contents. Fundamentally, "Config::Scoped" is a way to
+    specify the contents of the config hash.
 
-APPETIZER
+  Config files and config strings
+    As shown in the "SYNOPSIS", "Config::Scoped" can obtain a configuration
+    from a *$config_file*, passed to the constructor, or from a
+    *$config_string*, passed to the "parse" method. For simplicity, we'll
+    talk about parsing configuration files, distinguishing configuration
+    strings only when necessary.
 
-Configuration file example:
+  File layout
+    Config files are free-form ascii text. Comments begin with "#", and
+    extend to the end of the line.
 
-    # default parameters
-    community = public;
-    variables = [ ifInOctets, ifOutOctets ];
-    oids = {
-	ifInOctets  = 1.3.6.1.2.1.2.2.1.10;
-	ifOutOctets = 1.3.6.1.2.1.2.2.1.16;
-    };
+  Declarations
+    The top-level elements of a config file are called *declarations*. A
+    declaration consists of a name, followed by a block
 
-    %warnings parameter off;    ### allow parameter redefinition
+      foo
+      {
+      }
 
-    # declarations
-    devices rtr001 {
-	ports = [ 1, 2, 8, 9 ];
-    }
+      bar
+      {
+      }
 
-    devices rtr007 {
-	community = 'really top secret!';
-	ports = [ 1, 2, 3, 4 ];
-    }
+    The declaration names become keys in the config hash. The value of each
+    key is another hash ref. The config shown above parses to
 
+      $config = {
+                  foo => { },
+                  bar => { }
+                }
 
-INSTALLATION
+    You can create additional levels in the config hash simply by listing
+    successive declaration names before the block. This config
 
-    It's all pure Perl.
+      dog hound
+      {
+      }
 
-    perl Makefile.PL
-    make
-    make test
-    make install
+      dog beagle
+      {
+      }
 
-AUTHOR
+      cat
+      {
+      }
 
-    Karl Gaissmaier (karl.gaissmaier at uni-ulm.de)
+    parses to
 
+      $config = {
+                  dog => { hound  => { },
+                           beagle => { } },
 
-COPYRIGHT
+                  cat => { }
+                }
 
-     Copyright (c) 2004-2008, Karl Gaissmaier. All Rights Reserved.
-     This program is free software; you can redistribute it and/or
-     modify it under the same terms as Perl itself.
+    Declarations may not be nested.
 
-==============================================================================
+  Parameters
+    The ultimate purpose of a configuration file is to provide data values
+    for a program. These values are specified by *parameters*. Parameters
+    have the form
 
-AVAILABILITY
+      name = value
 
-Config::Scoped has been uploaded to the CPAN
+    and go inside declaration blocks. The
 
-==============================================================================
+      name = value
+
+    parameters in a spec file become
+
+      $name => $value
+
+    pairs inside the declaration hashes in Perl code. For example, this
+    configuration
+
+      dog
+      {
+          legs  = 4
+          wings = 0
+      }
+
+      bird
+      {
+          legs  = 2
+          wings = 2
+      }
+
+    parses to
+
+      $config = {
+                  dog  => { legs  => 4,
+                            wings => 0 },
+
+                  bird => { legs  => 2,
+                            wings => 2 }
+                }
+
+    Parameter values can be scalars, lists or hashes. Scalar values may be
+    numbers or strings
+
+      shape = square
+      sides = 4
+
+    Lists values are enclosed in square brackets
+
+      colors = [ red green blue ]
+      primes = [ 2 3 5 7 11 13  ]
+
+    Hash values are enclosed in curly brackets
+
+      capitals = { England => London
+                   France  => Paris  }
+
+    A hash value is also called a *hash block*.
+
+    Lists and hashes can be nested to arbitrary depth
+
+      Europe
+      {
+        currency = euro
+
+        cities   = { England => [ London Birmingham Liverpool ]
+                     France  => [ Paris Canne Calais ]         }
+      }
+
+    parses to
+
+      $config = {
+                  Europe => {
+                              currency => 'euro',
+
+                              cities => { England => [ 'London', 'Birmingham', 'Liverpool' ],
+                                          France  => [ 'Paris', 'Canne', 'Calais'          ] }
+                            }
+                }
+
+    The "Config::Scoped" data syntax is similar to the Perl data syntax, and
+    "Config::Scoped" will parse many Perl data structures. In general,
+    "Config::Scoped" requires less punctuation that Perl. Note that
+    "Config::Scoped" allows arrow ("=>") or equals ("=") between hash keys
+    and values, but not comma (",")
+
+      capitals = { England => London        # OK
+                   France  =  Paris         # OK
+                   Germany ,  Berlin        # error
+                 }
+
+   _GLOBAL
+    If a config file contains no declarations at all
+
+      name = cpan.org
+      port = 22
+
+    then any parameters will be placed in a "_GLOBAL" declaration in the
+    config hash
+
+      $config = {
+                  _GLOBAL => { name = cpan.org
+                               port = 22       }
+                }
+
+    This allows very simple config files with just parameters and no
+    declarations.
+
+  Blocks, scoping and inheritance
+    Each declaration block in a config file creates a lexical scope.
+    Parameters inside a declaration are scoped to that block.
+
+    Parameters are inherited by all following declarations within their
+    scope. If all your animals have four legs, you can save some typing by
+    writing
+
+      legs = 4
+      cat {}
+      dog {}
+
+    which parses to
+
+      $config = {
+                  cat => { legs => 4 }
+                  dog => { legs => 4 }
+                }
+
+    If some of your animals have two legs, you can create additional scopes
+    with anonymous blocks to control inheritance
+
+      {
+          legs = 4
+          cat {}
+          dog {}
+      }
+      {
+          legs = 2
+          bird {}
+      }
+
+    parses to
+
+      $config = {
+                  cat  => { legs => 4 }
+                  dog  => { legs => 4 }
+                  bird => { legs => 2 }
+                }
+
+    Anonymous blocks may be nested.
+
+    Each hash block also creates a scope. The hash does not inherit
+    parameters from outside its own scope.
+
+  Perl code evaluation
+    If you can't express what you need within the "Config::Scoped" syntax,
+    your escape hatch is
+
+      eval { ... }
+
+    This does a Perl "eval" on the block, and replaces the construct with
+    the results of the "eval".
+
+      start = eval { localtime }
+      foo   = eval { warn 'foo,' if $debug; return 'bar' }
+
+    The block is evaluated in scalar context. However, it may return a list
+    or hash reference, and the underlying list or hash can become a
+    parameter value. For example
+
+      a
+      {
+        list = eval { [ 1 .. 3 ]                 }
+        hash = eval { { a => 1, b => 2, c => 3 } }
+      }
+
+    parses to
+
+      $config = {
+                  a => { list => [ 1, 2, 3 ],
+                         hash => { a => 1, b => 2, c => 3 }
+                }
+
+    The block is evaluated inside the parser's "Safe" compartment. Variables
+    can be made available to the "eval" by sharing them with the
+    compartment. To set the $debug variable in the example above, do
+
+      $compartment = new Safe 'MY_SHARE';
+      $MY_SHARE::debug = 1;
+      $parser = new Config::Scoped file => 'config.txt',
+                                   safe => $compartment;
+      $config = $parser->parse;
+
+    Only global variables can be shared with a compartment; lexical
+    variables cannot.
+
+    "perl_code" is a synonym for "eval".
+
+  Tokens and quoting
+    A *token* is a
+
+    *   declaration name
+
+    *   parameter name
+
+    *   hash key
+
+    *   scalar value
+
+    *   macro name
+
+    *   macro value
+
+    *   include path
+
+    *   warning name
+
+    Any token may be quoted. Tokens that contain special characters must be
+    quoted. The special characters are
+
+      \s {} [] <> () ; , ' " = # %
+
+    "Config::Scoped" uses the Perl quoting syntax.
+
+    Tokens may be quoted with either single or double quotes
+
+      a = 'New York'
+      b = "New Jersey\n"
+
+    Here-docs are supported
+
+      a = <<EOT
+      New York
+      New Jersey
+      EOT
+
+    but generalized quotes ("q()", "qq()", etc.) are not. Text in here-docs
+    is regarded as single-quoted if the delimiter is enclosed in single
+    quotes, and double-quoted if the delimiter is enclosed in double quotes
+    or unquoted.
+
+    Double-quoted tokens are evaluated as Perl strings inside the parser's
+    "Safe" compartment. They are subject to the usual Perl backslash and
+    variable interpolation, as well as macro expansion. Variables to be
+    interpolated are passed via the "Safe" compartment, as shown above in
+    "Perl code evaluation". If you need a literal "$" or "@" in a
+    double-quoted string, be sure to escape it with a backslash ("\") to
+    suppress interpolation.
+
+    An
+
+      eval { ... }
+
+    may appear anywhere that a token is expected. For example
+
+      a
+      {
+          eval { 'b' . 'c' } = 1
+      }
+
+    parses to
+
+      $config = { a => { bc => 1 } }
+
+COPYRIGHT AND LICENSE
+    Copyright (c) 2004-2009 by Karl Gaissmaier
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+

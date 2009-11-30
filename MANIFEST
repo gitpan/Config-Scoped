@@ -1,13 +1,15 @@
 Changes
 example/cfgtest.pl
 lib/Config/Scoped.pm
+lib/Config/Scoped.pod
 lib/Config/Scoped/Error.pm
 lib/Config/Scoped/Grammar.prd
 lib/Config/Scoped/Precomp.pm
+lib/Config/Scoped/Scoped.pod
 Makefile.PL
 MANIFEST			This list of files
-META.yml
 patched-prd.tgz
+patched/Parse/RecDescent.pm
 README
 script/precompile.pl
 t/01-basics.t
@@ -40,3 +42,4 @@ t/files/null
 t/files/scalar.cfg
 t/pod-coverage.t
 t/pod.t
+META.yml                                 Module meta-data (added by MakeMaker)

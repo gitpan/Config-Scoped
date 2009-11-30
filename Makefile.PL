@@ -4,12 +4,10 @@ use warnings;
 
 use ExtUtils::MakeMaker;
 
-my $from_file = 'lib/Config/Scoped.pm';
-
 WriteMakefile(
   NAME          => 'Config::Scoped',
-  ABSTRACT_FROM => $from_file,
-  VERSION_FROM  => $from_file,
+  ABSTRACT_FROM => 'lib/Config/Scoped.pod',
+  VERSION_FROM  => 'lib/Config/Scoped.pm',
   AUTHOR        => 'Karl Gaissmaier <karl.gaissmaier at uni-ulm.de>',
   NORECURS      => 1,
   LICENSE       => 'perl',

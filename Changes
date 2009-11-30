@@ -1,3 +1,7 @@
+0.12_01 -- Fri Nov 27 14:50:53 MET 2009
+- only documentation changes
+- POD now written by a native speaker, thanks Steven!
+
 0.12 -- Mi 9. Apr 22:48:49 CEST 2008
 - version upgrade from developer to working release
 
