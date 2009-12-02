@@ -12,7 +12,7 @@ use File::Basename qw(fileparse);
 use File::Spec;
 use Config::Scoped::Error;
 
-our $VERSION = '0.12_02';
+our $VERSION = '0.12_03';
 
 # inherit from a precompiled grammar package
 use base 'Config::Scoped::Precomp';

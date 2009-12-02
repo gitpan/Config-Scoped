@@ -8,7 +8,6 @@ lib/Config/Scoped/Precomp.pm
 Makefile.PL
 MANIFEST			This list of files
 patched-prd.tgz
-patched/Parse/RecDescent.pm
 README
 script/precompile.pl
 t/01-basics.t

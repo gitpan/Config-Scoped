@@ -1,3 +1,6 @@
+0.12_03 -- Wed Dec  2 11:24:07 MET 2009
+- still wrestling with make dist
+
 0.12_02 -- Tue Dec  1 12:00:34 MET 2009
 - fix wrong MANIFEST and dist
 

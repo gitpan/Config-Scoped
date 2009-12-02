@@ -1,7 +1,7 @@
 package Config::Scoped::Precomp;
 use base 'Parse::RecDescent';
 
-$Config::Scoped::Precomp::VERSION = '0.12_1';
+$Config::Scoped::Precomp::VERSION = '0.12_03';
 
 =head1 NAME
 
