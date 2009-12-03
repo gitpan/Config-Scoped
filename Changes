@@ -1,3 +1,7 @@
+0.13 -- Thu Dec  3 10:46:09 MET 2009
+- POD now written by a native speaker, thanks Steven!
+- only documentation changes
+
 0.12_03 -- Wed Dec  2 11:24:07 MET 2009
 - still wrestling with make dist
 

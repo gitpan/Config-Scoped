@@ -51,7 +51,7 @@ Config::Scoped::Error is a class hierarchy based on Error.pm. The following Exce
 
 package Config::Scoped::Error;
 use base 'Error';
-our $VERSION='0.12_03';
+our $VERSION='0.13';
 
 #Error propagation, see perldoc -f die
 sub PROPAGATE {
@@ -86,31 +86,31 @@ sub stringify {
 
 package Config::Scoped::Error::Parse;
 use base 'Config::Scoped::Error';
-our $VERSION='0.12_03';
+our $VERSION='0.13';
 
 package Config::Scoped::Error::IO;
 use base 'Config::Scoped::Error';
-our $VERSION='0.12_03';
+our $VERSION='0.13';
 
 package Config::Scoped::Error::Validate;
 use base 'Config::Scoped::Error';
-our $VERSION='0.12_03';
+our $VERSION='0.13';
 
 package Config::Scoped::Error::Validate::Macro;
 use base 'Config::Scoped::Error::Validate';
-our $VERSION='0.12_03';
+our $VERSION='0.13';
 
 package Config::Scoped::Error::Validate::Parameter;
 use base 'Config::Scoped::Error::Validate';
-our $VERSION='0.12_03';
+our $VERSION='0.13';
 
 package Config::Scoped::Error::Validate::Declaration;
 use base 'Config::Scoped::Error::Validate';
-our $VERSION='0.12_03';
+our $VERSION='0.13';
 
 package Config::Scoped::Error::Validate::Permissions;
 use base 'Config::Scoped::Error::Validate';
-our $VERSION='0.12_03';
+our $VERSION='0.13';
 
 1;
 
