@@ -1158,21 +1158,6 @@ L<perlop/Quote and Quote-like Operators>
 
 =over 4
 
-=item C<Parse::RecDescent> patch
-
-Test if the P::RD patch is still needed for P::RD newer than 1.94.
-
-The P::RD patch is used in this package to enable inheritance for
-precompiled grammar packages. C<P::RD> works fine with inheritance but
-not the precompiled packages. In the precompiled packages the
-one-argument form of C<bless> is used, this is the main problem. I
-patched C<P::RD> to create inheritable precompiled packages from the
-grammar files. This does NOT mean you have to patch YOUR C<P::RD>
-installation! The patch is only necessary to create the
-C<Config::Scoped::Precomp> package from the grammar file. If someone
-wants to play with the grammar, use the patched C<R::RD> in this
-distribution.
-
 =item Tests
 
 Still more tests needed.
@@ -1186,9 +1171,6 @@ additional version information to the author.
 
 =head1 CREDITS
 
-Inspired by the application specific configuration file parser of the
-ToGather project, written by Rainer Bawidamann. Danke Rainer.
-
 POD by Steven W. McDougall E<lt>swmcd@world.std.comE<gt>
 
 =head1 AUTHOR
@@ -1197,7 +1179,7 @@ Karl Gaissmaier E<lt>karl.gaissmaier at uni-ulm.deE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2004-2009 by Karl Gaissmaier
+Copyright (c) 2004-2012 by Karl Gaissmaier
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

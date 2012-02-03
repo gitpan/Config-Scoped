@@ -1,15 +1,12 @@
+Build.PL
 Changes
 example/cfgtest.pl
 lib/Config/Scoped.pm
 lib/Config/Scoped.pod
 lib/Config/Scoped/Error.pm
-lib/Config/Scoped/Grammar.prd
-lib/Config/Scoped/Precomp.pm
-Makefile.PL
 MANIFEST			This list of files
-patched-prd.tgz
+META.yml
 README
-script/precompile.pl
 t/01-basics.t
 t/02-perm.t
 t/03-scalars.t
@@ -27,7 +24,8 @@ t/14-except.t
 t/15-cache.t
 t/16-warn.t
 t/17-perldsc.t
-t/boilerplate.t
+t/91_pod.t
+t/92_pod-coverage.t
 t/files/basic.cfg
 t/files/cache-test.cfg
 t/files/fvalid.cfg
@@ -38,6 +36,3 @@ t/files/increc3
 t/files/macros.cfg
 t/files/null
 t/files/scalar.cfg
-t/pod-coverage.t
-t/pod.t
-META.yml                                 Module meta-data (added by MakeMaker)

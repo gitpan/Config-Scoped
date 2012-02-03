@@ -1,3 +1,7 @@
+0.20 -- Fri, 03 Feb 2012 21:10:36 +0100
+- cpantesters reported problems since R::RD 1.967003
+- took the chance to rewrite without precompiled grammar and patched P::RD
+
 0.13 -- Thu Dec  3 10:46:09 MET 2009
 - POD now written by a native speaker, thanks Steven!
 - only documentation changes
