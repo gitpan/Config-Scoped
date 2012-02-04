@@ -68,7 +68,7 @@ ABSTRACT
 
     *   exception-based error handling
 
-    *   "Parse::RecDescent"-based parser; precompiled grammar for speed
+    *   "Parse::RecDescent"-based parser
 
     *   configuration caching with MD5 checksums on the original files
 

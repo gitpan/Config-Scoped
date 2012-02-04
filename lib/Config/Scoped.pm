@@ -21,12 +21,13 @@ use File::Spec;
 use Config::Scoped::Error;
 use base 'Parse::RecDescent';
 
-our $VERSION = '0.20';
+our $VERSION = '0.21';
 
-our $grammar;
+my $grammar;
 {
     local $/;
     $grammar = <DATA>;
+    close DATA;
 }
 
 my @state_hashes = qw(config params macros warnings includes);
@@ -842,19 +843,11 @@ sub _get_line {
 
 __DATA__
 
-
+#######################################################################
+# Grammar for Config::Scoped
 #######################################################################
 #
-# Copyright (c) 2004-2009 by Karl Gaissmaier
-#
-# This library is free software; you can redistribute it and/or modify
-# it under the same terms as Perl itself. 
-#
-# VERSION: '0.13'
-#
-#######################################################################
-#
-# Do you still wish to understand this grammar?
+# Do you to understand this grammar?
 # Be warned, dragons ahead, recursive brain damage possible!
 #
 # First, read the Config::Scoped manual to understand what's going on here!

@@ -1,3 +1,6 @@
+0.21 -- Sat, 04 Feb 2012 17:54:24 +0100
+- minor doc tweaks, minor pod typos
+
 0.20 -- Fri, 03 Feb 2012 21:10:36 +0100
 - cpantesters reported problems since R::RD 1.967003
 - took the chance to rewrite without precompiled grammar and patched P::RD

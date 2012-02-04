@@ -106,7 +106,7 @@ exception-based error handling
 
 =item *
 
-C<Parse::RecDescent>-based parser; precompiled grammar for speed
+C<Parse::RecDescent>-based parser
 
 =item *
 
