@@ -21,7 +21,7 @@ use File::Spec;
 use Config::Scoped::Error;
 use base 'Parse::RecDescent';
 
-our $VERSION = '0.21';
+our $VERSION = '0.22';
 
 my $grammar;
 {

@@ -4,53 +4,25 @@ NAME
 SYNOPSIS
       use Config::Scoped;
 
-      $compartment = new Safe 'YOUR_SHARE';
-
-      $warnings = 'off';  # or 'on'
-
-      $warnings = { declaration  => 'off',  # or 'on'
-                    digests      => 'off',
-                    macro        => 'off',
-                    parameter    => 'off',
-                    permissions  => 'off',
-                    your_warning => 'off' };
-
-      $parser = new Config::Scoped file     => $config_file,
-                                   lc       => $lc,
-                                   safe     => $compartment,
-                                   warnings => $warnings,
-                                   your_key => $your_value;
-
-      $config = $parser->parse;
-      $config = $parser->parse(text => $config_string);
-
-      $parser->set_warnings(name   => $name,
-                            switch => 'on');   # or 'off'
-
-      $parser->warnings_on(name => $name) and ...
-
-      $parser->store_cache;
-      $parser->store_cache   (cache => $file);
-
-      $parser->retrieve_cache;
-      $parser->retrieve_cache(cache => $file);
+      $cs = Config::Scoped->new( file => $config_file, ... );
+      $cfg_hash = $cs->parse;
 
 ABSTRACT
-    "Config::Scoped" is a configuration file parser.
+    Config::Scoped is a configuration file parser.
 
   Features
     *   recursive data structures with scalars, lists, and hashes
 
-    *   parses ISC named and dhcpd config files
-
-    *   parses many Perl data structures without "eval", "do" or "require"
-
-    *   Perl quoting syntax: single quotes (''), double quotes(""), and here
-        docs ("<<EOF")
-
-    *   Perl code evaluation in "Safe" compartments
-
     *   simplified syntax with minimal punctuation
+
+    *   parses many Perl data structures without eval, do or require
+
+    *   Perl quoting syntax: single quotes (''), double quotes(""), and
+        here-docs (<<EOF)
+
+    *   Perl code evaluation in Safe compartments
+
+    *   parses ISC named and dhcpd config files
 
     *   include files with recursion checks
 
@@ -68,196 +40,219 @@ ABSTRACT
 
     *   exception-based error handling
 
-    *   "Parse::RecDescent"-based parser
+    *   based on Parse::RecDescent
 
     *   configuration caching with MD5 checksums on the original files
 
     *   may be subclassed to build parsers with specialized features
 
 REQUIRES
-    *   "Parse::RecDescent"
+    *   Parse::RecDescent
 
-    *   "Error"
+    *   Error
 
 EXPORTS
     Nothing.
 
 METHODS
-    *$parser* = "new" "Config::Scoped" "file" => *$config_file*, "lc" =>
-    *$lc*, "safe" => *$compartment*, "warnings" => *$warnings*, "your_key"
-    => *$your_value* [, ...]
-        Creates and returns a new "Config::Scoped" object. All parameters
-        are optional.
+    Config::Scoped->new
+          $cs = Config::Scoped->new(
+            file     => $config_file,
+            lc       => $lc,
+            safe     => $compartment,
+            warnings => $warnings,
+            your_key => $your_value, { ... },
+          );
 
-        *$config_file* is the configuration file to parse. If *$config_file*
-        is omitted, then a *$config_string* must be provided to the "parse"
-        method (see below).
+        Creates and returns a new Config::Scoped object. The following
+        parameters are optional.
 
-        If *$lc* is true, all declaration and parameter names will be
-        converted to lower case.
+        $config_file
+            The configuration file to parse. If omitted, then a
+            $config_string must be provided to the parse method (see below).
 
-        *$compartment* is a "Safe" compartment for evaluating Perl code
-        blocks in the configuration file. Defaults to a "Safe" compartment
-        with no extra shares and the ":default" operator tag.
+        $lc If true, all declaration and parameter names will be converted
+            to lower case.
 
-        *$warnings* may be
+        $compartment
+            A Safe compartment for evaluating Perl code blocks in the
+            configuration file. Defaults to a Safe compartment with no extra
+            shares and the :default operator tag.
 
-        the literal string 'on' or 'off'
-            to set all warnings on or off
+        $warnings
+            may be the literal string 'on' or 'off' to set all warnings
+            simultan.
 
-        a hash reference as shown in the "SYNOPSIS"
-            to set each warning as specified in the hash
+            Or define a hash reference with the following keys to set each
+            warning as specified.
 
-        All warnings are on by default.
+              $warnings = { declaration  => 'off',
+                            digests      => 'off',
+                            macro        => 'off',
+                            parameter    => 'off',
+                            permissions  => 'off',
+                            your_warning => 'off',
+             };
 
-        Arbitrary key/value pairs may be passed to the constructor, and will
-        be stored in the *$parser* object. This is useful primarily to
-        subclasses.
+            All warnings are on by default.
 
-    *$config* = *$parser*->"parse"
-    *$config* = *$parser*->"parse"("text" => *$config_string*)
+        Arbitrary key/value pairs
+            will be stored in the $cs object. This is useful primarily for
+            subclassing.
+
+    $cs->parse
+            $cfg_hash = $cs->parse;
+            $cfg_hash = $cs->parse(text => $config_string);
+
         Parses the configuration and returns a reference to the config hash.
 
-        The first form parses the *$config_file* that was provided to the
-        constructor. If *$config_file* was not provided to the constructor,
-        this form "die"s.
+        The first form parses the $config_file that was provided to the
+        constructor. If $config_file was not provided to the constructor,
+        this form dies.
 
-        The second form parses the *$config_string*.
+        The second form parses the $config_string.
 
-        This method should only be called once.
+        This method must only be called once.
 
-    *$parser*->"set_warnings"("name" => *$name*, "switch" => 'on')
-    *$parser*->"set_warnings"("name" => *$name*, "switch" => 'off')
-        Set warning *$name* on or off.
+    $cs->store_cache
+            $cs->store_cache;
+            $cs->store_cache(cache => $cache_file);
 
-    *$on* = *$parser*->"warnings_on"(name => $name)
-        Returns true if warning *$name* is on. This is useful primarily to
-        subclasses.
+        Stores the config hash on disk for rapid retrieval. If $config_file
+        was provided to the constructor, then the stored form includes
+        checksums of $config_file and any included files.
 
-    *$parser*->"store_cache"("cache" => $cache_file)
-    *$parser*->"store_cache"
-        Stores the config hash on disk for rapid retrieval. If
-        *$config_file* was provided to the constructor, then the stored form
-        includes checksums of *$config_file* and any included files.
+        The first form writes to $config_file.dump The second form writes to
+        $cache_file.
 
-        The first form writes to *$cache_file*.
+        If $config_file was not provided to the constructor, the first form
+        dies.
 
-        The second form writes to *$config_file*".dump". If *$config_file*
-        was not provided to the constructor, the second form "die"s.
+    $cs->retrieve_cache
+            $cfg_hash = $cs->retrieve_cache;
+            $cfg_hash = $cs->retrieve_cache>(cache => $cache_file);
 
-    *$config* = *$parser*->"retrieve_cache"("cache" => *$cache_file*)
-    *$config* = *$parser*->"retrieve_cache"
-        Retrieves the *$config* hash from a file that was created by
-        "store_cache".
+        Retrieves the $config hash from a file that was created by
+        store_cache.
 
-        The first form reads *$cache_file*.
+        The first form reads $config_file.dump The second form reads
+        $cache_file.
 
-        The second form reads *$config_file*".dump". If *$config_file* was
-        not provided to the constructor, the second form "die"s.
+        If $config_file was not provided to the constructor, the first form
+        dies.
 
-        The stored file is subject to "digests" and "permissions" checks.
+        The stored file is subject to digests and permissions checks.
+
+    $cs->set_warnings
+            $cs->set_warnings(name => $name, switch => 'on|off');
+
+        Change warning for $name after construction.
+
+    $cs->warnings_on
+            $on = $cs->warnings_on(name => $name);
+
+        Returns true if warning $name is on. This is useful primarily for
+        subclassing.
 
 EXCEPTIONS
-    All methods "die" on error.
+    All methods die on error.
 
-    "Config::Scoped::Error" defines a hierarchy of classes that represent
-    "Config::Scoped" errors. When a method detects an error, it creates an
+    Config::Scoped::Error defines a hierarchy of classes that represent
+    Config::Scoped errors. When a method detects an error, it creates an
     instance of the corresponding class and throws it. The error classes are
-    all subclasses of "Config::Scoped::Error". See Config::Scoped::Error for
+    all subclasses of Config::Scoped::Error. See Config::Scoped::Error for
     the complete list.
 
     If the exception is not caught, the program terminates, and
-    "Config::Scoped" prints the config file name and line number where the
-    error was detected to "STDERR".
+    Config::Scoped prints the config file name and line number where the
+    error was detected to STDERR.
 
 CONFIG FILE FORMAT
-    "Config::Scoped" reads configuration files. If we have a config file
+    Config::Scoped parses configuration files.
+
+    If we have a config file like
 
       % cat host.cfg
-      host
-      {
+      host {
           name = cpan.org
           port = 22
       }
       %
 
-    we can read it into Perl with code like
+    we can parse it into Perl with code like
 
-      $parser = new Config::Scoped file => host.cfg;
-      $config = $parser->parse;
+        $cs = Config::Scoped->new( file => 'host.cfg' );
+        $cfg_hash = $cs->parse;
 
-    The resulting $config is always a hash ref. We'll call this the *config
-    hash*, and write
+    The result is always a hash ref. We'll call this the config hash, and
+    its contents for the example file above is:
 
-      $config = {
-                  host => { name => 'cpan.org',
-                            port => 22        }
-                }
-
-    to show its contents. Fundamentally, "Config::Scoped" is a way to
-    specify the contents of the config hash.
+        $cfg_hash = {
+           host => {
+              name => 'cpan.org',
+              port => 22,
+           }
+          }
 
   Config files and config strings
-    As shown in the "SYNOPSIS", "Config::Scoped" can obtain a configuration
-    from a *$config_file*, passed to the constructor, or from a
-    *$config_string*, passed to the "parse" method. For simplicity, we'll
-    talk about parsing configuration files, distinguishing configuration
-    strings only when necessary.
+    As described, Config::Scoped can obtain a configuration from a
+    $config_file, passed to the constructor, or from a $config_string,
+    passed to the parse method. For simplicity, we'll talk about parsing
+    configuration files, distinguishing configuration strings only when
+    necessary.
 
   File layout
-    Config files are free-form ascii text. Comments begin with "#", and
-    extend to the end of the line.
+    Config files are free-form text files. Comments begin with #, and extend
+    to the end of the line.
 
   Declarations
-    The top-level elements of a config file are called *declarations*. A
+    The top-level elements of a config file are called declarations. A
     declaration consists of a name, followed by a block
 
-      foo
-      {
+      foo {
       }
 
-      bar
-      {
+      bar {
       }
 
     The declaration names become keys in the config hash. The value of each
     key is another hash ref. The config shown above parses to
 
-      $config = {
-                  foo => { },
-                  bar => { }
-                }
+        $cfg_hash = {
+           foo => {},
+           bar => {},
+          }
 
     You can create additional levels in the config hash simply by listing
     successive declaration names before the block. This config
 
-      dog hound
-      {
+      dog hound {
       }
 
-      dog beagle
-      {
+      dog beagle {
       }
 
-      cat
-      {
+      cat {
       }
 
     parses to
 
-      $config = {
-                  dog => { hound  => { },
-                           beagle => { } },
+        $cfg_hash = {
+           dog => {
+              hound  => {},
+              beagle => {},
+           },
 
-                  cat => { }
-                }
+           cat => {}
+          }
 
     Declarations may not be nested.
 
   Parameters
     The ultimate purpose of a configuration file is to provide data values
-    for a program. These values are specified by *parameters*. Parameters
-    have the form
+    for a program. These values are specified by parameters.
+
+    Parameters have the form
 
       name = value
 
@@ -265,37 +260,38 @@ CONFIG FILE FORMAT
 
       name = value
 
-    parameters in a spec file become
+    parameters in a spec file become key and value pairs inside the
+    declaration hashes in Perl code.
 
-      $name => $value
+    For example, this configuration
 
-    pairs inside the declaration hashes in Perl code. For example, this
-    configuration
-
-      dog
-      {
+      dog {
           legs  = 4
           wings = 0
       }
 
-      bird
-      {
+      bird {
           legs  = 2
           wings = 2
       }
 
     parses to
 
-      $config = {
-                  dog  => { legs  => 4,
-                            wings => 0 },
+        $cfg_hash = {
+           dog => {
+              legs  => 4,
+              wings => 0,
+           },
 
-                  bird => { legs  => 2,
-                            wings => 2 }
-                }
+           bird => {
+              legs  => 2,
+              wings => 2,
+           }
+          }
 
-    Parameter values can be scalars, lists or hashes. Scalar values may be
-    numbers or strings
+    Parameter values can be scalars, lists or hashes.
+
+    Scalar values may be numbers or strings
 
       shape = square
       sides = 4
@@ -307,99 +303,105 @@ CONFIG FILE FORMAT
 
     Hash values are enclosed in curly brackets
 
-      capitals = { England => London
-                   France  => Paris  }
+      capitals = {
+            England => London
+            France  => Paris
+      }
 
-    A hash value is also called a *hash block*.
+    A hash value is also called a hash block.
 
     Lists and hashes can be nested to arbitrary depth
 
-      Europe
-      {
-        currency = euro
-
-        cities   = { England => [ London Birmingham Liverpool ]
-                     France  => [ Paris Canne Calais ]         }
-      }
+      Europe {
+         currency = euro
+     
+         cities   = {
+            England => [ London Birmingham Liverpool ]
+            France  => [ Paris Canne Calais ]
+         }
+       }
 
     parses to
 
-      $config = {
-                  Europe => {
-                              currency => 'euro',
+        $cfg_hash = {
+           Europe => {
+              currency => 'euro',
 
-                              cities => { England => [ 'London', 'Birmingham', 'Liverpool' ],
-                                          France  => [ 'Paris', 'Canne', 'Calais'          ] }
-                            }
-                }
+              cities => {
+                 England => [ 'London', 'Birmingham', 'Liverpool' ],
+                 France  => [ 'Paris',  'Canne',      'Calais' ],
+              }
+           }
+          }
 
-    The "Config::Scoped" data syntax is similar to the Perl data syntax, and
-    "Config::Scoped" will parse many Perl data structures. In general,
-    "Config::Scoped" requires less punctuation that Perl. Note that
-    "Config::Scoped" allows arrow ("=>") or equals ("=") between hash keys
-    and values, but not comma (",")
+    The Config::Scoped data syntax is similar to the Perl data syntax, and
+    Config::Scoped will parse many Perl data structures. In general,
+    Config::Scoped requires less punctuation that Perl. Note that
+    Config::Scoped allows arrow (=>) or equals (=) between hash keys and
+    values, but not comma (,)
 
       capitals = { England => London        # OK
                    France  =  Paris         # OK
                    Germany ,  Berlin        # error
                  }
 
-   _GLOBAL
+  _GLOBAL
     If a config file contains no declarations at all
 
       name = cpan.org
       port = 22
 
-    then any parameters will be placed in a "_GLOBAL" declaration in the
+    then any parameters will be placed in a _GLOBAL declaration in the
     config hash
 
-      $config = {
-                  _GLOBAL => { name = cpan.org
-                               port = 22       }
-                }
+       $cfg_hash = {
+          _GLOBAL => {
+             name => 'cpan.org',
+             port => 22,
+          }
+         }
 
     This allows very simple config files with just parameters and no
     declarations.
 
   Blocks, scoping and inheritance
     Each declaration block in a config file creates a lexical scope.
-    Parameters inside a declaration are scoped to that block.
+    Parameters inside a declaration are scoped to that block. Parameters are
+    inherited by all following declarations within their scope.
 
-    Parameters are inherited by all following declarations within their
-    scope. If all your animals have four legs, you can save some typing by
-    writing
+    If all your animals have four legs, you can save some typing by writing
 
-      legs = 4
-      cat {}
-      dog {}
+        legs = 4
+        cat {}
+        dog {}
 
     which parses to
 
-      $config = {
-                  cat => { legs => 4 }
-                  dog => { legs => 4 }
-                }
+       $cfg_hash = {
+          cat => { legs => 4 },
+          dog => { legs => 4 },
+         }
 
     If some of your animals have two legs, you can create additional scopes
     with anonymous blocks to control inheritance
 
-      {
+        {
           legs = 4
           cat {}
           dog {}
-      }
-      {
+        }
+        {
           legs = 2
           bird {}
-      }
+        }
 
     parses to
 
-      $config = {
-                  cat  => { legs => 4 }
-                  dog  => { legs => 4 }
-                  bird => { legs => 2 }
-                }
+       $cfg_hash = {
+          cat  => { legs => 4 },
+          dog  => { legs => 4 },
+          bird => { legs => 2 },
+         }
 
     Anonymous blocks may be nested.
 
@@ -407,51 +409,59 @@ CONFIG FILE FORMAT
     parameters from outside its own scope.
 
   Perl code evaluation
-    If you can't express what you need within the "Config::Scoped" syntax,
+    If you can't express what you need within the Config::Scoped syntax,
     your escape hatch is
 
       eval { ... }
 
-    This does a Perl "eval" on the block, and replaces the construct with
-    the results of the "eval".
+    This does a Perl eval on the block, and replaces the construct with the
+    results of the eval.
 
       start = eval { localtime }
       foo   = eval { warn 'foo,' if $debug; return 'bar' }
 
     The block is evaluated in scalar context. However, it may return a list
     or hash reference, and the underlying list or hash can become a
-    parameter value. For example
+    parameter value.
 
-      a
-      {
+    For example
+
+      foo {
         list = eval { [ 1 .. 3 ]                 }
         hash = eval { { a => 1, b => 2, c => 3 } }
       }
 
     parses to
 
-      $config = {
-                  a => { list => [ 1, 2, 3 ],
-                         hash => { a => 1, b => 2, c => 3 }
-                }
+       $cfg_hash = {
+          foo => {
+             list => [ 1, 2, 3 ],
+             hash => { a => 1, b => 2, c => 3 },
+          }
+         }
 
-    The block is evaluated inside the parser's "Safe" compartment. Variables
-    can be made available to the "eval" by sharing them with the
-    compartment. To set the $debug variable in the example above, do
+    The block is evaluated inside the parser's Safe compartment. Variables
+    can be made available to the eval by sharing them with the compartment.
 
-      $compartment = new Safe 'MY_SHARE';
-      $MY_SHARE::debug = 1;
-      $parser = new Config::Scoped file => 'config.txt',
-                                   safe => $compartment;
-      $config = $parser->parse;
+    To set the $debug variable in the example above, do
+
+        $compartment     = Safe->new('MY_SHARE');
+        $MY_SHARE::debug = 1;
+
+        $cs = Config::Scoped->new(
+          file => 'config.txt',
+          safe => $compartment,
+        );
+
+        $cfg_hash = $cs->parse;
 
     Only global variables can be shared with a compartment; lexical
     variables cannot.
 
-    "perl_code" is a synonym for "eval".
+    perl_code is a synonym for eval.
 
   Tokens and quoting
-    A *token* is a
+    A token is a
 
     *   declaration name
 
@@ -469,12 +479,14 @@ CONFIG FILE FORMAT
 
     *   warning name
 
-    Any token may be quoted. Tokens that contain special characters must be
-    quoted. The special characters are
+    Any token may be quoted.
+
+    Tokens that contain special characters must be quoted. The special
+    characters are
 
       \s {} [] <> () ; , ' " = # %
 
-    "Config::Scoped" uses the Perl quoting syntax.
+    Config::Scoped uses the Perl quoting syntax.
 
     Tokens may be quoted with either single or double quotes
 
@@ -488,18 +500,18 @@ CONFIG FILE FORMAT
       New Jersey
       EOT
 
-    but generalized quotes ("q()", "qq()", etc.) are not. Text in here-docs
-    is regarded as single-quoted if the delimiter is enclosed in single
-    quotes, and double-quoted if the delimiter is enclosed in double quotes
-    or unquoted.
+    but generalized quotes (q(), qq(), etc.) are not. Text in here-docs is
+    regarded as single-quoted if the delimiter is enclosed in single quotes,
+    and double-quoted if the delimiter is enclosed in double quotes or
+    unquoted.
 
     Double-quoted tokens are evaluated as Perl strings inside the parser's
-    "Safe" compartment. They are subject to the usual Perl backslash and
+    Safe compartment. They are subject to the usual Perl backslash and
     variable interpolation, as well as macro expansion. Variables to be
-    interpolated are passed via the "Safe" compartment, as shown above in
-    "Perl code evaluation". If you need a literal "$" or "@" in a
-    double-quoted string, be sure to escape it with a backslash ("\") to
-    suppress interpolation.
+    interpolated are passed via the Safe compartment, as shown above in
+    "Perl code evaluation". If you need a literal $ or @ in a double-quoted
+    string, be sure to escape it with a backslash (\) to suppress
+    interpolation.
 
     An
 
@@ -507,20 +519,19 @@ CONFIG FILE FORMAT
 
     may appear anywhere that a token is expected. For example
 
-      a
-      {
+      foo {
           eval { 'b' . 'c' } = 1
       }
 
     parses to
 
-      $config = { a => { bc => 1 } }
+        $cfg_hash = { foo => { bc => 1 } }
 
 DIRECTIVES
-    "Config::Scoped" has three directives: %macro, %warning, and %include.
+    Config::Scoped has three directives: %macro, %warning, and %include.
 
   Macros
-    "Config::Scoped" supports macros. A macro is defined with
+    Config::Scoped supports macros. A macro is defined with
 
       %macro name value
 
@@ -540,13 +551,14 @@ DIRECTIVES
 
     *   within any double-quoted text
 
-    *   within the entirety of Perl "eval" blocks
+    *   within the entirety of Perl eval blocks
 
     *   nowhere else
 
   Include files
-    "Config::Scoped" supports include files. To include one config file
-    within another, write
+    Config::Scoped supports include files.
+
+    To include one config file within another, write
 
       %include path/to/file
 
@@ -584,15 +596,17 @@ DIRECTIVES
         # in configuration file /etc/myapp/global.cfg
         %include shared.cfg
 
-    includes the file /etc/myapp/shared.cfg. When parsing a configuration
-    string, the path is relative to the current working directory.
+    includes the file /etc/myapp/shared.cfg.
+
+    When parsing a configuration string, the path is relative to the current
+    working directory.
 
     Include files are not actually included as text. Rather, they are
-    processed by a recursive call to "Config::Scoped". Subclass implementers
+    processed by a recursive call to Config::Scoped. Subclass implementers
     may need to be aware of this.
 
   Warnings
-    "Config::Scoped" can check for five problems with config files
+    Config::Scoped can check for 5 problems with config files
 
     *   duplicate declaration names
 
@@ -608,19 +622,19 @@ DIRECTIVES
     if they occur, the parse fails and throws an exception. For consistency
     with the API, we'll use the term "warning" in the POD.
 
-    The five warnings are identified by five predefined *warning names*
+    The five warnings are identified by five predefined warning names
 
-    *   "declaration"
+    *   declaration
 
-    *   "parameter"
+    *   parameter
 
-    *   "macro"
+    *   macro
 
-    *   "permissions"
+    *   permissions
 
-    *   "digests"
+    *   digests
 
-    The "permissions" check requires that the config file
+    The permissions check requires that the config file
 
     *   be owned by root or the real UID of the running process AND
 
@@ -629,24 +643,28 @@ DIRECTIVES
     These restrictions help prevent an attacker from subverting a program by
     altering its config files.
 
-    The "store_cache" method computes MD5 checksums for the config file and
+    The store_cache method computes MD5 checksums for the config file and
     all included files. These checksums are stored with the cached
-    configuration. The "retrieve_cache" method recomputes the checksums of
-    the files and compares them to the stored values. The "digests" check
-    requires that the checksums agree. This helps prevent programs from
-    relying on stale configuration caches.
+    configuration.
 
-    All warnings are enabled by default. Warnings can be disabled by passing
-    the "warning" key to the constructor, as shown in the "SYNOPSIS", or
-    with the "set_warnings" method.
+    The retrieve_cache method recomputes the checksums of the files and
+    compares them to the stored values.
+
+    The digests check requires that the checksums agree. This helps prevent
+    programs from relying on stale configuration caches.
+
+    All warnings are enabled by default.
+
+    Warnings can be disabled by passing the warning key to the constructor
+    or with the set_warnings method.
 
     Warnings can also be controlled with the %warnings directive, which has
     the form
 
-    %warnings [*name*] "off"|"on"
+    %warnings [name] off|on
 
-    A %warnings directive applies to the *name*d warning, or to all
-    warnings, if *name* is omitted.
+    A %warnings directive applies to the named warning, or to all warnings,
+    if name is omitted.
 
     %warnings directives allow warnings to be turned on and off as necessary
     throughout the config file. A %warnings directive may appear
@@ -685,11 +703,11 @@ DIRECTIVES
 
     successfully parses to
 
-      $config = {
-                  cat  => { legs => 4 }
-                  dog  => { legs => 4 }
-                  bird => { legs => 2 }
-                }
+        $cfg_hash = {
+            cat  => { legs => 4 },
+            dog  => { legs => 4 },
+            bird => { legs => 2 },
+          }
 
 Best practices
     As with all things Perl, there's more than one way to write
@@ -697,7 +715,7 @@ Best practices
     that are concise, readable, and maintainable.
 
   Perl data
-    "Config::Scoped" accepts most Perl data syntax. This allows Perl data to
+    Config::Scoped accepts most Perl data syntax. This allows Perl data to
     pulled into config files largely unaltered
 
       foo
@@ -708,8 +726,8 @@ Best practices
                y => 6 };
       }
 
-    However, "Config::Scoped" doesn't require as much punctuation as Perl,
-    and config files written from scratch will be cleaner without it
+    However, Config::Scoped doesn't require as much punctuation as Perl, and
+    config files written from scratch will be cleaner without it
 
       foo
       {
@@ -743,13 +761,13 @@ Best practices
       }
 
   Blocks, blocks, we got blocks...
-    "Config::Scoped" has four different kinds of blocks
+    Config::Scoped has four different kinds of blocks
 
     *   anonymous
 
     *   declaration
 
-    *   "eval"
+    *   eval
 
     *   hash
 
@@ -757,7 +775,7 @@ Best practices
     and restrictions. See "CONFIG FILE FORMAT" for descriptions of each.
 
   Macros
-    Macros are evil, and "Config::Scoped" macros are specially evil, because
+    Macros are evil, and Config::Scoped macros are specially evil, because
 
     *   they don't respect token boundaries
 
@@ -770,75 +788,71 @@ Best practices
     Caveat scriptor.
 
 SUBCLASSING
-    "Config::Scoped" has no formally defined subclass interface. Here are
-    some guidelines for writing subclasses. Implementers who override (or
-    redefine) base class methods may need to read the "Config::Scoped"
-    sources for more information.
+    Config::Scoped has no formally defined subclass interface. Here are some
+    guidelines for writing subclasses. Implementers who override (or
+    redefine) base class methods may need to read the Config::Scoped sources
+    for more information.
 
     Arbitrary
 
-      $key => $value
+      $your_key => $value
 
-    pairs may be passed to the "Config::Scoped" constructor. They will be
-    stored in the *$parser* object, and methods may access them with code
-    like
+    pairs may be passed to the Config::Scoped constructor. They will be
+    stored in the $cs->{local} hashref, and methods may access them with
+    code like
 
-      $parser->{local}{$key}
+      $cs->{local}{$your_key}
 
-    To avoid conflict with existing keys in the "local" hash, consider
+    To avoid conflict with existing keys in the local hash, consider
     distinguishing your keys with a unique prefix.
 
-    Arbitrary warning names may be defined, set with "new" and
-    "set_warnings", used in %warnings directives, and tested with
-    "warnings_on". Methods can call "warnings_on" to find out whether a
-    warning is currently enabled.
+    Arbitrary warning names may be defined, set with new and set_warnings,
+    used in %warnings directives, and tested with warnings_on. Methods can
+    call warnings_on to find out whether a warning is currently enabled.
 
-    All methods throw exceptions ("die") on error. The exception object
-    should be a subclass of "Config::Scoped::Error". You can use one of the
-    classes defined in "Config::Scoped::Error", or you can derive your own.
-    This code
+    All methods throw exceptions (die) on error. The exception object should
+    be a subclass of Config::Scoped::Error. You can use one of the classes
+    defined in Config::Scoped::Error, or you can derive your own. This code
 
-      throw Config::Scoped::Error -file => $parser->_get_file(%args),
-                                  -line => $parser->_get_line(%args),
-                                  -text => $message;
+        Config::Scoped::Error->throw(
+            -file => $cs->_get_file(%args),
+            -line => $cs->_get_line(%args),
+            -text => $message,
+        );
 
     will generate an error message that reports the location in the config
     file where the error was detected, rather than a location in Perl code.
 
-    "Config::Scoped" performs validation checks on the elements of
+    Config::Scoped performs validation checks on the elements of
     configuration files (declarations, parameters, macros, etc). Here are
     the interfaces to the validation methods. Subclasses can override these
     methods to modify or extend the validation checks.
 
-    *$macro_value* = *$parser*->"macro_validate"("name" => *$name*, "value"
-    => *$value*)
+    $macro_value = $cs->macro_validate>(name => $name, value => $value)
         Called for each %macro directive.
 
-        Receives the *$name* and *$value* from the directive. The returned
-        *$macro_value* becomes the actual value of the macro.
+        Receives the $name and $value from the directive. The returned
+        $macro_value becomes the actual value of the macro.
 
         If the macro is invalid, throws a
-        "Config::Scoped::Error::Validate::Macro" exception.
+        Config::Scoped::Error::Validate::Macro exception.
 
-    *$param_value* = *$parser*->"parameter_validate"("name" => *$name*,
-    "value" => *$value*)
+    $param_value = $cs->parameter_validate>(name => $name, value => $value)
         Called for each parameter definition.
 
-        Receives the *$name* and *$value* from the definition. The returned
-        *$param_value* becomes the actual value of the parameter.
+        Receives the $name and $value from the definition. The returned
+        $param_value becomes the actual value of the parameter.
 
         If the parameter is invalid, throws a
-        "Config::Scoped::Error::Validate::Parameter" exception.
+        Config::Scoped::Error::Validate::Parameter exception.
 
-    *$parser*->"declaration_validate"("name" => *$name*, "value" =>
-    *$value*, "tail" => *$tail*)
+    $cs->declaration_validate(name => $name, value => $value, tail => $tail)
         Called for each declaration.
 
-        *$name* is an array ref giving the chain of names for the
-        declaration block. *$value* is a hash ref containing all the
-        parameters in the declaration block. *$tail* is a hash ref
-        containing all the parameters in any previously defined declaration
-        with the same name(s).
+        $name is an array ref giving the chain of names for the declaration
+        block. $value is a hash ref containing all the parameters in the
+        declaration block. $tail is a hash ref containing all the parameters
+        in any previously defined declaration with the same name(s).
 
         For example, the declaration
 
@@ -846,9 +860,9 @@ SUBCLASSING
 
         leads to the call
 
-          $parser->declaration_validate(name  => [ qw(foo bar baz) ],
+          $cs->declaration_validate(name  => [ qw(foo bar baz) ],
                                         value => { a => '1', b => '2' },
-                                        tail  => $parser->{local}{config}{foo}{bar}{baz});
+                                        tail  => $cs->{local}{config}{foo}{bar}{baz});
 
         The method can test %$tail to discover if there is an existing,
         non-empty declaration with the same name(s).
@@ -858,23 +872,23 @@ SUBCLASSING
         the actual contents of the declaration block.
 
         If the declaration is invalid, throws a
-        "Config::Scoped::Error::Validate::Declaration" exception.
+        Config::Scoped::Error::Validate::Declaration exception.
 
-    *$parser*->"permissions_validate"(file => *$file*, handle => *$handle*)
+    $cs->permissions_validate(file => $file, handle => $handle)
         Called for the config file, each included file, and each retrieved
-        cache file. One of *$file* or *$handle* will be non-null.
+        cache file. One of $file or $handle must be non-null.
 
-        Throws a "Config::Scoped::Error::Validate::Permissions" exception if
+        Throws a Config::Scoped::Error::Validate::Permissions exception if
         the file is not safe to read.
 
 SEE ALSO
-    *   "Error"
+    *   Error
 
-    *   "Safe"
+    *   Safe
 
-    *   "Config::Scoped::Error"
+    *   Config::Scoped::Error
 
-    *   "Parse::RecDescent"
+    *   Parse::RecDescent
 
     *   "Quote and Quote-like Operators" in perlop
 

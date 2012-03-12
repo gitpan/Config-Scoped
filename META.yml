@@ -16,31 +16,31 @@ name: Config-Scoped
 provides:
   Config::Scoped:
     file: lib/Config/Scoped.pm
-    version: 0.21
+    version: 0.22
   Config::Scoped::Error:
     file: lib/Config/Scoped/Error.pm
-    version: 0.21
+    version: 0.22
   Config::Scoped::Error::IO:
     file: lib/Config/Scoped/Error.pm
-    version: 0.21
+    version: 0.22
   Config::Scoped::Error::Parse:
     file: lib/Config/Scoped/Error.pm
-    version: 0.21
+    version: 0.22
   Config::Scoped::Error::Validate:
     file: lib/Config/Scoped/Error.pm
-    version: 0.21
+    version: 0.22
   Config::Scoped::Error::Validate::Declaration:
     file: lib/Config/Scoped/Error.pm
-    version: 0.21
+    version: 0.22
   Config::Scoped::Error::Validate::Macro:
     file: lib/Config/Scoped/Error.pm
-    version: 0.21
+    version: 0.22
   Config::Scoped::Error::Validate::Parameter:
     file: lib/Config/Scoped/Error.pm
-    version: 0.21
+    version: 0.22
   Config::Scoped::Error::Validate::Permissions:
     file: lib/Config/Scoped/Error.pm
-    version: 0.21
+    version: 0.22
 requires:
   Carp: 0
   Digest::MD5: 0
@@ -52,4 +52,4 @@ requires:
   Storable: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.21
+version: 0.22
